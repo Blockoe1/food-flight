@@ -433,7 +433,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4778754833571124715, guid: 70544e2894e995a448d497824312159d, type: 3}
       propertyPath: m_Name
-      value: Player (1)
+      value: Player 2
       objectReference: {fileID: 0}
     - target: {fileID: 7561937550059878466, guid: 70544e2894e995a448d497824312159d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -755,6 +755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1b941898462124bb6f1fcde825cc0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.InputPairingManager
+  pairDelay: 0
   players:
   - {fileID: 1019183772}
   - {fileID: 358823533}
@@ -1202,7 +1203,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4778754833571124715, guid: 70544e2894e995a448d497824312159d, type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Player 1
       objectReference: {fileID: 0}
     - target: {fileID: 7561937550059878466, guid: 70544e2894e995a448d497824312159d, type: 3}
       propertyPath: m_LocalPosition.x
