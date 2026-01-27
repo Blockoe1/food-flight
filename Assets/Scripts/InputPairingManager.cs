@@ -17,6 +17,7 @@ namespace FoodFlight
 {
     public class InputPairingManager : MonoBehaviour
     {
+        [SerializeField] private int pairDelay;
         [SerializeField] private InputSynchronizer[] players;
         [SerializeField] private UnityEvent<string> OnPlayerPairing;
         [SerializeField] private UnityEvent OnPairingEnd;
@@ -71,6 +72,8 @@ namespace FoodFlight
                 Debug.Log("Pairing Controllers " + controller.name);
                 OnPlayerPairing?.Invoke(controller.name);
                 await controller.PairControllers(jslNumConnected, inputDevices, ct);
+                // Add an additional buffer delay between pairing each controller.
+                await Task.Delay(pairDelay);
             }
 
             // Call a cleanup event.

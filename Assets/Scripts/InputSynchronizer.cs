@@ -122,16 +122,31 @@ namespace FoodFlight
         /// <returns>The index of the found JSL device.</returns>
         private async Task<int> GetJoyShock(int numControllers, CancellationToken ct)
         {
+            bool IsButtonPressed(int index)
+            {
+                var state = JSL.JslGetSimpleState(index);
+                return (state.buttons & PAIR_BUTTON_MASK) == PAIR_BUTTON_MASK;
+            }
+
+            async Task WaitUntilButtonReleased(int foundIndex)
+            {
+                while (!ct.IsCancellationRequested && IsButtonPressed(foundIndex))
+                {
+                    await Task.Yield();
+                }
+            }
+
             while (!ct.IsCancellationRequested)
             {
                 // Loop through each JSL controller
                 Debug.Log("Awaiting JSL Input.");
                 for(int i = 0; i < numControllers; i++)
                 {
-                    var state = JSL.JslGetSimpleState(i);
-                    if ((state.buttons & PAIR_BUTTON_MASK) == PAIR_BUTTON_MASK)
+                    if (IsButtonPressed(i))
                     {
                         Debug.Log("Found JSL Device: " + i);
+                        // Don't return the found device until the button is released.
+                        await WaitUntilButtonReleased(i);
                         return i;
                     }
 
@@ -151,15 +166,25 @@ namespace FoodFlight
         /// <returns>The found InputDevice.</returns>
         private async Task<InputDevice> GetInputDevice(InputDevice[] devices, CancellationToken ct)
         {
+            async Task WaitUntilButtonReleased(Gamepad foundGamepad)
+            {
+                while (!ct.IsCancellationRequested && foundGamepad.GetChildControl("/buttonSouth").IsPressed())
+                {
+                    await Task.Yield();
+                }
+            }
+
             while (!ct.IsCancellationRequested)
             {
                 Debug.Log("Awaiting InputSystem Input");
                 foreach (InputDevice device in devices)
                 {
                     // Check if the device's south button is pressed.  If it is, return this controller.
-                    if (device is Gamepad && device.GetChildControl("/buttonSouth").IsPressed())
+                    if (device is Gamepad foundGamepad && device.GetChildControl("/buttonSouth").IsPressed())
                     {
                         Debug.Log("Found InputSystem Device: " + device);
+                        // Don't return the found device until the button is released.
+                        await WaitUntilButtonReleased(foundGamepad);
                         return device;
                     }
                 }
