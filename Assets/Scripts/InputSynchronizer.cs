@@ -12,13 +12,17 @@ using System.Threading.Tasks;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Switch;
 
 namespace FoodFlight
 {
     [RequireComponent(typeof(PlayerInput))]
     public class InputSynchronizer : MonoBehaviour
     {
-
+        #region Consts
+        private const int PAIR_BUTTON_MASK = 0x01000; // The south button.
+        private const string PAIR_CONTROL_PATH = "/buttonSouth";
+        #endregion
 
         public event Action<Vector3> OnGyroUpdate;
 
@@ -76,6 +80,14 @@ namespace FoodFlight
             playerInput.SwitchCurrentControlScheme(inputDevice);
         }
 
+        /// <summary>
+        /// Removes syncronization data from this InputSyncronizer.
+        /// </summary>
+        public void Unsync()
+        {
+            sync = null;
+        }
+
         #region Pairing
         /// <summary>
         /// Pair a controller for 
@@ -102,15 +114,64 @@ namespace FoodFlight
             SetSyncState(joyShockIndex, inputDevice);
         }
 
+        /// <summary>
+        /// Awaits a JoyShock input to identify a controller to pair.
+        /// </summary>
+        /// <param name="numControllers">The total number of controllers connected to JSL.</param>
+        /// <param name="ct">The CancellationToken for this operation.</param>
+        /// <returns>The index of the found JSL device.</returns>
         private async Task<int> GetJoyShock(int numControllers, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            while (!ct.IsCancellationRequested)
+            {
+                // Loop through each JSL controller
+                Debug.Log("Awaiting JSL Input.");
+                for(int i = 0; i < numControllers; i++)
+                {
+                    var state = JSL.JslGetSimpleState(i);
+                    if ((state.buttons & PAIR_BUTTON_MASK) == PAIR_BUTTON_MASK)
+                    {
+                        Debug.Log("Found JSL Device: " + i);
+                        return i;
+                    }
+
+                }
+                await Task.Yield();
+            }
+            Debug.Log("Pairing of JoyShock controller cancelled.");
+            ct.ThrowIfCancellationRequested();
+            return -1;
         }
 
+        /// <summary>
+        /// Awaits an InputSystem InputDevice input to identify a controller to pair.
+        /// </summary>
+        /// <param name="devices">The array of connected InputDevices.</param>
+        /// <param name="ct">The CancellationToken for this operation.</param>
+        /// <returns>The found InputDevice.</returns>
         private async Task<InputDevice> GetInputDevice(InputDevice[] devices, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            while (!ct.IsCancellationRequested)
+            {
+                Debug.Log("Awaiting InputSystem Input");
+                foreach (InputDevice device in devices)
+                {
+                    // Check if the device's south button is pressed.  If it is, return this controller.
+                    if (device is Gamepad && device.GetChildControl("/buttonSouth").IsPressed())
+                    {
+                        Debug.Log("Found InputSystem Device: " + device);
+                        return device;
+                    }
+                }
+                await Task.Yield();
+            }
+            Debug.Log("Pairing of InputDevice controller cancelled.");
+            ct.ThrowIfCancellationRequested();
+            return null;
         }
+        #endregion
+
+        #region Calibration
         #endregion
     }
 }
