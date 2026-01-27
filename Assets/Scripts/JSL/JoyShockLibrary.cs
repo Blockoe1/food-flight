@@ -71,6 +71,8 @@ public static class JSL
     public static extern JOY_SHOCK_STATE JslGetSimpleState(int deviceId);
     [DllImport("JoyShockLibrary", CallingConvention = CallingConvention.Cdecl)]
     public static extern IMU_STATE JslGetIMUState(int deviceId);
+    [DllImport("JoyShockLibrary")]
+    public static extern void JslGetAndFlushAccumulatedGyro(int deviceId, out float gyroX, out float gyroY, out float gyroZ);
 
     [DllImport("JoyShockLibrary")]
     public static extern float JslGetStickStep(int deviceId);

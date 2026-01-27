@@ -6,13 +6,10 @@
 //
 // Brief Description :  Synchronizes input between the unity InputSystem and the JoyShock library.
 *****************************************************************************/
-using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Switch;
 
 namespace FoodFlight
 {
@@ -24,7 +21,7 @@ namespace FoodFlight
         private const string PAIR_CONTROL_PATH = "/buttonSouth";
         #endregion
 
-        public event Action<Vector3> OnGyroUpdate;
+        //public event Action<Vector3> OnGyroUpdate;
 
         private InputSyncState sync;
 
@@ -59,15 +56,17 @@ namespace FoodFlight
         /// <summary>
         /// Read Gyro controls on Update as it needs to be continuous.
         /// </summary>
-        private void Update()
-        {
-            if (sync != null)
-            {
-                var state = JSL.JslGetIMUState(sync.jslIndex);
-                Vector3 gyro = new Vector3(-state.gyroX, -state.gyroY, state.gyroZ);
-                OnGyroUpdate?.Invoke(gyro);
-            }
-        }
+        //private void Update()
+        //{
+        //    if (sync != null)
+        //    {
+        //        var state = JSL.JslGetIMUState(sync.jslIndex);
+        //        JSL.JslGetAndFlushAccumulatedGyro(sync.jslIndex, out float x, out float y, out float z);
+        //        Debug.Log(new Vector3(x, y, z));
+        //        Vector3 gyro = new Vector3(-state.gyroX, -state.gyroY, state.gyroZ);
+        //        OnGyroUpdate?.Invoke(gyro);
+        //    }
+        //}
 
         /// <summary>
         /// Sets the SyncState of this synchronizer.
@@ -87,6 +86,18 @@ namespace FoodFlight
         {
             sync = null;
         }
+
+        #region Getting Input
+        /// <summary>
+        /// Gets the accumulated Gyro input from the paired controller since the last time this function was run.
+        /// </summary>
+        /// <returns></returns>
+        public Vector3 GetAccumulatedGyro()
+        {
+            JSL.JslGetAndFlushAccumulatedGyro(sync.jslIndex, out float x, out float y, out float z);
+            return new Vector3(x, y, z);
+        }
+        #endregion
 
         #region Pairing
         /// <summary>
