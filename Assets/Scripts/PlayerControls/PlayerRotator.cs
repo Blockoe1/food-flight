@@ -1,0 +1,84 @@
+/*****************************************************************************
+// File Name : PlayerRotator.cs
+// Author : Brandon Koederitz
+// Creation Date : 1/27/2026
+// Last Modified : 1/27/2026
+//
+// Brief Description :  Controls rotating the player based on Gyroscope/Stick Input.
+*****************************************************************************/
+using CustomAttributes;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+namespace FoodFlight
+{
+    [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(PlayerInput))]
+    public class PlayerRotator : MonoBehaviour
+    {
+        #region CONSTS
+        private const string RESET_ACTION_NAME = "Reset";
+        #endregion
+
+        [SerializeField, Range(0, 1f), Tooltip("Controls the speed that this players rotation interpolates between " +
+    "it's current and target rotation based on controller gyro.")]
+        private float rotationSlerpSpeed = 0.5f;
+
+        protected Quaternion targetRotation = Quaternion.identity;
+
+        private InputAction resetRotationAction;
+
+        #region Component References
+        [Header("Components")]
+        [SerializeReference, ReadOnly] private Rigidbody rb;
+        [SerializeReference, ReadOnly] private PlayerInput input;
+
+        [ContextMenu("Get Component References")]
+        protected virtual void Reset()
+        {
+            rb = GetComponent<Rigidbody>();
+            input = GetComponent<PlayerInput>();
+        }
+
+        #endregion
+
+        private void Awake()
+        {
+            resetRotationAction = input.actions.FindAction(RESET_ACTION_NAME);
+        }
+
+        /// <summary>
+        /// Setup the reset function event when the component is enabled.
+        /// </summary>
+        private void OnEnable()
+        {
+            resetRotationAction.performed += ResetRotationAction_performed;
+        }
+        private void OnDisable()
+        {
+            resetRotationAction.performed += ResetRotationAction_performed;
+        }
+        private void ResetRotationAction_performed(InputAction.CallbackContext obj)
+        {
+            ResetRotation();
+        }
+
+        /// <summary>
+        /// Resets this player back to their default rotation.
+        /// </summary>
+        public void ResetRotation()
+        {
+            rb.rotation = Quaternion.identity;
+            targetRotation = Quaternion.identity;
+        }
+
+        /// <summary>
+        /// Slerp towards the target rotation every FixedUpdate.
+        /// </summary>
+        protected virtual void FixedUpdate()
+        {
+            // Slerp towards the target rotation.
+            rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSlerpSpeed);
+        }
+    }
+}
