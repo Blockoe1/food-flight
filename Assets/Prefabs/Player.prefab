@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ebd4e62d38597740a5173dba76ffc65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.InputSynchronizer
-  calibrationThreshold: 0.75
+  calibrationThreshold: 1
   playerInput: {fileID: 6696068519138197985}
 --- !u!114 &5474769241405204166
 MonoBehaviour:

@@ -12,6 +12,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.InputSystem;
 
 namespace FoodFlight
@@ -22,7 +23,7 @@ namespace FoodFlight
         #region Consts
         private const int PAIR_BUTTON_MASK = 0x01000; // The south button.
         private const string PAIR_CONTROL_PATH = "/buttonSouth";
-        private const int CALIBRATION_SAMPLE_SIZE = 32;
+        private const int MIN_CALIBRATION_SAMPLES = 32;
         #endregion
 
         [SerializeField] private float calibrationThreshold;
@@ -176,7 +177,7 @@ namespace FoodFlight
         {
             async Task WaitUntilButtonReleased(Gamepad foundGamepad)
             {
-                while (!ct.IsCancellationRequested && foundGamepad.GetChildControl("/buttonSouth").IsPressed())
+                while (!ct.IsCancellationRequested && foundGamepad.GetChildControl(PAIR_CONTROL_PATH).IsPressed())
                 {
                     await Task.Yield();
                 }
@@ -188,7 +189,7 @@ namespace FoodFlight
                 foreach (InputDevice device in devices)
                 {
                     // Check if the device's south button is pressed.  If it is, return this controller.
-                    if (device is Gamepad foundGamepad && device.GetChildControl("/buttonSouth").IsPressed())
+                    if (device is Gamepad foundGamepad && device.GetChildControl(PAIR_CONTROL_PATH).IsPressed())
                     {
                         Debug.Log("Found InputSystem Device: " + device);
                         // Don't return the found device until the button is released.
@@ -289,7 +290,7 @@ namespace FoodFlight
             float totalGyro = 0;
             int numSamples = 0;
             // Continually sample until the controller is stable.
-            while (avgGyroMagnitude > calibrationThreshold)
+            while (avgGyroMagnitude > calibrationThreshold || numSamples < MIN_CALIBRATION_SAMPLES)
             {
                 // Allow cancelling the operation.
                 ct.ThrowIfCancellationRequested();
@@ -297,6 +298,7 @@ namespace FoodFlight
                 totalGyro += GetAccumulatedGyro().magnitude;
                 numSamples++;
                 avgGyroMagnitude = totalGyro / numSamples;
+                Debug.Log(avgGyroMagnitude);
 
                 await Task.Yield();
             }

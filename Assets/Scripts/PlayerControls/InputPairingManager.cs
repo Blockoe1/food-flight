@@ -67,6 +67,8 @@ namespace FoodFlight
             int jslNumConnected = JSL.JslConnectDevices();
             InputDevice[] inputDevices = InputSystem.devices.ToArray();
 
+            Debug.Log($"Connected {jslNumConnected} to JSL.");
+
             // Sequentially pair each controller and update UI.
             foreach (var controller in players)
             {
