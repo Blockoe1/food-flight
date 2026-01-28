@@ -169,7 +169,7 @@ CapsuleCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
-  m_Direction: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7133835219555258079
 Rigidbody:
@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.InputSynchronizer
   calibrationThreshold: 1
+  calibrationResetThreshold: 5
   playerInput: {fileID: 6696068519138197985}
 --- !u!114 &5474769241405204166
 MonoBehaviour:

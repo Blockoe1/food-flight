@@ -35,6 +35,8 @@ namespace FoodFlight
             {
                 // Read Gyro input and update the TargetRotation.
                 Vector3 gyroVector = inSync.GetAccumulatedGyro();
+                // Swap the Y and Z gyro to account for straigt down.
+                (gyroVector.y, gyroVector.z) = (gyroVector.z, gyroVector.y);
                 Vector3 processedGyro = IgnoreThreshold(gyroVector, gyroThreshold) * gyroSensitivity;
                 Quaternion gyroQuat = Quaternion.Euler(processedGyro);
                 targetRotation = targetRotation * gyroQuat;
