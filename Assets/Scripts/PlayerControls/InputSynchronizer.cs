@@ -7,6 +7,8 @@
 // Brief Description :  Synchronizes input between the unity InputSystem and the JoyShock library.
 *****************************************************************************/
 using CustomAttributes;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -20,7 +22,11 @@ namespace FoodFlight
         #region Consts
         private const int PAIR_BUTTON_MASK = 0x01000; // The south button.
         private const string PAIR_CONTROL_PATH = "/buttonSouth";
+        private const int CALIBRATION_SAMPLE_SIZE = 32;
         #endregion
+
+        [SerializeField] private float calibrationThreshold;
+        //[SerializeField] private int calibrationSamples = 1000;
 
         //public event Action<Vector3> OnGyroUpdate;
 
@@ -199,6 +205,105 @@ namespace FoodFlight
         #endregion
 
         #region Calibration
+        /// <summary>
+        /// Calibrates this controller's gyroscope to correct any offsets.
+        /// </summary>
+        /// <param name="ct">The cancellation token for this operation.</param>
+        /// <returns></returns>
+        public async Task CalibrateGyro(CancellationToken ct)
+        {
+            //float avgGyroMagnitude;
+            //float totalGyro = 0;
+            //int samplesSize = 0;
+            //float totalDeviation;
+            //float variance;
+            //bool isCalibrating = false;
+            //int samples = 0;
+
+            //Queue<float> gyroReadings = new Queue<float>();
+
+            //while(!ct.IsCancellationRequested)
+            //{
+            //    float gyroMag = GetAccumulatedGyro().magnitude;
+            //    gyroReadings.Enqueue(gyroMag);
+            //    totalGyro += gyroMag;
+
+            //    // Ensure we only sample from the most recent readings.
+            //    if (gyroReadings.Count > CALIBRATION_SAMPLE_SIZE)
+            //    {
+            //        float oldMag = gyroReadings.Dequeue();
+            //        totalGyro -= oldMag;
+            //    }
+            //    else
+            //    {
+            //        samplesSize++;
+            //    }
+            //    avgGyroMagnitude = totalGyro / samplesSize;
+
+            //    // Calculate the Variance of the samples.
+            //    totalDeviation = 0;
+            //    foreach(var gyro in gyroReadings)
+            //    {
+            //        totalDeviation += Mathf.Pow(gyro - avgGyroMagnitude, 2);
+            //    }
+            //    variance = totalDeviation / samplesSize;
+
+            //    Debug.Log($"Variance: {variance}.  SampleSize: {samplesSize}.  Total Deviation: {totalDeviation}.");
+
+            //    // If the variance is below the Calibration Threshold, then start polling calibrations.  If not, stop.
+            //    if (variance < calibrationThreshold)
+            //    {
+            //        if (!isCalibrating)
+            //        {
+            //            JSL.JslStartContinuousCalibration(sync.jslIndex);
+            //        }
+            //        samples++;
+
+            //        if (samples > calibrationSamples)
+            //        {
+            //            // Once we acquire enough samples, stop calibrating.
+            //            JSL.JslPauseContinuousCalibration(sync.jslIndex);
+            //            float x = 0, y = 0, z = 0;
+            //            JSL.JslGetCalibrationOffset(sync.jslIndex, ref x, ref y, ref z);
+            //            Vector3 offset = new Vector3(x, y, z);
+            //            Debug.Log($"Calibrated an offset of {offset} for the controller paired to {name}");
+
+            //            return;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        // If the variance is too high, stop sampling.
+            //        if (isCalibrating)
+            //        {
+            //            JSL.JslPauseContinuousCalibration(sync.jslIndex);
+            //        }
+            //    }
+
+            //    await Task.Yield();
+            //}
+
+            // Start calibrating.
+            JSL.JslStartContinuousCalibration(sync.jslIndex);
+            float gyroMagnitude = calibrationThreshold + 1;
+            // Continually sample until the controller is stable.
+            while (gyroMagnitude > calibrationThreshold)
+            {
+                // Allow cancelling the operation.
+                ct.ThrowIfCancellationRequested();
+
+                gyroMagnitude = GetAccumulatedGyro().magnitude;
+
+                await Task.Yield();
+            }
+            // Stop calibration, the controller should be calibrated.
+            JSL.JslPauseContinuousCalibration(sync.jslIndex);
+
+            float x = 0, y = 0, z = 0;
+            JSL.JslGetCalibrationOffset(sync.jslIndex, ref x, ref y, ref z);
+            Vector3 offset = new Vector3(x, y, z);
+            Debug.Log($"Calibrated an offset of {offset} for the controller paired to {name}");
+        }
         #endregion
     }
 }

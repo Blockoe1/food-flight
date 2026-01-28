@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7133835219555258079}
   - component: {fileID: 6696068519138197985}
   - component: {fileID: 2504725113489638729}
+  - component: {fileID: 5474769241405204166}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -128,7 +129,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ebd4e62d38597740a5173dba76ffc65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.InputSynchronizer
+  calibrationThreshold: 20
+  calibrationSamples: 1000
   playerInput: {fileID: 6696068519138197985}
+--- !u!114 &5474769241405204166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778754833571124715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f473641a33193644a0e50778b888f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.GyroRotator
+  rotationSlerpSpeed: 0.5
+  rb: {fileID: 7133835219555258079}
+  input: {fileID: 6696068519138197985}
+  debugText: {fileID: 0}
+  gyroSensitivity: 0.02
+  gyroThreshold: 10
+  inSync: {fileID: 2504725113489638729}
 --- !u!1 &7845863331159308501
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@ namespace FoodFlight
         [SerializeField] private int pairDelay;
         [SerializeField] private InputSynchronizer[] players;
         [SerializeField] private UnityEvent<string> OnPlayerPairing;
+        [SerializeField] private UnityEvent<string> OnPlayerCalibrating;
         [SerializeField] private UnityEvent OnPairingEnd;
 
         private CancellationTokenSource pairToken;
@@ -70,8 +71,22 @@ namespace FoodFlight
             foreach (var controller in players)
             {
                 Debug.Log("Pairing Controllers " + controller.name);
-                OnPlayerPairing?.Invoke(controller.name);
+
+                // Pair the controller.
+                OnPlayerPairing?.Invoke("Pairing " + controller.name);
                 await controller.PairControllers(jslNumConnected, inputDevices, ct);
+
+                // Stop calibration if this operationo was cancelled.
+                if (ct.IsCancellationRequested)
+                {
+                    return;
+                }
+
+                // Configure the controller's calibration.
+                OnPlayerCalibrating?.Invoke("Calibrating " + controller.name);
+                await controller.CalibrateGyro(ct);
+                
+
                 // Add an additional buffer delay between pairing each controller.
                 await Task.Delay(pairDelay);
             }
