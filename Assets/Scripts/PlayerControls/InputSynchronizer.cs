@@ -285,14 +285,18 @@ namespace FoodFlight
 
             // Start calibrating.
             JSL.JslStartContinuousCalibration(sync.jslIndex);
-            float gyroMagnitude = calibrationThreshold + 1;
+            float avgGyroMagnitude = calibrationThreshold + 1;
+            float totalGyro = 0;
+            int numSamples = 0;
             // Continually sample until the controller is stable.
-            while (gyroMagnitude > calibrationThreshold)
+            while (avgGyroMagnitude > calibrationThreshold)
             {
                 // Allow cancelling the operation.
                 ct.ThrowIfCancellationRequested();
 
-                gyroMagnitude = GetAccumulatedGyro().magnitude;
+                totalGyro += GetAccumulatedGyro().magnitude;
+                numSamples++;
+                avgGyroMagnitude = totalGyro / numSamples;
 
                 await Task.Yield();
             }
@@ -302,7 +306,7 @@ namespace FoodFlight
             float x = 0, y = 0, z = 0;
             JSL.JslGetCalibrationOffset(sync.jslIndex, ref x, ref y, ref z);
             Vector3 offset = new Vector3(x, y, z);
-            Debug.Log($"Calibrated an offset of {offset} for the controller paired to {name}");
+            Debug.Log($"Calibrated an offset of {offset} for the controller paired to {name} with a gyro magnitude of {avgGyroMagnitude}");
         }
         #endregion
     }

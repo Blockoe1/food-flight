@@ -59,7 +59,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Gamepad 1;Gamepad 2",
                     "action": "StickMove",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -70,7 +70,7 @@
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Gamepad 1;Gamepad 2",
                     "action": "StickDive",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -81,7 +81,7 @@
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Gamepad 1;Gamepad 2",
                     "action": "Reset",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -92,7 +92,7 @@
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Gamepad 1;Gamepad 2",
                     "action": "SlapRight",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -103,7 +103,7 @@
                     "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Gamepad 1;Gamepad 2",
                     "action": "SlapLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -111,5 +111,28 @@
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Gamepad 1",
+            "bindingGroup": "Gamepad 1",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Gamepad 2",
+            "bindingGroup": "Gamepad 2",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }
