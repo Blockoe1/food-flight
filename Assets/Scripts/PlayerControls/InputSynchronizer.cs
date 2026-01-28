@@ -6,6 +6,7 @@
 //
 // Brief Description :  Synchronizes input between the unity InputSystem and the JoyShock library.
 *****************************************************************************/
+using CustomAttributes;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -27,7 +28,7 @@ namespace FoodFlight
 
         #region Component References
         [Header("Components")]
-        [SerializeReference] private PlayerInput playerInput;
+        [SerializeReference, ReadOnly] private PlayerInput playerInput;
 
         /// <summary>
         /// Get components on reset.
@@ -37,6 +38,10 @@ namespace FoodFlight
         {
             playerInput = GetComponent<PlayerInput>();
         }
+        #endregion
+
+        #region Properties
+        public bool CanRead => sync != null;
         #endregion
 
         #region Nested
@@ -52,21 +57,6 @@ namespace FoodFlight
             }
         }
         #endregion
-
-        /// <summary>
-        /// Read Gyro controls on Update as it needs to be continuous.
-        /// </summary>
-        //private void Update()
-        //{
-        //    if (sync != null)
-        //    {
-        //        var state = JSL.JslGetIMUState(sync.jslIndex);
-        //        JSL.JslGetAndFlushAccumulatedGyro(sync.jslIndex, out float x, out float y, out float z);
-        //        Debug.Log(new Vector3(x, y, z));
-        //        Vector3 gyro = new Vector3(-state.gyroX, -state.gyroY, state.gyroZ);
-        //        OnGyroUpdate?.Invoke(gyro);
-        //    }
-        //}
 
         /// <summary>
         /// Sets the SyncState of this synchronizer.
@@ -94,8 +84,9 @@ namespace FoodFlight
         /// <returns></returns>
         public Vector3 GetAccumulatedGyro()
         {
+            if (!CanRead) { return Vector3.zero; }
             JSL.JslGetAndFlushAccumulatedGyro(sync.jslIndex, out float x, out float y, out float z);
-            return new Vector3(x, y, z);
+            return new Vector3(-x, -y, z);
         }
         #endregion
 
