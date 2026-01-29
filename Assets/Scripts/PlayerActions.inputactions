@@ -7,7 +7,7 @@
             "id": "d6b76599-f995-4e66-87f6-15ad9ce31648",
             "actions": [
                 {
-                    "name": "StickMove",
+                    "name": "Move",
                     "type": "PassThrough",
                     "id": "8d666d47-4ba8-4788-bbaa-9ddc4eb8909a",
                     "expectedControlType": "Vector2",
@@ -16,7 +16,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "StickDive",
+                    "name": "Dive",
                     "type": "PassThrough",
                     "id": "e45c5337-ffa1-40df-b944-21e5d3c988c6",
                     "expectedControlType": "Vector2",
@@ -59,8 +59,8 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad 1;Gamepad 2",
-                    "action": "StickMove",
+                    "groups": "Player 1;Player 2",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -70,8 +70,8 @@
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad 1;Gamepad 2",
-                    "action": "StickDive",
+                    "groups": "Player 1;Player 2",
+                    "action": "Dive",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -81,7 +81,7 @@
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad 1;Gamepad 2",
+                    "groups": "Player 1;Player 2",
                     "action": "Reset",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -92,7 +92,7 @@
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad 1;Gamepad 2",
+                    "groups": "Player 1;Player 2",
                     "action": "SlapRight",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -103,7 +103,7 @@
                     "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad 1;Gamepad 2",
+                    "groups": "Player 1;Player 2",
                     "action": "SlapLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -113,8 +113,8 @@
     ],
     "controlSchemes": [
         {
-            "name": "Gamepad 1",
-            "bindingGroup": "Gamepad 1",
+            "name": "Player 1",
+            "bindingGroup": "Player 1",
             "devices": [
                 {
                     "devicePath": "<Gamepad>",
@@ -124,8 +124,8 @@
             ]
         },
         {
-            "name": "Gamepad 2",
-            "bindingGroup": "Gamepad 2",
+            "name": "Player 2",
+            "bindingGroup": "Player 2",
             "devices": [
                 {
                     "devicePath": "<Gamepad>",

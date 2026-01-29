@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Android;
 using UnityEngine.InputSystem;
@@ -27,6 +28,7 @@ namespace FoodFlight
         #endregion
 
         [SerializeField] private float calibrationThreshold;
+        [SerializeField] private float calibrationResetThreshold;
         //[SerializeField] private int calibrationSamples = 1000;
 
         //public event Action<Vector3> OnGyroUpdate;
@@ -74,6 +76,7 @@ namespace FoodFlight
         {
             sync = new InputSyncState(jslIndex, inputDevice);
             playerInput.SwitchCurrentControlScheme(inputDevice);
+            Debug.Log(playerInput.currentControlScheme);
         }
 
         /// <summary>
@@ -298,6 +301,17 @@ namespace FoodFlight
                 totalGyro += GetAccumulatedGyro().magnitude;
                 numSamples++;
                 avgGyroMagnitude = totalGyro / numSamples;
+
+                // If the average goes too high, Reset calibration.
+                if (avgGyroMagnitude > calibrationResetThreshold)
+                {
+                    avgGyroMagnitude = calibrationThreshold + 1;
+                    totalGyro = 0;
+                    numSamples = 0;
+                    JSL.JslResetContinuousCalibration(sync.jslIndex);
+                    JSL.JslStartContinuousCalibration(sync.jslIndex);
+                }
+
                 Debug.Log(avgGyroMagnitude);
 
                 await Task.Yield();
