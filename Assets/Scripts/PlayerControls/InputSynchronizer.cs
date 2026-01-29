@@ -139,9 +139,9 @@ namespace FoodFlight
             int joyShockIndex = joyShockTask.GetAwaiter().GetResult();
             InputDevice inputDevice = inputDeviceTask.GetAwaiter().GetResult();
 
-            Debug.Log($"Paired the JSL index {joyShockIndex} to the InputDevice {inputDevice}");
-
             SetSyncState(joyShockIndex, inputDevice);
+
+            Debug.Log($"Paired the JSL index {joyShockIndex} to the InputDevice {inputDevice}");
         }
 
         /// <summary>

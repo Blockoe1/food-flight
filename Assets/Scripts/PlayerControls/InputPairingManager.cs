@@ -6,6 +6,7 @@
 //
 // Brief Description :  Sets up controller pairing for all players.
 *****************************************************************************/
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using TMPro;
@@ -72,7 +73,9 @@ namespace FoodFlight
         /// <returns></returns>
         private Task<int> JslConnectDevicesAsync()
         {
-            return Task.Run(() => JSL.JslConnectDevices());
+            Task<int> task = Task.Run(() => JSL.JslConnectDevices());
+            Debug.Log("Task JslConnectDevicesAsync has finished.");
+            return task;
         }
 
         /// <summary>
@@ -98,7 +101,7 @@ namespace FoodFlight
             Debug.Log($"Connected {jslNumConnected} to JSL.");
 
             // If cancelled, skip proceeding with pairing.
-            if (!ct.IsCancellationRequested)
+            try
             {
                 // Sequentially pair each controller and update UI.
                 foreach (var controller in players)
@@ -109,11 +112,8 @@ namespace FoodFlight
                     OnPlayerPairing?.Invoke("Pairing " + controller.name);
                     await controller.PairControllers(jslNumConnected, inputDevices, ct);
 
-                    // Stop calibration if this operationo was cancelled.
-                    if (ct.IsCancellationRequested)
-                    {
-                        return;
-                    }
+                    // If the operation was canceled halfway through, throw the exception.
+                    ct.ThrowIfCancellationRequested();
 
                     // Configure the controller's calibration.
                     OnPlayerCalibrating?.Invoke("Calibrating " + controller.name);
@@ -122,17 +122,19 @@ namespace FoodFlight
                     // Add an additional buffer delay between pairing each controller.
                     await Task.Delay(pairDelay);
                 }
+                Debug.Log("Task PairControllers has finished successfully.");
             }
-
-            // Call a cleanup event.
-            OnPairingEnd?.Invoke();
-
-            // If the operation has been cancelled, clean up JSL in case OnDestroy has already been called.
-            if (ct.IsCancellationRequested)
+            catch (OperationCanceledException)
             {
+                // Always claenup JSL if the operation is canceled as OnDestroy may be called too early.
+                Debug.Log("Operation PairControllers was canceled");
                 CleanupJSL();
-                // If a cancel happens after JSL has been loaded, unload it.
-                ct.ThrowIfCancellationRequested();
+            }
+            finally
+            {
+                // Call a cleanup event.
+                OnPairingEnd?.Invoke();
+                Debug.Log("Operation PairControllers has ended.");
             }
         }
     }

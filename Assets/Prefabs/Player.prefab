@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 5474769241405204166}
   - component: {fileID: 2628432252682396311}
   - component: {fileID: 5740293930129898986}
+  - component: {fileID: 5590620580483810736}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -294,6 +295,25 @@ MonoBehaviour:
   maxDriftSpeed: 4
   driftAcceleration: 4
   rb: {fileID: 7133835219555258079}
+--- !u!114 &5590620580483810736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778754833571124715}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa50b0cd62545b24a9db48b7a24c8015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.InputRotator
+  rotationSlerpSpeed: 0.5
+  rb: {fileID: 7133835219555258079}
+  input: {fileID: 6696068519138197985}
+  defaultEuler: {x: -90, y: 0, z: 0}
+  yawRotationSpeed: 100
+  moveInput: {x: 0, y: 0}
+  diveInput: {x: 0, y: 0}
 --- !u!1 &7845863331159308501
 GameObject:
   m_ObjectHideFlags: 0
