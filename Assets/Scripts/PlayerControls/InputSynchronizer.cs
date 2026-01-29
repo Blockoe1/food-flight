@@ -76,6 +76,7 @@ namespace FoodFlight
         {
             sync = new InputSyncState(jslIndex, inputDevice);
             playerInput.SwitchCurrentControlScheme(inputDevice);
+            Debug.Log(playerInput.currentControlScheme);
         }
 
         /// <summary>
