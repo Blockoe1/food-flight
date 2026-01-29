@@ -83,6 +83,13 @@ namespace FoodFlight
         /// </summary>
         public async Task PairControllersAsync(CancellationToken ct)
         {
+            void OnCanceled()
+            {
+                // Always claenup JSL if the operation is canceled as OnDestroy may be called too early.
+                Debug.Log("Operation PairControllers was canceled");
+                CleanupJSL();
+            }
+
             // Remove any previous pairing.
             foreach(var controller in players)
             {
@@ -100,6 +107,11 @@ namespace FoodFlight
 
             Debug.Log($"Connected {jslNumConnected} to JSL.");
 
+            // If we've already been canceled, call cancel cleanup.
+            if (ct.IsCancellationRequested)
+            {
+                OnCanceled();
+            }
             // If cancelled, skip proceeding with pairing.
             try
             {
@@ -126,9 +138,7 @@ namespace FoodFlight
             }
             catch (OperationCanceledException)
             {
-                // Always claenup JSL if the operation is canceled as OnDestroy may be called too early.
-                Debug.Log("Operation PairControllers was canceled");
-                CleanupJSL();
+                OnCanceled();
             }
             finally
             {

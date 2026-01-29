@@ -25,6 +25,7 @@ namespace FoodFlight
         private const int PAIR_BUTTON_MASK = 0x01000; // The south button.
         private const string PAIR_CONTROL_PATH = "/buttonSouth";
         private const int MIN_CALIBRATION_SAMPLES = 32;
+        private const int AWAIT_FREQUENCY = 25;
         #endregion
 
         [SerializeField] private float calibrationThreshold;
@@ -162,7 +163,7 @@ namespace FoodFlight
             {
                 while (!ct.IsCancellationRequested && IsButtonPressed(foundIndex))
                 {
-                    await Task.Yield();
+                    await Task.Delay(AWAIT_FREQUENCY);
                 }
             }
 
@@ -200,7 +201,7 @@ namespace FoodFlight
             {
                 while (!ct.IsCancellationRequested && foundGamepad.GetChildControl(PAIR_CONTROL_PATH).IsPressed())
                 {
-                    await Task.Yield();
+                    await Task.Delay(AWAIT_FREQUENCY);
                 }
             }
 
