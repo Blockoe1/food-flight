@@ -69,7 +69,7 @@ namespace FoodFlight
 
         private void OnDestroy()
         {
-            CleanUpJSL();
+            Unsync();
         }
 
         /// <summary>
@@ -81,7 +81,6 @@ namespace FoodFlight
             {
                 JSL.JslResetContinuousCalibration(sync.jslIndex);
             }
-            Unsync();
         }
 
         /// <summary>
@@ -101,6 +100,7 @@ namespace FoodFlight
         /// </summary>
         public void Unsync()
         {
+            CleanUpJSL();
             sync = null;
         }
 

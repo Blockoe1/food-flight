@@ -17,8 +17,9 @@ namespace FoodFlight
 {
     public class InputPairingManager : MonoBehaviour
     {
-        [SerializeField] private int pairDelay;
+        [SerializeField, Tooltip("Delay in ms to wait between pairing controllers.")] private int pairDelay;
         [SerializeField] private InputSynchronizer[] players;
+        [SerializeField] private UnityEvent OnPairingBegin;
         [SerializeField] private UnityEvent<string> OnPlayerPairing;
         [SerializeField] private UnityEvent<string> OnPlayerCalibrating;
         [SerializeField] private UnityEvent OnPairingEnd;
@@ -66,6 +67,16 @@ namespace FoodFlight
         }
 
         /// <summary>
+        /// Attempt to treat JSL.JslConnectDevices as async so there can be an async managed loading screen.
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        private Task<int> JslConnectDevicesAsync()
+        {
+            return Task.Run(() => JSL.JslConnectDevices());
+        }
+
+        /// <summary>
         /// Pair a controller to all players.
         /// </summary>
         public async Task PairControllersAsync(CancellationToken ct)
@@ -76,38 +87,55 @@ namespace FoodFlight
                 controller.Unsync();
             }
 
+            // Add delay for testing.
+            await Task.Delay(2000);
+
             // Load the JSL and InputSystem controllers.
-            int jslNumConnected = JSL.JslConnectDevices();
+
+            OnPairingBegin?.Invoke();
+            int jslNumConnected = await JslConnectDevicesAsync();
             InputDevice[] inputDevices = InputSystem.devices.ToArray();
 
             Debug.Log($"Connected {jslNumConnected} to JSL.");
 
-            // Sequentially pair each controller and update UI.
-            foreach (var controller in players)
+            if (!ct.IsCancellationRequested)
             {
-                Debug.Log("Pairing Controllers " + controller.name);
-
-                // Pair the controller.
-                OnPlayerPairing?.Invoke("Pairing " + controller.name);
-                await controller.PairControllers(jslNumConnected, inputDevices, ct);
-
-                // Stop calibration if this operationo was cancelled.
-                if (ct.IsCancellationRequested)
+                // Sequentially pair each controller and update UI.
+                foreach (var controller in players)
                 {
-                    return;
+                    Debug.Log("Pairing Controllers " + controller.name);
+
+                    // Pair the controller.
+                    OnPlayerPairing?.Invoke("Pairing " + controller.name);
+                    await controller.PairControllers(jslNumConnected, inputDevices, ct);
+
+                    // Stop calibration if this operationo was cancelled.
+                    if (ct.IsCancellationRequested)
+                    {
+                        return;
+                    }
+
+                    // Configure the controller's calibration.
+                    OnPlayerCalibrating?.Invoke("Calibrating " + controller.name);
+                    await controller.CalibrateGyro(ct);
+
+
+                    // Add an additional buffer delay between pairing each controller.
+                    await Task.Delay(pairDelay);
                 }
-
-                // Configure the controller's calibration.
-                OnPlayerCalibrating?.Invoke("Calibrating " + controller.name);
-                await controller.CalibrateGyro(ct);
-                
-
-                // Add an additional buffer delay between pairing each controller.
-                await Task.Delay(pairDelay);
             }
 
             // Call a cleanup event.
             OnPairingEnd?.Invoke();
+
+            // If the operation has been cancelled before we reach the delgate loop, then throw the Cancelled exception
+            // so we don't waste resources on looping,
+            if (ct.IsCancellationRequested)
+            {
+                CleanupJSL();
+                // If a cancel happens after JSL has been loaded, unload it.
+                ct.ThrowIfCancellationRequested();
+            }
         }
     }
 }
