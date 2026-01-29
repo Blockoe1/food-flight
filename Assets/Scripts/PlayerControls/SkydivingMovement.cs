@@ -8,6 +8,7 @@
 *****************************************************************************/
 using CustomAttributes;
 using System.Net.NetworkInformation;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace FoodFlight
@@ -44,12 +45,12 @@ namespace FoodFlight
             Vector2 targetDriftVelocity = Vector2.zero;
 
             // Calculate X Drift
-            Vector3 xVector = rb.rotation * Vector3.right;
-            targetDriftVelocity.x = (GetOrientationFitness(IDEAL_X_DRIFT_VECTOR, xVector) - GetOrientationFitness(IDEAL_NEG_X_DRIFT_VECTOR, xVector)) * maxDriftSpeed;
+            targetDriftVelocity.x = CalculateDrift(rb.rotation * Vector3.right, 
+                IDEAL_X_DRIFT_VECTOR, IDEAL_NEG_X_DRIFT_VECTOR);
             //Debug.Log(GetOrientationFitness(IDEAL_X_DRIFT_VECTOR, xVector));
             // Caluclate Z Drift
-            Vector3 zVector = rb.rotation * Vector3.forward;
-            targetDriftVelocity.y = (GetOrientationFitness(IDEAL_Z_DRIFT_VECTOR, zVector) - GetOrientationFitness(IDEAL_NEG_Z_DRIFT_VECTOR, zVector)) * maxDriftSpeed;
+            targetDriftVelocity.y = CalculateDrift(rb.rotation * Vector3.forward, 
+                IDEAL_Z_DRIFT_VECTOR, IDEAL_NEG_Z_DRIFT_VECTOR);
 
             // Move our current velocity towards the target.
             Vector2 currentVel = new Vector2(rb.linearVelocity.x, rb.linearVelocity.z);
@@ -58,6 +59,19 @@ namespace FoodFlight
             //Debug.Log($"Target Velocity: {targetDriftVelocity}.");
 
             rb.linearVelocity = new Vector3(currentVel.x, rb.linearVelocity.y, currentVel.y);
+        }
+
+        /// <summary>
+        /// Calculates the drift force based on a certain relative vector and the ideal vectors for + and - to compare it to.
+        /// </summary>
+        /// <param name="currentVector"></param>
+        /// <param name="idealPosVector"></param>
+        /// <param name="idealNegVector"></param>
+        /// <returns></returns>
+        private float CalculateDrift(Vector3 currentVector, Vector3 idealPosVector, Vector3 idealNegVector)
+        {
+            return (GetOrientationFitness(idealPosVector, currentVector) - 
+                GetOrientationFitness(idealNegVector, currentVector)) * maxDriftSpeed;
         }
 
         /// <summary>

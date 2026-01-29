@@ -79,6 +79,7 @@ namespace FoodFlight
         {
             if (sync != null)
             {
+                Debug.Log("Cleaning up JSL calibration data for controller " + sync.jslIndex);
                 JSL.JslResetContinuousCalibration(sync.jslIndex);
             }
         }
