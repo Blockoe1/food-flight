@@ -23,17 +23,22 @@ namespace FoodFlight
         #region Ideal Drift Vectors
         // Stick controls use reversed ideal vectors from the SkydivingMovement script since perpendicular is ideal
         // in the movement script.
-        private static readonly Vector3 IDEAL_NEG_X_DRIFT_VECTOR = new Vector3(1, 1, 0).normalized;
-        private static readonly Vector3 IDEAL_X_DRIFT_VECTOR = new Vector3(-1, 1, 0).normalized;
-        private static readonly Vector3 IDEAL_NEG_Z_DRIFT_VECTOR = new Vector3(0, 1, -1).normalized;
-        private static readonly Vector3 IDEAL_Z_DRIFT_VECTOR = new Vector3(0, 1, 1).normalized;
-        private const float IDEAL_Z_MOVE_ANGLE = -45f;
-        private const float IDEAL_X_MOVE_ANGLE = 45f;
+        //private static readonly Vector3 IDEAL_NEG_X_DRIFT_VECTOR = new Vector3(1, 1, 0).normalized;
+        //private static readonly Vector3 IDEAL_X_DRIFT_VECTOR = new Vector3(-1, 1, 0).normalized;
+        //private static readonly Vector3 IDEAL_NEG_Z_DRIFT_VECTOR = new Vector3(0, 1, -1).normalized;
+        //private static readonly Vector3 IDEAL_Z_DRIFT_VECTOR = new Vector3(0, 1, 1).normalized;
+        //private const float IDEAL_Z_MOVE_ANGLE = -45f;
+        //private const float IDEAL_X_MOVE_ANGLE = 45f;
+
+        private static readonly Quaternion IDEAL_XP_QUAT = Quaternion.Euler(-135, -90, 90);
+        private static readonly Quaternion IDEAL_XN_QUAT = Quaternion.Euler(-45, -90, 90);
+        private static readonly Quaternion IDEAL_ZP_QUAT = Quaternion.Euler(-45, 0, 0);
+        private static readonly Quaternion IDEAL_ZN_QUAT = Quaternion.Euler(-135, 0, 0);
+        private static readonly Quaternion IDEAL_DIVE_QUAT = Quaternion.identity;
         #endregion
 
         [Header("Rotation Settings")]
         [SerializeField] private Vector3 defaultEuler = new Vector3(90, 0, 0);
-        [SerializeField, Range(0f, 1f)] private float diveBias;
         [SerializeField] private float yawRotationSpeed;
 
         private InputAction moveAction;
@@ -169,7 +174,30 @@ namespace FoodFlight
 
             //targetRotation = xQuat * yQuat * Quaternion.AngleAxis(-90, Vector3.right);
             //targetRotation = targetRotation * defaultRotation;
+            Quaternion rot = defaultRotation;
 
+            // SLERP towards dive first.
+            rot = Quaternion.Slerp(rot, IDEAL_DIVE_QUAT, Mathf.Abs(diveInput.y));
+
+            //MoveInput
+            // X = roll axis.
+            Quaternion rollQuat = moveInput.x > 0 ? IDEAL_XP_QUAT : IDEAL_XN_QUAT;
+            rot = Quaternion.Slerp(rot, rollQuat, Mathf.Abs(moveInput.x));
+            // Y = pitch axis
+            Quaternion pitchQuat = moveInput.y > 0 ? IDEAL_ZP_QUAT : IDEAL_ZN_QUAT;
+            rot = Quaternion.Slerp(rot, pitchQuat, Mathf.Abs(moveInput.y));
+
+            // Dive Input
+            // X = yaw
+            // Only take into account significant rotations.
+            if (Mathf.Abs(diveInput.x) > InputSystem.settings.defaultDeadzoneMin)
+            {
+                yawAngle += diveInput.x * Time.fixedDeltaTime * yawRotationSpeed;
+            }
+            Quaternion yawRotation = Quaternion.Euler(0, yawAngle, 0);
+            rot = yawRotation * rot;
+
+            targetRotation = rot;
 
             // Always run the base FixedUpdate after target rotation has been set.
             base.FixedUpdate();

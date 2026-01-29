@@ -1834,7 +1834,7 @@ MonoBehaviour:
   input: {fileID: 3468749450600812092}
   defaultEuler: {x: -90, y: 0, z: 0}
   diveBias: 1
-  yawRotationSpeed: 20
+  yawRotationSpeed: 100
   moveInput: {x: 0, y: 0}
   diveInput: {x: 0, y: 0}
 --- !u!1660057539 &9223372036854775807
