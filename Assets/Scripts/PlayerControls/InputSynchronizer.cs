@@ -7,13 +7,9 @@
 // Brief Description :  Synchronizes input between the unity InputSystem and the JoyShock library.
 *****************************************************************************/
 using CustomAttributes;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
-using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.Android;
 using UnityEngine.InputSystem;
 
 namespace FoodFlight

@@ -9,7 +9,6 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -48,7 +47,10 @@ namespace FoodFlight
             // Clean up JSL for all managed players as well.
             foreach(var device in players)
             {
-                device.Unsync();
+                if (device != null)
+                {
+                    device.Unsync();
+                }
             }
             // If you don't dispose JSL data, it may cause a memory leak.
             JSL.JslDisconnectAndDisposeAll();
@@ -93,7 +95,10 @@ namespace FoodFlight
             // Remove any previous pairing.
             foreach(var controller in players)
             {
-                controller.Unsync();
+                if (controller != null)
+                {
+                    controller.Unsync();
+                }
             }
 
             // Add delay for testing.
