@@ -59,7 +59,7 @@ namespace FoodFlight
         {
             Vector3 dragForce = CalculateDragForce(rb.rotation, rb.linearVelocity.y);
             rb.AddForce(dragForce, ForceMode.Acceleration);
-            Debug.Log(rb.linearVelocity);
+            //Debug.Log(rb.linearVelocity);
         }
 
         /// <summary>

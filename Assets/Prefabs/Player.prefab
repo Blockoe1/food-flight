@@ -125,6 +125,8 @@ GameObject:
   - component: {fileID: 6696068519138197985}
   - component: {fileID: 2504725113489638729}
   - component: {fileID: 5474769241405204166}
+  - component: {fileID: 2628432252682396311}
+  - component: {fileID: 5740293930129898986}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -262,6 +264,36 @@ MonoBehaviour:
   gyroSensitivity: 0.0175
   gyroThreshold: 4
   inSync: {fileID: 2504725113489638729}
+--- !u!114 &2628432252682396311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778754833571124715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde6ac161174e3c479e6c1a91b543c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.AirResistance
+  verticalVelocity: 3
+  horizontalVelocity: 2
+  rb: {fileID: 7133835219555258079}
+--- !u!114 &5740293930129898986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778754833571124715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6818fc50d5f5184f8ae874b52c75455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.SkydivingMovement
+  maxDriftSpeed: 4
+  driftAcceleration: 4
+  rb: {fileID: 7133835219555258079}
 --- !u!1 &7845863331159308501
 GameObject:
   m_ObjectHideFlags: 0
