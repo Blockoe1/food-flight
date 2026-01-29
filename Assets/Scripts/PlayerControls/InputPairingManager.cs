@@ -43,12 +43,12 @@ namespace FoodFlight
 
         public void CleanupJSL()
         {
+            Debug.Log("Cleaning up JSL");
             // Clean up JSL for all managed players as well.
             foreach(var device in players)
             {
                 device.CleanUpJSL();
             }
-
             // If you don't dispose JSL data, it may cause a memory leak.
             JSL.JslDisconnectAndDisposeAll();
         }
@@ -69,7 +69,6 @@ namespace FoodFlight
         /// <summary>
         /// Attempt to treat JSL.JslConnectDevices as async so there can be an async managed loading screen.
         /// </summary>
-        /// <param name="token"></param>
         /// <returns></returns>
         private Task<int> JslConnectDevicesAsync()
         {
@@ -88,7 +87,7 @@ namespace FoodFlight
             }
 
             // Add delay for testing.
-            await Task.Delay(2000);
+            //await Task.Delay(2000);
 
             // Load the JSL and InputSystem controllers.
 
@@ -98,6 +97,7 @@ namespace FoodFlight
 
             Debug.Log($"Connected {jslNumConnected} to JSL.");
 
+            // If cancelled, skip proceeding with pairing.
             if (!ct.IsCancellationRequested)
             {
                 // Sequentially pair each controller and update UI.
@@ -119,7 +119,6 @@ namespace FoodFlight
                     OnPlayerCalibrating?.Invoke("Calibrating " + controller.name);
                     await controller.CalibrateGyro(ct);
 
-
                     // Add an additional buffer delay between pairing each controller.
                     await Task.Delay(pairDelay);
                 }
@@ -128,8 +127,7 @@ namespace FoodFlight
             // Call a cleanup event.
             OnPairingEnd?.Invoke();
 
-            // If the operation has been cancelled before we reach the delgate loop, then throw the Cancelled exception
-            // so we don't waste resources on looping,
+            // If the operation has been cancelled, clean up JSL in case OnDestroy has already been called.
             if (ct.IsCancellationRequested)
             {
                 CleanupJSL();

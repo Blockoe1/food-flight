@@ -310,7 +310,8 @@ namespace FoodFlight
             float totalGyro = 0;
             int numSamples = 0;
             // Continually sample until the controller is stable.
-            while (avgGyroMagnitude > calibrationThreshold || numSamples < MIN_CALIBRATION_SAMPLES)
+            while (!ct.IsCancellationRequested && 
+                (avgGyroMagnitude > calibrationThreshold || numSamples < MIN_CALIBRATION_SAMPLES))
             {
                 // Allow cancelling the operation.
                 ct.ThrowIfCancellationRequested();
