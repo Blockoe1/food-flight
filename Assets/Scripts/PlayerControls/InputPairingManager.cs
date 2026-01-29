@@ -37,6 +37,19 @@ namespace FoodFlight
         private void OnDestroy()
         {
             CancelPairing();
+            CleanupJSL();
+        }
+
+        public void CleanupJSL()
+        {
+            // Clean up JSL for all managed players as well.
+            foreach(var device in players)
+            {
+                device.CleanUpJSL();
+            }
+
+            // If you don't dispose JSL data, it may cause a memory leak.
+            JSL.JslDisconnectAndDisposeAll();
         }
 
         /// <summary>

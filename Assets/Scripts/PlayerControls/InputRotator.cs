@@ -13,7 +13,6 @@ using UnityEngine.InputSystem;
 
 namespace FoodFlight
 {
-    [RequireComponent(typeof(PlayerInput))]
     public class InputRotator : PlayerRotator
     {
         #region CONSTS
@@ -30,41 +29,38 @@ namespace FoodFlight
         private static readonly Vector3 IDEAL_Z_DRIFT_VECTOR = new Vector3(0, -1, -1).normalized;
         #endregion
 
+        [Header("Rotation Settings")]
+        [SerializeField] private float yawRotationSpeed;
+
 
         private InputAction moveAction;
         private InputAction diveAction;
 
-        private Vector2 moveInput;
-        private Vector2 diveInput;
-
-        #region Component References
-        [Header("Components")]
-        [SerializeReference, ReadOnly] private PlayerInput input;
-
-        [ContextMenu("Get Component References")]
-        protected override void Reset()
-        {
-            base.Reset();
-            input = GetComponent<PlayerInput>();
-        }
-        #endregion
+        [SerializeField, ReadOnly] private Vector2 moveInput;
+        [SerializeField, ReadOnly] private Vector2 diveInput;
+        private float yawAngle;
 
         /// <summary>
-        /// Setup/Unsubscribe input.
+        /// Setup/Subscribe/Unsubscribe input.
         /// </summary>
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             moveAction = input.actions.FindAction(MOVE_ACTION_NAME);
             diveAction = input.actions.FindAction(DIVE_ACTION_NAME);
-
+        }
+        protected override void OnEnable()
+        {
+            base.OnEnable();
             moveAction.performed += MoveAction_performed;
             moveAction.canceled += MoveAction_canceled;
 
             diveAction.performed += DiveAction_performed;
             diveAction.canceled += DiveAction_canceled;
         }
-        private void OnDestroy()
+        protected override void OnDisable()
         {
+            base.OnDisable();
             moveAction.performed -= MoveAction_performed;
             moveAction.canceled -= MoveAction_canceled;
 
@@ -74,30 +70,25 @@ namespace FoodFlight
 
         #region Input Handlers
         /// <summary>
-        /// Handle move input
+        /// Read move input.
         /// </summary>
         /// <param name="obj"></param>
-        /// <exception cref="System.NotImplementedException"></exception>
         private void MoveAction_performed(InputAction.CallbackContext obj)
         {
             moveInput = obj.ReadValue<Vector2>();
-
-            // X axis controls roll axis that translates into X movement.
-
-            // Y axis controls pitch axis that translates into Y movement (affected by dive).
         }
         private void MoveAction_canceled(InputAction.CallbackContext obj)
         {
             moveInput = Vector2.zero;
         }
 
+        /// <summary>
+        /// Read dive input.
+        /// </summary>
+        /// <param name="obj"></param>
         private void DiveAction_performed(InputAction.CallbackContext obj)
         {
             diveInput = obj.ReadValue<Vector2>();
-
-            // X Axis controls Yaw axis rotation.
-
-            // Y Axis controls dive.
         }
         private void DiveAction_canceled(InputAction.CallbackContext obj)
         {
@@ -106,12 +97,43 @@ namespace FoodFlight
         #endregion
 
         /// <summary>
+        /// When resetting rotation, need to reset the stored yaw angle.
+        /// </summary>
+        public override void ResetRotation()
+        {
+            base.ResetRotation();
+            yawAngle = 0;
+        }
+
+        /// <summary>
         /// Every FixedUpdate, apply any unapplied gyro rotation.
         /// </summary>
         protected override void FixedUpdate()
         {
             // Calculate the target direction based on input.
             Vector3 targetDirection = Vector3.zero;
+
+            // Move Input
+            // X axis controls roll axis that translates into X movement.
+            Vector2 xVector = moveInput.x > 0 ? IDEAL_X_DRIFT_VECTOR : IDEAL_NEG_X_DRIFT_VECTOR;
+            Vector3 appliedXVector = xVector * System.MathF.Sign(moveInput.x);
+            (appliedXVector.y, appliedXVector.z) = (appliedXVector.z, appliedXVector.y);
+            targetDirection += appliedXVector;
+            // Y axis controls pitch axis that translates into Z movement (affected by dive).
+            Vector2 zVector = moveInput.y > 0 ? IDEAL_Z_DRIFT_VECTOR : IDEAL_NEG_Z_DRIFT_VECTOR;
+            Vector3 appliedZVector = zVector * System.MathF.Sign(moveInput.y);
+            (appliedZVector.y, appliedZVector.z) = (appliedZVector.z, appliedZVector.y);
+            targetDirection += appliedZVector;
+
+            // Dive Input
+            // Y Axis controls dive.  Increases how vertical the player is.
+            targetDirection.y -= Mathf.Abs(diveInput.y);
+            // X Axis controls Yaw axis rotation.
+            yawAngle += diveInput.x * Time.fixedDeltaTime * yawRotationSpeed;
+            Quaternion yawRotation = Quaternion.Euler(0, yawAngle, 0);
+            targetDirection = yawRotation * targetDirection;
+
+            Debug.Log($"Target Direction: {targetDirection}");
 
             // Get the target rotation based on our target direction.
             targetRotation = Quaternion.LookRotation(targetDirection, Vector3.forward);

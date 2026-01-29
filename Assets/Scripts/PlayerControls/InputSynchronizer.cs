@@ -67,6 +67,23 @@ namespace FoodFlight
         }
         #endregion
 
+        private void OnDestroy()
+        {
+            CleanUpJSL();
+        }
+
+        /// <summary>
+        /// Cleans up any JSL accumulated data.
+        /// </summary>
+        public void CleanUpJSL()
+        {
+            if (sync != null)
+            {
+                JSL.JslResetContinuousCalibration(sync.jslIndex);
+            }
+            Unsync();
+        }
+
         /// <summary>
         /// Sets the SyncState of this synchronizer.
         /// </summary>
