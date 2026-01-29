@@ -1832,6 +1832,8 @@ MonoBehaviour:
   rotationSlerpSpeed: 0.5
   rb: {fileID: 3468749450600812093}
   input: {fileID: 3468749450600812092}
+  defaultEuler: {x: -90, y: 0, z: 0}
+  diveBias: 1
   yawRotationSpeed: 20
   moveInput: {x: 0, y: 0}
   diveInput: {x: 0, y: 0}
