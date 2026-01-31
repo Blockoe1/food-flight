@@ -294,6 +294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.SkydivingMovement
   maxDriftSpeed: 4
   driftAcceleration: 4
+  levelBounds: {x: 20, y: 20}
   rb: {fileID: 7133835219555258079}
 --- !u!114 &5590620580483810736
 MonoBehaviour:
