@@ -38,8 +38,11 @@ namespace FoodFlight
         #endregion
 
         [Header("Rotation Settings")]
-        [SerializeField] private Vector3 defaultEuler = new Vector3(90, 0, 0);
+        [SerializeField] private Vector3 defaultEuler = new Vector3(-90, 0, 0);
         [SerializeField] private float yawRotationSpeed;
+        [SerializeField, Range(0, 1), Tooltip("The amount of deadzone to apply to the dive stick.  " +
+            "Higher numbers help differentiate from rotation and dive.")] 
+        private float diveDeadzone;
 
         private InputAction moveAction;
         private InputAction diveAction;
@@ -177,7 +180,10 @@ namespace FoodFlight
             Quaternion rot = defaultRotation;
 
             // SLERP towards dive first.
-            rot = Quaternion.Slerp(rot, IDEAL_DIVE_QUAT, Mathf.Abs(diveInput.y));
+            if (Mathf.Abs(diveInput.y) > diveDeadzone)
+            {
+                rot = Quaternion.Slerp(rot, IDEAL_DIVE_QUAT, Mathf.Abs(diveInput.y));
+            }
 
             //MoveInput
             // X = roll axis.
@@ -190,7 +196,7 @@ namespace FoodFlight
             // Dive Input
             // X = yaw
             // Only take into account significant rotations.
-            if (Mathf.Abs(diveInput.x) > InputSystem.settings.defaultDeadzoneMin)
+            if (Mathf.Abs(diveInput.x) > diveDeadzone)
             {
                 yawAngle += diveInput.x * Time.fixedDeltaTime * yawRotationSpeed;
             }
