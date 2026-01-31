@@ -2,12 +2,13 @@
 // File Name : SkydivingMovement.cs
 // Author : Brandon Koederitz
 // Creation Date : 1/28/2026
-// Last Modified : 1/28/2026
+// Last Modified : 1/31/2026
 //
 // Brief Description :  Controls player drifting based on their rotation.
 *****************************************************************************/
 using CustomAttributes;
 using System.Net.NetworkInformation;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace FoodFlight
@@ -24,6 +25,7 @@ namespace FoodFlight
 
         [SerializeField] private float maxDriftSpeed;
         [SerializeField] private float driftAcceleration;
+        [SerializeField] private Vector2 levelBounds;
 
         #region Component References
         [Header("Components")]
@@ -37,19 +39,40 @@ namespace FoodFlight
         #endregion
 
         /// <summary>
+        /// Debug
+        /// </summary>
+        private void Update()
+        {
+            Vector3 forward = (rb.rotation * Vector3.down);
+            Debug.DrawLine(rb.position, rb.position + forward * 5, Color.green);
+            Vector2 rotVector = new Vector2(forward.x, forward.z);
+            float rotAngle = Mathf.Atan2(rotVector.x, rotVector.y) * Mathf.Rad2Deg;
+            Debug.Log(rotAngle);
+            Quaternion idealRotQuat = Quaternion.Euler(0, rotAngle + 180, 0);
+
+            Debug.DrawLine(rb.position, rb.position + (idealRotQuat * IDEAL_Z_DRIFT_VECTOR) * 5, Color.red);
+        }
+
+        /// <summary>
         /// Applies drift velocity to the player based on their current rotation.
         /// </summary>
         private void FixedUpdate()
         {
             Vector2 targetDriftVelocity = Vector2.zero;
 
+            // Calculate a quaternion to rotate all the ideal vectors by so they align with the  players orientation.
+            Vector3 forward = (rb.rotation * Vector3.down);
+            Vector2 rotVector = new Vector2(forward.x, forward.z);
+            float rotAngle = Mathf.Atan2(rotVector.x, rotVector.y) * Mathf.Rad2Deg;
+            Quaternion idealRotQuat = Quaternion.Euler(0, rotAngle, 0);
+
             // Calculate X Drift
-            Vector3 xVector = rb.rotation * Vector3.right;
-            targetDriftVelocity.x = (GetOrientationFitness(IDEAL_X_DRIFT_VECTOR, xVector) - GetOrientationFitness(IDEAL_NEG_X_DRIFT_VECTOR, xVector)) * maxDriftSpeed;
+            targetDriftVelocity.x = CalculateDrift(rb.rotation * Vector3.right,
+                idealRotQuat * IDEAL_X_DRIFT_VECTOR, idealRotQuat * IDEAL_NEG_X_DRIFT_VECTOR);
             //Debug.Log(GetOrientationFitness(IDEAL_X_DRIFT_VECTOR, xVector));
             // Caluclate Z Drift
-            Vector3 zVector = rb.rotation * Vector3.forward;
-            targetDriftVelocity.y = (GetOrientationFitness(IDEAL_Z_DRIFT_VECTOR, zVector) - GetOrientationFitness(IDEAL_NEG_Z_DRIFT_VECTOR, zVector)) * maxDriftSpeed;
+            targetDriftVelocity.y = CalculateDrift(rb.rotation * Vector3.forward,
+                idealRotQuat * IDEAL_Z_DRIFT_VECTOR, idealRotQuat * IDEAL_NEG_Z_DRIFT_VECTOR);
 
             // Move our current velocity towards the target.
             Vector2 currentVel = new Vector2(rb.linearVelocity.x, rb.linearVelocity.z);
@@ -57,7 +80,27 @@ namespace FoodFlight
 
             //Debug.Log($"Target Velocity: {targetDriftVelocity}.");
 
-            rb.linearVelocity = new Vector3(currentVel.x, rb.linearVelocity.y, currentVel.y);
+            Vector3 rotatedVel = idealRotQuat * new Vector3(currentVel.x, 0, currentVel.y);
+            rb.linearVelocity = new Vector3(rotatedVel.x, rb.linearVelocity.y, rotatedVel.z);
+
+            // Clamp the player's position to the level's bounds.
+            Vector3 pos = rb.position;
+            pos.x = Mathf.Clamp(pos.x, -levelBounds.x, levelBounds.x);
+            pos.z = Mathf.Clamp(pos.z, -levelBounds.y, levelBounds.y);
+            rb.MovePosition(pos);
+        }
+
+        /// <summary>
+        /// Calculates the drift force based on a certain relative vector and the ideal vectors for + and - to compare it to.
+        /// </summary>
+        /// <param name="currentVector"></param>
+        /// <param name="idealPosVector"></param>
+        /// <param name="idealNegVector"></param>
+        /// <returns></returns>
+        private float CalculateDrift(Vector3 currentVector, Vector3 idealPosVector, Vector3 idealNegVector)
+        {
+            return (GetOrientationFitness(idealPosVector, currentVector) - 
+                GetOrientationFitness(idealNegVector, currentVector)) * maxDriftSpeed;
         }
 
         /// <summary>

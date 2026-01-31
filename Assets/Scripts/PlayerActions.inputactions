@@ -11,7 +11,7 @@
                     "type": "PassThrough",
                     "id": "8d666d47-4ba8-4788-bbaa-9ddc4eb8909a",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "StickDeadzone",
                     "interactions": "",
                     "initialStateCheck": false
                 },
@@ -20,7 +20,7 @@
                     "type": "PassThrough",
                     "id": "e45c5337-ffa1-40df-b944-21e5d3c988c6",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "StickDeadzone",
                     "interactions": "",
                     "initialStateCheck": false
                 },
@@ -46,6 +46,15 @@
                     "name": "SlapLeft",
                     "type": "Button",
                     "id": "ad14f828-56b9-4e76-8242-b011f33637be",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ForceQuit",
+                    "type": "Button",
+                    "id": "3a86797b-f1d4-49b2-a665-d7ab7b14e458",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -105,6 +114,17 @@
                     "processors": "",
                     "groups": "Player 1;Player 2",
                     "action": "SlapLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b2624249-0f27-4b86-9003-9754f745afbd",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ForceQuit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

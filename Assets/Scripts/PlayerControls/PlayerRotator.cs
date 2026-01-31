@@ -31,7 +31,7 @@ namespace FoodFlight
         #region Component References
         [Header("Components")]
         [SerializeReference, ReadOnly] private Rigidbody rb;
-        [SerializeReference, ReadOnly] private PlayerInput input;
+        [SerializeReference, ReadOnly] protected PlayerInput input;
 
         [ContextMenu("Get Component References")]
         protected virtual void Reset()
@@ -42,7 +42,7 @@ namespace FoodFlight
 
         #endregion
 
-        private void Awake()
+        protected virtual void Awake()
         {
             resetRotationAction = input.actions.FindAction(RESET_ACTION_NAME);
         }
@@ -50,13 +50,13 @@ namespace FoodFlight
         /// <summary>
         /// Setup the reset function event when the component is enabled.
         /// </summary>
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             resetRotationAction.performed += ResetRotationAction_performed;
         }
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
-            resetRotationAction.performed += ResetRotationAction_performed;
+            resetRotationAction.performed -= ResetRotationAction_performed;
         }
         private void ResetRotationAction_performed(InputAction.CallbackContext obj)
         {
@@ -66,7 +66,7 @@ namespace FoodFlight
         /// <summary>
         /// Resets this player back to their default rotation.
         /// </summary>
-        public void ResetRotation()
+        public virtual void ResetRotation()
         {
             rb.rotation = Quaternion.identity;
             targetRotation = Quaternion.identity;

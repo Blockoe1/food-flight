@@ -7,13 +7,9 @@
 // Brief Description :  Synchronizes input between the unity InputSystem and the JoyShock library.
 *****************************************************************************/
 using CustomAttributes;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
-using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.Android;
 using UnityEngine.InputSystem;
 
 namespace FoodFlight
@@ -25,6 +21,7 @@ namespace FoodFlight
         private const int PAIR_BUTTON_MASK = 0x01000; // The south button.
         private const string PAIR_CONTROL_PATH = "/buttonSouth";
         private const int MIN_CALIBRATION_SAMPLES = 32;
+        private const int AWAIT_FREQUENCY = 25;
         #endregion
 
         [SerializeField] private float calibrationThreshold;
@@ -67,6 +64,23 @@ namespace FoodFlight
         }
         #endregion
 
+        private void OnDestroy()
+        {
+            Unsync();
+        }
+
+        /// <summary>
+        /// Cleans up any JSL accumulated data.
+        /// </summary>
+        public void CleanUpJSL()
+        {
+            if (sync != null)
+            {
+                Debug.Log("Cleaning up JSL calibration data for controller " + sync.jslIndex);
+                JSL.JslResetContinuousCalibration(sync.jslIndex);
+            }
+        }
+
         /// <summary>
         /// Sets the SyncState of this synchronizer.
         /// </summary>
@@ -84,6 +98,7 @@ namespace FoodFlight
         /// </summary>
         public void Unsync()
         {
+            CleanUpJSL();
             sync = null;
         }
 
@@ -121,9 +136,9 @@ namespace FoodFlight
             int joyShockIndex = joyShockTask.GetAwaiter().GetResult();
             InputDevice inputDevice = inputDeviceTask.GetAwaiter().GetResult();
 
-            Debug.Log($"Paired the JSL index {joyShockIndex} to the InputDevice {inputDevice}");
-
             SetSyncState(joyShockIndex, inputDevice);
+
+            Debug.Log($"Paired the JSL index {joyShockIndex} to the InputDevice {inputDevice}");
         }
 
         /// <summary>
@@ -144,7 +159,7 @@ namespace FoodFlight
             {
                 while (!ct.IsCancellationRequested && IsButtonPressed(foundIndex))
                 {
-                    await Task.Yield();
+                    await Task.Delay(AWAIT_FREQUENCY);
                 }
             }
 
@@ -182,7 +197,7 @@ namespace FoodFlight
             {
                 while (!ct.IsCancellationRequested && foundGamepad.GetChildControl(PAIR_CONTROL_PATH).IsPressed())
                 {
-                    await Task.Yield();
+                    await Task.Delay(AWAIT_FREQUENCY);
                 }
             }
 
@@ -293,7 +308,8 @@ namespace FoodFlight
             float totalGyro = 0;
             int numSamples = 0;
             // Continually sample until the controller is stable.
-            while (avgGyroMagnitude > calibrationThreshold || numSamples < MIN_CALIBRATION_SAMPLES)
+            while (!ct.IsCancellationRequested && 
+                (avgGyroMagnitude > calibrationThreshold || numSamples < MIN_CALIBRATION_SAMPLES))
             {
                 // Allow cancelling the operation.
                 ct.ThrowIfCancellationRequested();
