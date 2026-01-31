@@ -329,7 +329,7 @@ namespace FoodFlight
                     JSL.JslStartContinuousCalibration(sync.jslIndex);
                 }
 
-                Debug.Log(avgGyroMagnitude);
+                //Debug.Log(avgGyroMagnitude);
 
                 await Task.Yield();
             }

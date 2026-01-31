@@ -66,7 +66,14 @@ namespace FoodFlight
         }
         public void CancelPairing()
         {
-            pairToken.Cancel();
+            if (pairToken != null)
+            {
+                pairToken.Cancel();
+            }
+            else
+            {
+                Debug.Log("Could not cancel pairing as no pair token exists.");
+            }
         }
 
         /// <summary>
