@@ -89,7 +89,8 @@ namespace FoodFlight
         private void SetSyncState(int jslIndex, InputDevice inputDevice)
         {
             sync = new InputSyncState(jslIndex, inputDevice);
-            playerInput.SwitchCurrentControlScheme(inputDevice);
+            // Also pass the main keyboard to this player's input.
+            playerInput.SwitchCurrentControlScheme(inputDevice, InputSystem.GetDevice<Keyboard>());
             Debug.Log(playerInput.currentControlScheme);
         }
 
@@ -328,7 +329,7 @@ namespace FoodFlight
                     JSL.JslStartContinuousCalibration(sync.jslIndex);
                 }
 
-                Debug.Log(avgGyroMagnitude);
+                //Debug.Log(avgGyroMagnitude);
 
                 await Task.Yield();
             }
