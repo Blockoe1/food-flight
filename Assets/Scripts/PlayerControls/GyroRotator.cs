@@ -7,7 +7,6 @@ namespace FoodFlight
     public class GyroRotator : PlayerRotator
     {
         [Header("Gyro Settings")]
-        [SerializeField] private TMP_Text debugText;
         [SerializeField, Tooltip("Multiplied by the raw Gyro input to scale it down and calculate the rotation " +
             "applied to this player.")] 
         private float gyroSensitivity;
@@ -27,9 +26,6 @@ namespace FoodFlight
                 Vector3 processedGyro = IgnoreThreshold(gyroVector, gyroThreshold) * gyroSensitivity;
                 Quaternion gyroQuat = Quaternion.Euler(processedGyro);
                 targetRotation = targetRotation * gyroQuat;
-
-                // Debug.
-                SetGyroText(gyroVector, processedGyro);
             }
 
             // Always run the base FixedUpdate after target rotation has been set.
@@ -58,13 +54,5 @@ namespace FoodFlight
         {
             enabled = hasGyro;
         }
-
-        #region Debug
-        private void SetGyroText(Vector3 gyro, Vector3 processed)
-        {
-            if (debugText == null) { return; }
-            debugText.text = name + " Gyro: " + gyro + "\nProcessed Gyro: " + processed; 
-        }
-        #endregion
     }
 }
