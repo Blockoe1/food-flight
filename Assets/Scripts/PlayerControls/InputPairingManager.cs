@@ -29,7 +29,7 @@ namespace FoodFlight
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-            PairControllers();
+            SetGyroControls();
         }
 
         /// <summary>
@@ -41,6 +41,38 @@ namespace FoodFlight
             CleanupJSL();
         }
 
+        #region Keyboard Setup
+        /// <summary>
+        /// Sets up the players with keyboard input.
+        /// </summary>
+        public void SetKeyboard()
+        {
+
+        }
+        #endregion
+
+        #region Controller Setup
+
+        /// <summary>
+        /// Sets the gamepad control scheme without gyro.
+        /// </summary>
+        public void SetGamepad()
+        {
+            
+        }
+
+        /// <summary>
+        /// Sets the gamepad control scheme and attempts to set up gyro controls for those that have gyro.
+        /// </summary>
+        public void SetGamepadGyro()
+        {
+
+        }
+
+        #region Gyro Input Setup
+        /// <summary>
+        /// Cleans up any JSL data.
+        /// </summary>
         public void CleanupJSL()
         {
             Debug.Log("Cleaning up JSL");
@@ -59,7 +91,7 @@ namespace FoodFlight
         /// <summary>
         /// Public interface functions for pairing controllers to each player.
         /// </summary>
-        public void PairControllers()
+        public void SetGyroControls()
         {
             pairToken = new CancellationTokenSource();
             PairControllersAsync(pairToken.Token);
@@ -68,7 +100,6 @@ namespace FoodFlight
         /// <summary>
         /// Cancels input pairing.
         /// </summary>
-        [ContextMenu("Cancel Input Pairing")]
         public void CancelPairing()
         {
             if (pairToken != null)
@@ -164,5 +195,7 @@ namespace FoodFlight
                 Debug.Log("Operation PairControllers has ended.");
             }
         }
+        #endregion
+        #endregion
     }
 }
