@@ -833,7 +833,7 @@ MonoBehaviour:
   pairDelay: 0
   players:
   - {fileID: 1030212691}
-  cancelAction: {fileID: 0}
+  cancelAction: {fileID: 7727032971491509709, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   OnPairingBegin:
     m_PersistentCalls:
       m_Calls: []
