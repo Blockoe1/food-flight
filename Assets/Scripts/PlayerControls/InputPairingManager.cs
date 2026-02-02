@@ -161,6 +161,8 @@ namespace FoodFlight
                 Debug.Log("Operation PairControllers was canceled");
             }
 
+            Time.timeScale = 0f;
+
             OnPairingBegin?.Invoke();
             InputDevice[] inputDevices = InputSystem.devices.ToArray();
 
@@ -194,6 +196,7 @@ namespace FoodFlight
             {
                 // Call a cleanup event.
                 OnPairingEnd?.Invoke();
+                Time.timeScale = 1f;
                 Debug.Log("Operation PairControllers has ended.");
             }
         }
@@ -265,8 +268,10 @@ namespace FoodFlight
                 CleanupJSL();
             }
 
+            Time.timeScale = 0f;
+
             // Remove any previous pairing.
-            foreach(var controller in players)
+            foreach (var controller in players)
             {
                 if (controller != null)
                 {
@@ -322,6 +327,7 @@ namespace FoodFlight
             {
                 // Call a cleanup event.
                 OnPairingEnd?.Invoke();
+                Time.timeScale = 1f;
                 Debug.Log("Operation PairControllers has ended.");
             }
         }
