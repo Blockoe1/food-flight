@@ -1,5 +1,5 @@
 /*****************************************************************************
-// File Name : SkydiveGravity.cs
+// File Name : AirResistance.cs
 // Author : Brandon Koederitz
 // Creation Date : 1/28/2026
 // Last Modified : 1/28/2026

@@ -2,18 +2,19 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Slap
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player1
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Player1Hitbox
+  - Player2
+  - Player2Hitbox
   - 
   - 
   - 
@@ -50,27 +51,3 @@ TagManager:
   - Light Layer 5
   - Light Layer 6
   - Light Layer 7
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 

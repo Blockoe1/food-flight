@@ -164,7 +164,7 @@
                 {
                     "name": "down",
                     "id": "03c62c08-992a-4ee8-b9a7-d5ea8472edc7",
-                    "path": "<Keyboard>/leftShift",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Player 1;Player 2",
@@ -446,7 +446,7 @@
                 {
                     "name": "down",
                     "id": "12ecc232-9acb-4673-9dc6-7d850763e707",
-                    "path": "<Keyboard>/semicolon",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Player 2;Player 1",
