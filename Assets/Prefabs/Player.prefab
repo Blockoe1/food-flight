@@ -261,10 +261,10 @@ MonoBehaviour:
   rotationSlerpSpeed: 0.5
   rb: {fileID: 7133835219555258079}
   input: {fileID: 6696068519138197985}
+  inSync: {fileID: 2504725113489638729}
   debugText: {fileID: 0}
   gyroSensitivity: 0.0175
   gyroThreshold: 4
-  inSync: {fileID: 2504725113489638729}
 --- !u!114 &2628432252682396311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4778754833571124715}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa50b0cd62545b24a9db48b7a24c8015, type: 3}
   m_Name: 
@@ -311,6 +311,7 @@ MonoBehaviour:
   rotationSlerpSpeed: 0.5
   rb: {fileID: 7133835219555258079}
   input: {fileID: 6696068519138197985}
+  inSync: {fileID: 2504725113489638729}
   defaultEuler: {x: -90, y: 0, z: 0}
   yawRotationSpeed: 100
   diveDeadzone: 0.2

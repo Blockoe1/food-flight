@@ -14,7 +14,8 @@ namespace FoodFlight
 {
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(PlayerInput))]
-    public class PlayerRotator : MonoBehaviour
+    [RequireComponent(typeof(InputSynchronizer))]
+    public abstract class PlayerRotator : MonoBehaviour
     {
         #region CONSTS
         private const string RESET_ACTION_NAME = "Reset";
@@ -32,12 +33,14 @@ namespace FoodFlight
         [Header("Components")]
         [SerializeReference, ReadOnly] private Rigidbody rb;
         [SerializeReference, ReadOnly] protected PlayerInput input;
+        [SerializeReference, ReadOnly] protected InputSynchronizer inSync;
 
         [ContextMenu("Get Component References")]
         protected virtual void Reset()
         {
             rb = GetComponent<Rigidbody>();
             input = GetComponent<PlayerInput>();
+            inSync = GetComponent<InputSynchronizer>();
         }
 
         #endregion
@@ -45,6 +48,11 @@ namespace FoodFlight
         protected virtual void Awake()
         {
             resetRotationAction = input.currentActionMap.FindAction(RESET_ACTION_NAME);
+            inSync.OnControlSchemeChanged += CheckEnabled;
+        }
+        protected virtual void OnDestroy()
+        {
+            inSync.OnControlSchemeChanged -= CheckEnabled;
         }
 
         /// <summary>
@@ -58,10 +66,17 @@ namespace FoodFlight
         {
             resetRotationAction.performed -= ResetRotationAction_performed;
         }
+
         private void ResetRotationAction_performed(InputAction.CallbackContext obj)
         {
             ResetRotation();
         }
+
+        /// <summary>
+        /// Checks if this rotator should be enabled based on if the control scheme has gyro or not.
+        /// </summary>
+        /// <param name="hasGyro">True if gyro is supported, false if not.</param>
+        protected abstract void CheckEnabled(bool hasGyro);
 
         /// <summary>
         /// Resets this player back to their default rotation.

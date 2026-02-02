@@ -209,5 +209,14 @@ namespace FoodFlight
             // Always run the base FixedUpdate after target rotation has been set.
             base.FixedUpdate();
         }
+
+        /// <summary>
+        /// The InputRotator should be enabled if the player does not have gyro.
+        /// </summary>
+        /// <param name="hasGyro">True if gyro is enabled.</param>
+        protected override void CheckEnabled(bool hasGyro)
+        {
+            enabled = !hasGyro;
+        }
     }
 }

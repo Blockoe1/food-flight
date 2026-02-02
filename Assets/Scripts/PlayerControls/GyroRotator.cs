@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace FoodFlight
 {
-    [RequireComponent(typeof(InputSynchronizer))]
     public class GyroRotator : PlayerRotator
     {
         [Header("Gyro Settings")]
@@ -13,18 +12,6 @@ namespace FoodFlight
             "applied to this player.")] 
         private float gyroSensitivity;
         [SerializeField, Tooltip("Gyro inputs lower than this threshold are ignored.")] private float gyroThreshold;
-
-        #region Component References
-        [Header("Components")]
-        [SerializeReference, ReadOnly] private InputSynchronizer inSync;
-
-        [ContextMenu("Get Component References")]
-        protected override void Reset()
-        {
-            base.Reset();
-            inSync = GetComponent<InputSynchronizer>();
-        }
-        #endregion
 
         /// <summary>
         /// Every FixedUpdate, apply any unapplied gyro rotation.
@@ -61,6 +48,15 @@ namespace FoodFlight
             vector.y = Mathf.Abs(vector.y) > ignoreThreshold ? vector.y : 0;
             vector.z = Mathf.Abs(vector.z) > ignoreThreshold ? vector.z : 0;
             return vector;
+        }
+
+        /// <summary>
+        /// They gyro rotator should be enabled when the control scheme has gyro.
+        /// </summary>
+        /// <param name="hasGyro">True if gyro is enabled.</param>
+        protected override void CheckEnabled(bool hasGyro)
+        {
+            enabled = hasGyro;
         }
 
         #region Debug
