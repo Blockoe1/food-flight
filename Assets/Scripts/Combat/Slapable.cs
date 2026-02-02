@@ -55,6 +55,9 @@ namespace FoodFlight
             OnSlapped?.Invoke();
 
             Vector3 knockbackDirection = (rb.position - attackingRigidbody.position).normalized;
+            float knockbackStrength = baseKnockbackStrength * attackingRigidbody.linearVelocity.magnitude;
+
+            rb.AddForce(knockbackDirection * knockbackStrength, ForceMode.Impulse);
         }
     }
 }
