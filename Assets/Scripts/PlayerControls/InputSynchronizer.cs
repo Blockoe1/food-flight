@@ -7,10 +7,12 @@
 // Brief Description :  Synchronizes input between the unity InputSystem and the JoyShock library.
 *****************************************************************************/
 using CustomAttributes;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 namespace FoodFlight
 {
@@ -18,8 +20,8 @@ namespace FoodFlight
     public class InputSynchronizer : MonoBehaviour
     {
         #region Consts
-        private const int PAIR_BUTTON_MASK = 0x01000; // The south button.
-        private const string PAIR_CONTROL_PATH = "/buttonSouth";
+        private const int PAIR_BUTTON_MASK = 0x08000; // The north button.
+        private const string PAIR_CONTROL_PATH = "/buttonNorth";
         private const int MIN_CALIBRATION_SAMPLES = 32;
         private const int AWAIT_FREQUENCY = 25;
         #endregion
@@ -28,7 +30,7 @@ namespace FoodFlight
         [SerializeField] private float calibrationResetThreshold;
         //[SerializeField] private int calibrationSamples = 1000;
 
-        //public event Action<Vector3> OnGyroUpdate;
+        public event Action<bool> OnControlSchemeChanged;
 
         private InputSyncState sync;
 
@@ -70,19 +72,28 @@ namespace FoodFlight
         }
 
         /// <summary>
-        /// Cleans up any JSL accumulated data.
+        /// Sets the input device that this player will use and disconnects any previosu sync state.
         /// </summary>
-        public void CleanUpJSL()
+        /// <param name="inputDevice"></param>
+        public void OverrideControlScheme(InputDevice inputDevice)
         {
-            if (sync != null)
-            {
-                Debug.Log("Cleaning up JSL calibration data for controller " + sync.jslIndex);
-                JSL.JslResetContinuousCalibration(sync.jslIndex);
-            }
+            Unsync();
+            SetControlScheme(inputDevice);
         }
 
         /// <summary>
-        /// Sets the SyncState of this synchronizer.
+        /// Sets the InputDevice that this player will use.
+        /// </summary>
+        /// <param name="device">The device to set.</param>
+        private void SetControlScheme(InputDevice device)
+        {
+            playerInput.SwitchCurrentControlScheme(device);
+            // Send true if the sync state is set, meaning we support gyro.
+            OnControlSchemeChanged?.Invoke(sync != null);
+        }
+
+        /// <summary>
+        /// Sets the SyncState of this InputSynchronizer so it can read gyro.
         /// </summary>
         /// <param name="jslIndex">The index of the controller in JSL.</param>
         /// <param name="inputDevice">The InputDevice used through the Unity InputSystem.</param>
@@ -90,8 +101,7 @@ namespace FoodFlight
         {
             sync = new InputSyncState(jslIndex, inputDevice);
             // Also pass the main keyboard to this player's input.
-            playerInput.SwitchCurrentControlScheme(inputDevice, InputSystem.GetDevice<Keyboard>());
-            Debug.Log(playerInput.currentControlScheme);
+            SetControlScheme(inputDevice);
         }
 
         /// <summary>
@@ -101,6 +111,18 @@ namespace FoodFlight
         {
             CleanUpJSL();
             sync = null;
+        }
+
+        /// <summary>
+        /// Cleans up any JSL accumulated data.
+        /// </summary>
+        public void CleanUpJSL()
+        {
+            if (sync != null)
+            {
+                Debug.Log("Cleaning up JSL calibration data for controller " + sync.jslIndex);
+                JSL.JslResetContinuousCalibration(sync.jslIndex);
+            }
         }
 
         #region Getting Input
@@ -118,11 +140,23 @@ namespace FoodFlight
 
         #region Pairing
         /// <summary>
+        /// Pairs a controller to this player without reading gyro input.
+        /// </summary>
+        /// <param name="inputDevices">The InputDevices to listen for.</param>
+        /// <param name="ct">The cancellation token to cancel this operation.</param>
+        /// <returns>Task</returns>
+        public async Task PairController(InputDevice[] inputDevices, CancellationToken ct)
+        {
+            InputDevice device = await GetInputDevice(inputDevices, ct);
+            SetControlScheme(device);
+        }
+
+        /// <summary>
         /// Pair a controller for 
         /// </summary>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task PairControllers(int numControllers, InputDevice[] inputDevices, CancellationToken ct)
+        public async Task PairControllerGyro(int numControllers, InputDevice[] inputDevices, CancellationToken ct)
         {
             // Create tasks for syncing the JoyShock and InputDevices.
             Task<int> joyShockTask = GetJoyShock(numControllers, ct);
@@ -340,6 +374,20 @@ namespace FoodFlight
             JSL.JslGetCalibrationOffset(sync.jslIndex, ref x, ref y, ref z);
             Vector3 offset = new Vector3(x, y, z);
             Debug.Log($"Calibrated an offset of {offset} for the controller paired to {name} with a gyro magnitude of {avgGyroMagnitude}");
+        }
+        #endregion
+
+        #region Debug
+        [ContextMenu("Add Debug Sync")]
+        private void SetDebugSync()
+        {
+            playerInput.SwitchCurrentControlScheme(InputSystem.GetDevice<Keyboard>());
+            //Debug.Log(playerInput.currentActionMap);
+            //foreach(PlayerInput pi in FindObjectsByType<PlayerInput>(FindObjectsSortMode.None))
+            //{
+            //    Debug.Log(pi.devices[0]);
+            //}
+            
         }
         #endregion
     }

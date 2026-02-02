@@ -58,8 +58,8 @@ namespace FoodFlight
         protected override void Awake()
         {
             base.Awake();
-            moveAction = input.actions.FindAction(MOVE_ACTION_NAME);
-            diveAction = input.actions.FindAction(DIVE_ACTION_NAME);
+            moveAction = input.currentActionMap.FindAction(MOVE_ACTION_NAME);
+            diveAction = input.currentActionMap.FindAction(DIVE_ACTION_NAME);
 
             defaultRotation = Quaternion.Euler(defaultEuler);
         }
@@ -208,6 +208,15 @@ namespace FoodFlight
 
             // Always run the base FixedUpdate after target rotation has been set.
             base.FixedUpdate();
+        }
+
+        /// <summary>
+        /// The InputRotator should be enabled if the player does not have gyro.
+        /// </summary>
+        /// <param name="hasGyro">True if gyro is enabled.</param>
+        protected override void CheckEnabled(bool hasGyro)
+        {
+            enabled = !hasGyro;
         }
     }
 }
