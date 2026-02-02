@@ -76,7 +76,7 @@ namespace FoodFlight
             // Use two normalized vectors to ensure the resulting drag value is 0-1;
             float orientationFactor = Mathf.Abs(Vector3.Dot(pointingVector.normalized, Vector3.down));
             float dragForce = Mathf.Lerp(horizontalDrag, verticalDrag, orientationFactor);
-            return Mathf.Pow(speed, 2) * dragForce / 2 * Vector2.down;
+            return Mathf.Pow(speed, 2) * System.MathF.Sign(speed) * dragForce / 2 * Vector2.up;
         }
     }
 }
