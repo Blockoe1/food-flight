@@ -11,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 namespace FoodFlight
 {
@@ -340,6 +341,20 @@ namespace FoodFlight
             JSL.JslGetCalibrationOffset(sync.jslIndex, ref x, ref y, ref z);
             Vector3 offset = new Vector3(x, y, z);
             Debug.Log($"Calibrated an offset of {offset} for the controller paired to {name} with a gyro magnitude of {avgGyroMagnitude}");
+        }
+        #endregion
+
+        #region Debug
+        [ContextMenu("Add Debug Sync")]
+        private void SetDebugSync()
+        {
+            playerInput.SwitchCurrentControlScheme(InputSystem.GetDevice<Keyboard>());
+            //Debug.Log(playerInput.currentActionMap);
+            //foreach(PlayerInput pi in FindObjectsByType<PlayerInput>(FindObjectsSortMode.None))
+            //{
+            //    Debug.Log(pi.devices[0]);
+            //}
+            
         }
         #endregion
     }

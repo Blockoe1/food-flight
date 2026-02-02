@@ -58,8 +58,8 @@ namespace FoodFlight
         protected override void Awake()
         {
             base.Awake();
-            moveAction = input.actions.FindAction(MOVE_ACTION_NAME);
-            diveAction = input.actions.FindAction(DIVE_ACTION_NAME);
+            moveAction = input.currentActionMap.FindAction(MOVE_ACTION_NAME);
+            diveAction = input.currentActionMap.FindAction(DIVE_ACTION_NAME);
 
             defaultRotation = Quaternion.Euler(defaultEuler);
         }

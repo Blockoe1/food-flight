@@ -228,7 +228,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Player 1
-  m_DefaultActionMap: Skydiving
+  m_DefaultActionMap: d6b76599-f995-4e66-87f6-15ad9ce31648
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &2504725113489638729

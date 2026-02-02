@@ -64,6 +64,11 @@ namespace FoodFlight
             pairToken = new CancellationTokenSource();
             PairControllersAsync(pairToken.Token);
         }
+
+        /// <summary>
+        /// Cancels input pairing.
+        /// </summary>
+        [ContextMenu("Cancel Input Pairing")]
         public void CancelPairing()
         {
             if (pairToken != null)

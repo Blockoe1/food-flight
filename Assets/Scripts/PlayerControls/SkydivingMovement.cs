@@ -39,21 +39,6 @@ namespace FoodFlight
         #endregion
 
         /// <summary>
-        /// Debug
-        /// </summary>
-        private void Update()
-        {
-            Vector3 forward = (rb.rotation * Vector3.down);
-            Debug.DrawLine(rb.position, rb.position + forward * 5, Color.green);
-            Vector2 rotVector = new Vector2(forward.x, forward.z);
-            float rotAngle = Mathf.Atan2(rotVector.x, rotVector.y) * Mathf.Rad2Deg;
-            Debug.Log(rotAngle);
-            Quaternion idealRotQuat = Quaternion.Euler(0, rotAngle + 180, 0);
-
-            Debug.DrawLine(rb.position, rb.position + (idealRotQuat * IDEAL_Z_DRIFT_VECTOR) * 5, Color.red);
-        }
-
-        /// <summary>
         /// Applies drift velocity to the player based on their current rotation.
         /// </summary>
         private void FixedUpdate()

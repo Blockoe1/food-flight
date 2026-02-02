@@ -44,7 +44,7 @@ namespace FoodFlight
 
         protected virtual void Awake()
         {
-            resetRotationAction = input.actions.FindAction(RESET_ACTION_NAME);
+            resetRotationAction = input.currentActionMap.FindAction(RESET_ACTION_NAME);
         }
 
         /// <summary>

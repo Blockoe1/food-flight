@@ -3,7 +3,7 @@
     "name": "PlayerActions",
     "maps": [
         {
-            "name": "Skydiving",
+            "name": "Skydiving_Player1",
             "id": "d6b76599-f995-4e66-87f6-15ad9ce31648",
             "actions": [
                 {
@@ -90,7 +90,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Player 1",
+                    "groups": ";Player 1;Player 2",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -101,7 +101,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Player 1",
+                    "groups": ";Player 1;Player 2",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -112,7 +112,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Player 1",
+                    "groups": ";Player 1;Player 2",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -123,62 +123,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Player 1",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "IJKL",
-                    "id": "1f948ffd-a853-4ff0-b1b9-0c35a84cb0a4",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "d8278200-6693-4e91-a650-963b8ac2ba4a",
-                    "path": "<Keyboard>/i",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Player 2",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "6facc14b-a57c-446b-9d81-b1be4098070e",
-                    "path": "<Keyboard>/k",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Player 2",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "7aa7709e-731e-439c-86f1-91968ea1aac4",
-                    "path": "<Keyboard>/j",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Player 2",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "bea978f1-42ff-4610-a442-e66b8c79ab2f",
-                    "path": "<Keyboard>/l",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Player 2",
+                    "groups": ";Player 1;Player 2",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -211,7 +156,7 @@
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Player 1",
+                    "groups": ";Player 1;Player 2",
                     "action": "Dive",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -222,7 +167,7 @@
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Player 1",
+                    "groups": ";Player 1;Player 2",
                     "action": "Dive",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -233,7 +178,7 @@
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Player 1",
+                    "groups": ";Player 1;Player 2",
                     "action": "Dive",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -244,62 +189,7 @@
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Player 1",
-                    "action": "Dive",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "UO;",
-                    "id": "9cebabb9-2406-4b42-b80a-bd092f8277b0",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Dive",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "3a19cb25-1952-4b9f-a268-118de46950a6",
-                    "path": "<Keyboard>/semicolon",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Player 2",
-                    "action": "Dive",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "d522719f-56fb-4175-8829-703c1d649d3c",
-                    "path": "<Keyboard>/semicolon",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Player 2",
-                    "action": "Dive",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "65b19d68-053e-4212-8eb9-5bda1daecba5",
-                    "path": "<Keyboard>/u",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Player 2",
-                    "action": "Dive",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "a2fd5b82-cf23-4417-aec1-30f6ed471efb",
-                    "path": "<Keyboard>/o",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Player 2",
+                    "groups": ";Player 1;Player 2",
                     "action": "Dive",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -321,18 +211,7 @@
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Player 1",
-                    "action": "Reset",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "bdf8ee7b-119c-4b23-a44d-11a5fd758442",
-                    "path": "<Keyboard>/h",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Player 2",
+                    "groups": ";Player 1;Player 2",
                     "action": "Reset",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -354,18 +233,7 @@
                     "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Player 1",
-                    "action": "SlapRight",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6aa33fcb-7470-4b1a-a81b-5d08238276ec",
-                    "path": "<Keyboard>/m",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Player 2",
+                    "groups": ";Player 1;Player 2",
                     "action": "SlapRight",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -387,18 +255,7 @@
                     "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Player 1",
-                    "action": "SlapLeft",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "bf25cd59-d35f-41f7-aaa5-4f403d7de245",
-                    "path": "<Keyboard>/n",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Player 2",
+                    "groups": ";Player 1;Player 2",
                     "action": "SlapLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -418,6 +275,277 @@
                     "name": "",
                     "id": "e2b6bbe2-dda7-4efc-9915-e78603638724",
                     "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player 1;Player 2",
+                    "action": "ForceQuit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Skydiving_Player2",
+            "id": "54495491-5f98-49e5-9be0-703bfdb9f11a",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "PassThrough",
+                    "id": "73b465fb-89c1-4b16-85d9-5e4396a24d72",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Dive",
+                    "type": "PassThrough",
+                    "id": "0c890056-ac25-42ca-8142-e634f358679d",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Reset",
+                    "type": "Button",
+                    "id": "73937cdc-6cc3-4aae-9707-6d695435244c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SlapRight",
+                    "type": "Button",
+                    "id": "71d72c81-99c4-4439-9f5c-9c1d0aa56fe3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SlapLeft",
+                    "type": "Button",
+                    "id": "bb61cf95-8a54-47ad-bd5d-58a760ed842d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ForceQuit",
+                    "type": "Button",
+                    "id": "82c663c0-32a0-47e7-8a7d-cb13131a04d2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e46521c3-a069-4b11-9bdd-99e87424f09d",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "StickDeadzone",
+                    "groups": "Player 1;Player 2",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "IJKL",
+                    "id": "b4d1faf7-dcc8-48ce-ac20-e6d77098e155",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "de3ff354-eb97-468f-98db-0cb84fe95f46",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player 2;Player 1",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "b957ba42-a82c-4abd-9ab8-7d964f94494f",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player 2;Player 1",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "fabb9eaf-762d-4298-913e-bc268a3b30ce",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player 2;Player 1",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "ebf9b786-f94d-4fc5-9ddc-9003e456ae24",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player 2;Player 1",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "ec11ac2c-a071-44d5-83eb-5988efc0c36f",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "StickDeadzone",
+                    "groups": "Player 1;Player 2",
+                    "action": "Dive",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "UO;",
+                    "id": "3f72630f-9e0f-4fd3-8197-4660d97834ee",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dive",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "01db67a7-234f-442a-8655-e98f1a9b9bd1",
+                    "path": "<Keyboard>/semicolon",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player 2;Player 1",
+                    "action": "Dive",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "12ecc232-9acb-4673-9dc6-7d850763e707",
+                    "path": "<Keyboard>/semicolon",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player 2;Player 1",
+                    "action": "Dive",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "860afc36-1e06-4933-9fcf-15a339be3b5f",
+                    "path": "<Keyboard>/u",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player 2;Player 1",
+                    "action": "Dive",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "7a801a44-023d-45d4-9504-8c236470105c",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player 2;Player 1",
+                    "action": "Dive",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "269df16b-a049-4d7d-a6f1-a8c15ef47039",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player 1;Player 2",
+                    "action": "Reset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bce464eb-e721-45c9-a217-8d44021e5a8d",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player 2;Player 1",
+                    "action": "Reset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8fed5f3d-2219-4c83-9899-c4a0c7991318",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player 1;Player 2",
+                    "action": "SlapRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7ac27a2d-652c-4a91-af17-3963090fda04",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player 2;Player 1",
+                    "action": "SlapRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e2a43f8b-c22a-4ab6-9498-d7c381efe6b8",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player 1;Player 2",
+                    "action": "SlapLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "75b4b1d7-e9a7-479e-aa62-0c806bb652d2",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Player 2;Player 1",
+                    "action": "SlapLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1c7c5027-706f-4062-afc5-1697e56b3f47",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Player 1;Player 2",
