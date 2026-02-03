@@ -7,19 +7,20 @@
 // Brief Description :  Controls enabling hitboxes to attack other players.
 *****************************************************************************/
 using CustomAttributes;
-using NUnit.Framework.Constraints;
 using System.Collections;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace FoodFlight
 {
     [RequireComponent(typeof(PlayerInput))]
-    public class Slap : MonoBehaviour
+    public class Slapper : MonoBehaviour
     {
         [SerializeField] private float attackHitboxTime;
+        [SerializeField] private float slapCooldown;
         [SerializeField] private AttackPairing[] attacks;
+
+        private bool canSlap = true;
 
         #region Component References
         [Header("Components")]
@@ -39,8 +40,7 @@ namespace FoodFlight
             [SerializeField] private string actionName;
             [SerializeField] private GameObject hitbox;
 
-            private Slap attackerRef;
-            private float attackHitboxTime;
+            private Slapper slapperRef;
             private bool isAttacking;
             private InputAction action;
 
@@ -48,10 +48,9 @@ namespace FoodFlight
             /// Initializes this attack with shared settings.
             /// </summary>
             /// <param name="attackHitboxTime">The amount of time the hitbox exists.</param>
-            internal void Initialize(float attackHitboxTime, Slap attackerRef)
+            internal void Initialize(Slapper attackerRef)
             {
-                this.attackHitboxTime = attackHitboxTime;
-                this.attackerRef = attackerRef;
+                this.slapperRef = attackerRef;
             }
 
             /// <summary>
@@ -75,9 +74,9 @@ namespace FoodFlight
             /// <param name="obj"></param>
             private void Attack_performed(InputAction.CallbackContext obj)
             {
-                // Prevent double atttacks.
-                if (isAttacking) { return; }
-                attackerRef.StartCoroutine(HitboxRoutine(attackHitboxTime));
+                // Prevent double atttacks or attacks that are on cooldown.
+                if (isAttacking || !slapperRef.canSlap) { return; }
+                slapperRef.StartCoroutine(HitboxRoutine(slapperRef.attackHitboxTime));
             }
 
             /// <summary>
@@ -92,6 +91,9 @@ namespace FoodFlight
                 yield return new WaitForSeconds(hitboxTime);
                 hitbox.SetActive(false);
                 isAttacking = false;
+
+                // Put slapping on a brief cooldown.
+                slapperRef.DisableSlapping(slapperRef.slapCooldown);
             }
         }
         #endregion
@@ -103,7 +105,7 @@ namespace FoodFlight
         {
             foreach(var pair in attacks)
             {
-                pair.Initialize(attackHitboxTime, this);
+                pair.Initialize(this);
                 pair.SetupInput(input);
             }
         }
@@ -113,6 +115,22 @@ namespace FoodFlight
             {
                 pair.CleanUpInput();
             }
+        }
+
+        /// <summary>
+        /// Disables slapping for a period of time.
+        /// </summary>
+        /// <param name="disabledTime">The amount of time that slapping is disabled for.</param>
+        public void DisableSlapping(float disabledTime)
+        {
+            if (!canSlap) { return; }
+            StartCoroutine(DisableSlapRoutine(disabledTime));
+        }
+        private IEnumerator DisableSlapRoutine(float disabledTime)
+        {
+            canSlap = false;
+            yield return new WaitForSeconds(disabledTime);
+            canSlap = true;
         }
     }
 }

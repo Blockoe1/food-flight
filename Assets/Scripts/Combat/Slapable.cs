@@ -20,6 +20,7 @@ namespace FoodFlight
         #endregion
 
         [SerializeField] private float baseKnockbackStrength;
+        [SerializeField] private float scaledKnockbackStrength;
         [SerializeField] private UnityEvent OnSlapped;
 
         #region Component References
@@ -55,6 +56,10 @@ namespace FoodFlight
             OnSlapped?.Invoke();
 
             Vector3 knockbackDirection = (rb.position - attackingRigidbody.position).normalized;
+            float knockbackStrength = (scaledKnockbackStrength * attackingRigidbody.linearVelocity.magnitude) 
+                + baseKnockbackStrength;
+
+            rb.AddForce(knockbackDirection * knockbackStrength, ForceMode.Impulse);
         }
     }
 }
