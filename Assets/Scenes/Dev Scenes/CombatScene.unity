@@ -392,7 +392,6 @@ GameObject:
   - component: {fileID: 747940645}
   - component: {fileID: 747940647}
   - component: {fileID: 747940646}
-  - component: {fileID: 747940649}
   - component: {fileID: 747940648}
   m_Layer: 0
   m_Name: Player2FCamera
@@ -485,7 +484,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747940644}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f931e1f6c1cc3704b9377ce254ea8866, type: 3}
   m_Name: 
@@ -493,19 +492,6 @@ MonoBehaviour:
   boomDistance: 2
   cam: {fileID: 747940647}
   follow: {fileID: 747940646}
---- !u!114 &747940649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 747940644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e8b78ac948f05a46a6d8339a503172b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineHardLookAt
-  LookAtOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &751689496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1617,7 +1603,6 @@ GameObject:
   - component: {fileID: 1269720446}
   - component: {fileID: 1269720448}
   - component: {fileID: 1269720447}
-  - component: {fileID: 1269720449}
   - component: {fileID: 1269720450}
   m_Layer: 0
   m_Name: Player1FCamera
@@ -1703,19 +1688,6 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
---- !u!114 &1269720449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1269720445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e8b78ac948f05a46a6d8339a503172b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineHardLookAt
-  LookAtOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &1269720450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1723,7 +1695,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1269720445}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f931e1f6c1cc3704b9377ce254ea8866, type: 3}
   m_Name: 
