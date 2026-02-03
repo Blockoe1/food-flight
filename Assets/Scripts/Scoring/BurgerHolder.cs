@@ -19,6 +19,7 @@ namespace FoodFlight
         [SerializeField] private int scoreAmount;
         [SerializeField] private float dropDisableTime;
         [SerializeField] private UnityEvent OnGainBurger;
+        [SerializeField] private UnityEvent OnLoseBurger;
 
         private BurgerScript heldBurger;
         private int score;
@@ -83,6 +84,7 @@ namespace FoodFlight
 
             heldBurger.DisableGrabbing(dropDisableTime);
 
+            OnLoseBurger?.Invoke();
             heldBurger = null;
 
             Debug.Log(name + " dropped the burger.");
