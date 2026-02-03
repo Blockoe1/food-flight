@@ -23,7 +23,7 @@ namespace FoodFlight
         private BurgerScript heldBurger;
         private int score;
 
-        private event Action<int, int> OnScoreUpdate;
+        public event Action<int, int> OnScoreUpdate;
 
         #region Properties
         private bool HoldingBurger => heldBurger != null;

@@ -1,5 +1,5 @@
 /*****************************************************************************
-// File Name : BurgerHolder.cs
+// File Name : BurgerScript.cs
 // Author : Andrew Higgins
 // Creation Date : 2/3/2026
 // Last Modified : 2/3/2026

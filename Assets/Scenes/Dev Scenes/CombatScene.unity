@@ -391,6 +391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 703182010}
   - component: {fileID: 703182012}
+  - component: {fileID: 703182013}
   - component: {fileID: 703182011}
   m_Layer: 5
   m_Name: Player1Score
@@ -517,6 +518,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703182009}
   m_CullTransparentMesh: 1
+--- !u!114 &703182013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703182009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e73b75b3c64bcad46bbb3ae7889e0c5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.ScoreTextUpdater
+  textComponent: {fileID: 703182011}
+  player: {fileID: 1561594707}
 --- !u!1 &747940644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,6 +1540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 957005276}
   - component: {fileID: 957005278}
+  - component: {fileID: 957005279}
   - component: {fileID: 957005277}
   m_Layer: 5
   m_Name: Player2Score
@@ -1651,6 +1667,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957005275}
   m_CullTransparentMesh: 1
+--- !u!114 &957005279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957005275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e73b75b3c64bcad46bbb3ae7889e0c5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.ScoreTextUpdater
+  textComponent: {fileID: 957005277}
+  player: {fileID: 1275644193}
 --- !u!1001 &1091355369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2161,6 +2191,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ebd4e62d38597740a5173dba76ffc65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.InputSynchronizer
+--- !u!114 &1275644193 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8563242430432164419, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
+  m_PrefabInstance: {fileID: 1275644184}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1282658c3b1bcf14f949177d8d083d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.BurgerHolder
 --- !u!1 &1543893897
 GameObject:
   m_ObjectHideFlags: 0
@@ -2378,6 +2419,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ebd4e62d38597740a5173dba76ffc65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.InputSynchronizer
+--- !u!114 &1561594707 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3964411729484860863, guid: 70544e2894e995a448d497824312159d, type: 3}
+  m_PrefabInstance: {fileID: 1561594704}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1282658c3b1bcf14f949177d8d083d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.BurgerHolder
 --- !u!1 &1656921102
 GameObject:
   m_ObjectHideFlags: 0
