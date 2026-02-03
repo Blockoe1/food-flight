@@ -7,8 +7,6 @@
 // Brief Description :  Controls player drifting based on their rotation.
 *****************************************************************************/
 using CustomAttributes;
-using System.Net.NetworkInformation;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace FoodFlight

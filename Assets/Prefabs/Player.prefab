@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.SkydivingMovement
   maxDriftSpeed: 4
-  driftAcceleration: 3
+  driftAcceleration: 2
   levelBounds: {x: 20, y: 20}
   rb: {fileID: 7133835219555258079}
 --- !u!114 &5590620580483810736
@@ -264,7 +264,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0759c9ad441e04b428a19b9b1919b2db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.Slapable
-  baseKnockbackStrength: 10
+  baseKnockbackStrength: 5
+  scaledKnockbackStrength: 5
   OnSlapped:
     m_PersistentCalls:
       m_Calls:
