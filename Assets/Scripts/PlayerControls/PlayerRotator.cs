@@ -31,7 +31,7 @@ namespace FoodFlight
 
         #region Component References
         [Header("Components")]
-        [SerializeReference, ReadOnly] private Rigidbody rb;
+        [SerializeReference, ReadOnly] protected Rigidbody rb;
         [SerializeReference, ReadOnly] protected PlayerInput input;
         [SerializeReference, ReadOnly] protected InputSynchronizer inSync;
 

@@ -125,6 +125,9 @@ namespace FoodFlight
         /// </summary>
         protected override void FixedUpdate()
         {
+            // Disable the rotation constraints.
+            
+
             // Calculate the target direction based on input.
             Vector3 targetDirection = Vector3.up;
             Vector3 rotCorrection = Vector3.zero;
