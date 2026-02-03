@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Dev Scenes/GyroScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Build Scenes/MainMenu.unity
+    guid: f63be408ed096c94e9a6d1021b2bddc9
+  - enabled: 1
+    path: Assets/Scenes/Build Scenes/GameScene.unity
+    guid: 2eca4337452a8494c8c90a4ed1a8acb8
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
