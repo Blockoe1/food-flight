@@ -7,8 +7,6 @@
 // Brief Description :  Controls player drifting based on their rotation.
 *****************************************************************************/
 using CustomAttributes;
-using System.Net.NetworkInformation;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace FoodFlight
@@ -39,6 +37,26 @@ namespace FoodFlight
         #endregion
 
         /// <summary>
+        /// Debug
+        /// </summary>
+        //private void Update()
+        //{
+        //    // Calculate a quaternion to rotate all the ideal vectors by so they align with the  players orientation.
+        //    Vector3 forward = (rb.rotation * Vector3.down);
+        //    Vector2 rotVector = new Vector2(forward.x, forward.z);
+        //    float rotAngle = Mathf.Atan2(rotVector.x, rotVector.y) * Mathf.Rad2Deg;
+        //    Quaternion idealRotQuat = Quaternion.Euler(0, rotAngle, 0);
+
+        //    Debug.DrawLine(rb.position, rb.position + idealRotQuat * IDEAL_X_DRIFT_VECTOR * 5, Color.red);
+        //    Debug.DrawLine(rb.position, rb.position + idealRotQuat * IDEAL_NEG_X_DRIFT_VECTOR * 5, Color.red);
+        //    Debug.DrawLine(rb.position, rb.position + idealRotQuat * IDEAL_Z_DRIFT_VECTOR * 5, Color.red);
+        //    Debug.DrawLine(rb.position, rb.position + idealRotQuat * IDEAL_NEG_Z_DRIFT_VECTOR * 5, Color.red);
+        //    Debug.DrawLine(rb.position, rb.position + rb.rotation * Vector3.right * 5, Color.green);
+        //    Debug.DrawLine(rb.position, rb.position + rb.rotation * Vector3.forward * 5, Color.green);
+        //    Debug.DrawLine(rb.position, rb.position + rb.linearVelocity * 5, Color.blue);
+        //}
+
+        /// <summary>
         /// Applies drift velocity to the player based on their current rotation.
         /// </summary>
         private void FixedUpdate()
@@ -59,14 +77,19 @@ namespace FoodFlight
             targetDriftVelocity.y = CalculateDrift(rb.rotation * Vector3.forward,
                 idealRotQuat * IDEAL_Z_DRIFT_VECTOR, idealRotQuat * IDEAL_NEG_Z_DRIFT_VECTOR);
 
+            // Rotate the target drift velocity so that it matches the player's orientation.
+            Vector3 rotatedVel = idealRotQuat * new Vector3(targetDriftVelocity.x, 0, targetDriftVelocity.y);
+            targetDriftVelocity = new Vector2(rotatedVel.x, rotatedVel.z);
+
             // Move our current velocity towards the target.
             Vector2 currentVel = new Vector2(rb.linearVelocity.x, rb.linearVelocity.z);
             currentVel = Vector2.MoveTowards(currentVel, targetDriftVelocity, driftAcceleration);
 
-            //Debug.Log($"Target Velocity: {targetDriftVelocity}.");
+            //Debug.Log($"Target Velocity: {targetDriftVelocity}.  Current Velocity: {currentVel}");
+            //Debug.DrawLine(rb.position, rb.position + new Vector3(currentVel.x, 0, currentVel.y) * 5, Color.orange, 1f);
+            //Debug.DrawLine(rb.position, rb.position + new Vector3(targetDriftVelocity.x, 0, targetDriftVelocity.y) * 5, Color.purple, 1f);
 
-            Vector3 rotatedVel = idealRotQuat * new Vector3(currentVel.x, 0, currentVel.y);
-            rb.linearVelocity = new Vector3(rotatedVel.x, rb.linearVelocity.y, rotatedVel.z);
+            rb.linearVelocity = new Vector3(currentVel.x, rb.linearVelocity.y, currentVel.y);
 
             // Clamp the player's position to the level's bounds.
             Vector3 pos = rb.position;
