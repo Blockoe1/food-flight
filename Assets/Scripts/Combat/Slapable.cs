@@ -21,7 +21,7 @@ namespace FoodFlight
 
         [SerializeField] private float baseKnockbackStrength;
         [SerializeField] private float scaledKnockbackStrength;
-        [SerializeField] private UnityEvent OnSlapped;
+        [SerializeField] private UnityEvent<Vector3> OnSlapped;
 
         #region Component References
         [Header("Components")]
@@ -53,12 +53,13 @@ namespace FoodFlight
         /// <param name="attackingRigidbody">The rigidbody of the player that slapped this object.</param>
         private void GetSlapped(Rigidbody attackingRigidbody)
         {
-            OnSlapped?.Invoke();
+            
 
             Vector3 knockbackDirection = (rb.position - attackingRigidbody.position).normalized;
             float knockbackStrength = (scaledKnockbackStrength * attackingRigidbody.linearVelocity.magnitude) 
                 + baseKnockbackStrength;
 
+            OnSlapped?.Invoke(knockbackDirection * knockbackStrength);
             rb.AddForce(knockbackDirection * knockbackStrength, ForceMode.Impulse);
         }
     }

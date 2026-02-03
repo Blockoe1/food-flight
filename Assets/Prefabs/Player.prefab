@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 5590620580483810736}
   - component: {fileID: 3600725690774508948}
   - component: {fileID: 394571176850435322}
+  - component: {fileID: 3964411729484860863}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -192,9 +193,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde6ac161174e3c479e6c1a91b543c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.AirResistance
+  rb: {fileID: 7133835219555258079}
   verticalVelocity: 3
   horizontalVelocity: 2
-  rb: {fileID: 7133835219555258079}
 --- !u!114 &5740293930129898986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,7 +282,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3964411729484860863}
+        m_TargetAssemblyTypeName: FoodFlight.BurgerHolder, Assembly-CSharp
+        m_MethodName: DropBurger
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   rb: {fileID: 7133835219555258079}
+--- !u!114 &3964411729484860863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778754833571124715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1282658c3b1bcf14f949177d8d083d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.BurgerHolder
+  scoreInterval: 2
+  scoreAmount: 100
+  dropDisableTime: 1
+  OnGainBurger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5430800440980526400
 GameObject:
   m_ObjectHideFlags: 0
