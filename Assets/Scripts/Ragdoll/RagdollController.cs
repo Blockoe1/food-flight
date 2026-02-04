@@ -47,6 +47,7 @@ namespace FoodFlight
             hips.position = originalHipsPos;
 
             animator.enabled = true;
+            animator.Rebind();
             animator.Play("Skydive Loop");
             animator.Update(0);
         }
