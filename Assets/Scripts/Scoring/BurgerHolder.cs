@@ -28,10 +28,10 @@ namespace FoodFlight
 
         #region Properties
         private bool HoldingBurger => heldBurger != null;
-        private int Score
+        public int Score
         {
             get { return score; }
-            set
+            private set
             {
                 int scoreChange = value - score;
                 score = value;
@@ -67,6 +67,11 @@ namespace FoodFlight
             StartCoroutine(BurgerScoreRoutine());
         }
 
+
+        public void DropBurger()
+        {
+            DropBurger(Vector3.zero);   
+        }
         /// <summary>
         /// Causes this player to drop the burger if it is held.
         /// </summary>
