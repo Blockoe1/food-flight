@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 3600725690774508948}
   - component: {fileID: 394571176850435322}
   - component: {fileID: 3964411729484860863}
+  - component: {fileID: 6820090450158700413}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -95,7 +96,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &6696068519138197985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,6 +341,68 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6820090450158700413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778754833571124715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1263829e3de8aef4bb6766e3f35de2c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.GameEnd
+  scoreText: {fileID: 0}
+  disabledComponents:
+  - {fileID: 3964411729484860863}
+  - {fileID: 394571176850435322}
+  - {fileID: 3600725690774508948}
+  - {fileID: 5590620580483810736}
+  - {fileID: 5740293930129898986}
+  - {fileID: 2628432252682396311}
+  - {fileID: 5474769241405204166}
+  - {fileID: 6696068519138197985}
+  OnPlayerEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3964411729484860863}
+        m_TargetAssemblyTypeName: FoodFlight.BurgerHolder, Assembly-CSharp
+        m_MethodName: DropBurger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: FoodFlight.GameEndManager, Assembly-CSharp
+        m_MethodName: LogPlayerEnded
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  burgerHolder: {fileID: 3964411729484860863}
 --- !u!1 &5430800440980526400
 GameObject:
   m_ObjectHideFlags: 0
