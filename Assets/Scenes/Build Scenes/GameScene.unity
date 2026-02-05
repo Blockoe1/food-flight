@@ -2879,15 +2879,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 35829334}
     - target: {fileID: 2267281801525211265, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
-      propertyPath: OnPlayerEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      propertyPath: OnPlayerEnd.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267281801525211265, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
+      propertyPath: OnPlayerEnd.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1684305015}
     - target: {fileID: 2267281801525211265, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
-      propertyPath: OnPlayerEnd.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      propertyPath: OnPlayerEnd.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 532148152}
     - target: {fileID: 2267281801525211265, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
       propertyPath: OnPlayerEnd.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267281801525211265, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
+      propertyPath: OnPlayerEnd.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
       value: LogPlayerEnded
       objectReference: {fileID: 0}
     - target: {fileID: 2964409566653173694, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
@@ -4281,10 +4289,10 @@ RectTransform:
   m_Children:
   - {fileID: 1810694583}
   - {fileID: 411508885}
-  - {fileID: 2142791602}
   - {fileID: 465185261}
   - {fileID: 1483486411}
   - {fileID: 976637336}
+  - {fileID: 2142791602}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -8041,15 +8049,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1935933115}
     - target: {fileID: 6820090450158700413, guid: 70544e2894e995a448d497824312159d, type: 3}
-      propertyPath: OnPlayerEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      propertyPath: OnPlayerEnd.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 331531590}
     - target: {fileID: 6820090450158700413, guid: 70544e2894e995a448d497824312159d, type: 3}
-      propertyPath: OnPlayerEnd.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      propertyPath: OnPlayerEnd.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 532148152}
     - target: {fileID: 6820090450158700413, guid: 70544e2894e995a448d497824312159d, type: 3}
       propertyPath: OnPlayerEnd.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 6820090450158700413, guid: 70544e2894e995a448d497824312159d, type: 3}
+      propertyPath: OnPlayerEnd.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
       value: LogPlayerEnded
       objectReference: {fileID: 0}
     - target: {fileID: 7561937550059878466, guid: 70544e2894e995a448d497824312159d, type: 3}
