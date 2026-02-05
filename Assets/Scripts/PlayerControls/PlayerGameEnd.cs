@@ -39,7 +39,7 @@ namespace FoodFlight
         /// Detects when a player hits the end of the level.
         /// </summary>
         /// <param name="collision"></param>
-        private void OnCollisionEnter(Collision collision)
+        private void OnTriggerEnter(Collider collision)
         {
             Debug.Log(collision.gameObject.tag);
             if (collision.gameObject.CompareTag(END_GAME_TAG))
