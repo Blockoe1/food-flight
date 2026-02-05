@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 394571176850435322}
   - component: {fileID: 3964411729484860863}
   - component: {fileID: 6820090450158700413}
+  - component: {fileID: 130866746212297838}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -54,7 +55,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4778754833571124715}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 8b60e25bce8cacc4dac65691ef7f2d76, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -268,6 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.Slapable
   baseKnockbackStrength: 5
   scaledKnockbackStrength: 5
+  staticSimulatedSpeed: {x: 5, y: 0, z: 0}
   OnSlapped:
     m_PersistentCalls:
       m_Calls:
@@ -293,6 +295,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0.5
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 130866746212297838}
+        m_TargetAssemblyTypeName: FoodFlight.AudioRelay, Assembly-CSharp
+        m_MethodName: PlayRandomized
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.5
+          m_StringArgument: PlayerHurt
           m_BoolArgument: 0
         m_CallState: 2
   rb: {fileID: 7133835219555258079}
@@ -325,6 +339,33 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 130866746212297838}
+        m_TargetAssemblyTypeName: FoodFlight.AudioRelay, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: BurgerGrab
+          m_BoolArgument: 1
+        m_CallState: 2
+  OnScorePoints:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 130866746212297838}
+        m_TargetAssemblyTypeName: FoodFlight.AudioRelay, Assembly-CSharp
+        m_MethodName: PlayRandomized
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ScoreIncrease
+          m_BoolArgument: 0
         m_CallState: 2
   OnLoseBurger:
     m_PersistentCalls:
@@ -402,7 +443,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 130866746212297838}
+        m_TargetAssemblyTypeName: FoodFlight.AudioRelay, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: GroundImpact
+          m_BoolArgument: 1
+        m_CallState: 2
   burgerHolder: {fileID: 3964411729484860863}
+--- !u!114 &130866746212297838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778754833571124715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6176ce80e082b214d8901231e01d554c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.AudioRelay
+  soundName: PlayerSlap
 --- !u!1 &5430800440980526400
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +481,7 @@ GameObject:
   - component: {fileID: 6388272966059275716}
   - component: {fileID: 5735912346213772030}
   - component: {fileID: 6025880844476565511}
+  - component: {fileID: 2906913830365909921}
   m_Layer: 6
   m_Name: RightHitbox
   m_TagString: Slap
@@ -514,6 +581,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5430800440980526400}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2906913830365909921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5430800440980526400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 607232bcf7632464f9588ecb8745d507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.SlapSound
+  audioRelay: {fileID: 130866746212297838}
 --- !u!1 &7348700056125354743
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,6 +606,7 @@ GameObject:
   - component: {fileID: 3163143217431382910}
   - component: {fileID: 5220403999292776589}
   - component: {fileID: 5449094936886233606}
+  - component: {fileID: 5166642035806085256}
   m_Layer: 6
   m_Name: LeftHitbox
   m_TagString: Slap
@@ -625,6 +706,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7348700056125354743}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &5166642035806085256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7348700056125354743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 607232bcf7632464f9588ecb8745d507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.SlapSound
+  audioRelay: {fileID: 130866746212297838}
 --- !u!1001 &2241441165844707644
 PrefabInstance:
   m_ObjectHideFlags: 0

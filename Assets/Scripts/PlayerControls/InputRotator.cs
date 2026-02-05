@@ -93,7 +93,7 @@ namespace FoodFlight
         }
         private void MoveAction_canceled(InputAction.CallbackContext obj)
         {
-            Debug.Log("Move Canceled");
+            //Debug.Log("Move Canceled");
             moveInput = Vector2.zero;
         }
 

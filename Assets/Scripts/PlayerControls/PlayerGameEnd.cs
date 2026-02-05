@@ -24,6 +24,8 @@ namespace FoodFlight
         [SerializeField] private MonoBehaviour[] disabledComponents;
         [SerializeField] private UnityEvent OnPlayerEnd;
 
+        private bool hasEnded;
+
         #region Component References
         [Header("Components")]
         [SerializeReference, ReadOnly] private BurgerHolder burgerHolder;
@@ -41,9 +43,10 @@ namespace FoodFlight
         /// <param name="collision"></param>
         private void OnCollisionEnter(Collision collision)
         {
-            Debug.Log(collision.gameObject.tag);
+            if (hasEnded) { return; }
             if (collision.gameObject.CompareTag(END_GAME_TAG))
             {
+                hasEnded = true;
                 if (scoreText != null)
                 {
                     scoreText.text = burgerHolder.Score.ToString();
