@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1161819400421093175}
   m_Layer: 0
   m_Name: Obstacle
-  m_TagString: Untagged
+  m_TagString: Slap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8829542142312033623}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4d30bafc6dccf7a44ba747aa78679b02, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

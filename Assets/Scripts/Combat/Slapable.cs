@@ -21,6 +21,7 @@ namespace FoodFlight
 
         [SerializeField] private float baseKnockbackStrength;
         [SerializeField] private float scaledKnockbackStrength;
+        [SerializeField] private Vector3 staticSimulatedSpeed;
         [SerializeField] private UnityEvent<Vector3> OnSlapped;
 
         #region Component References
@@ -43,7 +44,19 @@ namespace FoodFlight
         {
             if (collision.gameObject.CompareTag(SLAP_TAG))
             {
-                GetSlapped(collision.attachedRigidbody);
+                GetSlapped(collision.attachedRigidbody.position, collision.attachedRigidbody.linearVelocity);
+            }
+        }
+
+        /// <summary>
+        /// Hittin an obstacle also counts as being slapped.
+        /// </summary>
+        /// <param name="collision"></param>
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.CompareTag(SLAP_TAG))
+            {
+                GetSlapped(collision.gameObject.transform.position, staticSimulatedSpeed);
             }
         }
 
@@ -51,12 +64,10 @@ namespace FoodFlight
         /// Causes this object to be knocked away from the attacking rigidbody.
         /// </summary>
         /// <param name="attackingRigidbody">The rigidbody of the player that slapped this object.</param>
-        private void GetSlapped(Rigidbody attackingRigidbody)
+        private void GetSlapped(Vector3 position, Vector3 velocity)
         {
-            
-
-            Vector3 knockbackDirection = (rb.position - attackingRigidbody.position).normalized;
-            float knockbackStrength = (scaledKnockbackStrength * attackingRigidbody.linearVelocity.magnitude) 
+            Vector3 knockbackDirection = (rb.position - position).normalized;
+            float knockbackStrength = (scaledKnockbackStrength * velocity.magnitude) 
                 + baseKnockbackStrength;
 
             OnSlapped?.Invoke(knockbackDirection * knockbackStrength);
