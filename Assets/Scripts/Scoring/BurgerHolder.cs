@@ -24,6 +24,7 @@ namespace FoodFlight
 
         private BurgerScript heldBurger;
         private int score;
+        private bool isScoring;
 
         public event Action<int, int> OnScoreUpdate;
 
@@ -65,7 +66,10 @@ namespace FoodFlight
             OnGainBurger?.Invoke();
             heldBurger.gameObject.SetActive(false);
 
-            StartCoroutine(BurgerScoreRoutine());
+            if (!isScoring)
+            {
+                StartCoroutine(BurgerScoreRoutine());
+            }
         }
 
 
@@ -103,12 +107,14 @@ namespace FoodFlight
         /// <returns></returns>
         private IEnumerator BurgerScoreRoutine()
         {
+            isScoring = true;
             while(HoldingBurger)
             {
                 Score += scoreAmount;
                 OnScorePoints?.Invoke();
                 yield return new WaitForSeconds(scoreInterval);
             }
+            isScoring = false;
         }
     }
 }
