@@ -108,11 +108,21 @@ namespace FoodFlight
         private IEnumerator BurgerScoreRoutine()
         {
             isScoring = true;
+            float timer = 0;
             while(HoldingBurger)
             {
-                Score += scoreAmount;
-                OnScorePoints?.Invoke();
-                yield return new WaitForSeconds(scoreInterval);
+                heldBurger.transform.position = transform.position;
+
+                timer += Time.deltaTime;
+
+                if (timer > scoreInterval)
+                {
+                    timer = 0;
+                    Score += scoreAmount;
+                    OnScorePoints?.Invoke();
+                }
+               
+                yield return null;
             }
             isScoring = false;
         }
