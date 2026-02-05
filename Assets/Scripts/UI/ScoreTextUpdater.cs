@@ -15,6 +15,7 @@ namespace FoodFlight
     {
         [SerializeField] private TMP_Text textComponent;
         [SerializeField] private BurgerHolder player;
+        [SerializeField] private string suffix = " Points";
 
         /// <summary>
         /// Subscribe/Unsubscribe events.
@@ -35,7 +36,7 @@ namespace FoodFlight
         /// <param name="scoreChange"></param>
         private void UpdateScore(int currentScore, int scoreChange)
         {
-            textComponent.text = currentScore.ToString();
+            textComponent.text = currentScore.ToString() + suffix;
         }
     }
 }
