@@ -3680,6 +3680,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 1043509115337918998, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
+      propertyPath: maxDriftSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043509115337918998, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
+      propertyPath: driftAcceleration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107651911829747229, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Skydiving_Player2
+      objectReference: {fileID: 0}
     - target: {fileID: 2267281801525211265, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
       propertyPath: scoreText
       value: 
@@ -3740,6 +3752,18 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 1e251b071fdfb5e45b0720d25113cee5, type: 2}
+    - target: {fileID: 7138283269114344117, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
+      propertyPath: calibrationResetThreshold
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325322348128638315, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
+      propertyPath: verticalVelocity
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325322348128638315, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
+      propertyPath: horizontalVelocity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8563242430432164419, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
       propertyPath: OnGainBurger.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -9543,14 +9567,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1978573046}
     m_Modifications:
-    - target: {fileID: 2628432252682396311, guid: 70544e2894e995a448d497824312159d, type: 3}
-      propertyPath: verticalVelocity
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 2628432252682396311, guid: 70544e2894e995a448d497824312159d, type: 3}
-      propertyPath: horizontalVelocity
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 3964411729484860863, guid: 70544e2894e995a448d497824312159d, type: 3}
       propertyPath: OnGainBurger.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -9618,14 +9634,6 @@ PrefabInstance:
     - target: {fileID: 5474769241405204166, guid: 70544e2894e995a448d497824312159d, type: 3}
       propertyPath: debugText
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5740293930129898986, guid: 70544e2894e995a448d497824312159d, type: 3}
-      propertyPath: maxDriftSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5740293930129898986, guid: 70544e2894e995a448d497824312159d, type: 3}
-      propertyPath: driftAcceleration
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6820090450158700413, guid: 70544e2894e995a448d497824312159d, type: 3}
       propertyPath: scoreText
@@ -11496,14 +11504,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4653375820875668474, guid: d88c2dd53de78214a9b12ba9a64367eb, type: 3}
-      propertyPath: m_Mass
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4653375820875668474, guid: d88c2dd53de78214a9b12ba9a64367eb, type: 3}
-      propertyPath: m_LinearDamping
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5693866521535442226, guid: d88c2dd53de78214a9b12ba9a64367eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11547,10 +11547,6 @@ PrefabInstance:
     - target: {fileID: 6259758094029860140, guid: d88c2dd53de78214a9b12ba9a64367eb, type: 3}
       propertyPath: m_Name
       value: Cheeseburger
-      objectReference: {fileID: 0}
-    - target: {fileID: 6675264639104648914, guid: d88c2dd53de78214a9b12ba9a64367eb, type: 3}
-      propertyPath: terminalVelocity
-      value: 27
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
