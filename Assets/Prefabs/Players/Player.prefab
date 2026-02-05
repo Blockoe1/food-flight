@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.InputSynchronizer
   calibrationThreshold: 1
-  calibrationResetThreshold: 5
+  calibrationResetThreshold: 3
   playerInput: {fileID: 6696068519138197985}
 --- !u!114 &5474769241405204166
 MonoBehaviour:
@@ -196,8 +196,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.AirResistance
   rb: {fileID: 7133835219555258079}
-  verticalVelocity: 3
-  horizontalVelocity: 2
+  verticalVelocity: 8
+  horizontalVelocity: 3
 --- !u!114 &5740293930129898986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,8 +210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6818fc50d5f5184f8ae874b52c75455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.SkydivingMovement
-  maxDriftSpeed: 4
-  driftAcceleration: 2
+  maxDriftSpeed: 10
+  driftAcceleration: 4
   levelBounds: {x: 20, y: 20}
   rb: {fileID: 7133835219555258079}
 --- !u!114 &5590620580483810736
