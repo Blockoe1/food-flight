@@ -55,7 +55,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4778754833571124715}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 8b60e25bce8cacc4dac65691ef7f2d76, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -269,6 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.Slapable
   baseKnockbackStrength: 5
   scaledKnockbackStrength: 5
+  staticSimulatedSpeed: {x: 5, y: 0, z: 0}
   OnSlapped:
     m_PersistentCalls:
       m_Calls:

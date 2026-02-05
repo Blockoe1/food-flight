@@ -7964,6 +7964,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1978573046}
     m_Modifications:
+    - target: {fileID: 394571176850435322, guid: 70544e2894e995a448d497824312159d, type: 3}
+      propertyPath: staticSimulatedSpeed.x
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3964411729484860863, guid: 70544e2894e995a448d497824312159d, type: 3}
       propertyPath: OnGainBurger.m_PersistentCalls.m_Calls.Array.size
       value: 2

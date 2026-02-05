@@ -41,7 +41,6 @@ namespace FoodFlight
         /// <param name="collision"></param>
         private void OnCollisionEnter(Collision collision)
         {
-            Debug.Log(collision.gameObject.tag);
             if (collision.gameObject.CompareTag(END_GAME_TAG))
             {
                 if (scoreText != null)
