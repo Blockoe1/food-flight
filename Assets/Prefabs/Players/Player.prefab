@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4778754833571124715
+--- !u!1 &4339010583431158352
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,20 +8,20 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7561937550059878466}
-  - component: {fileID: 4863779592019887884}
-  - component: {fileID: 7133835219555258079}
-  - component: {fileID: 6696068519138197985}
-  - component: {fileID: 2504725113489638729}
-  - component: {fileID: 5474769241405204166}
-  - component: {fileID: 2628432252682396311}
-  - component: {fileID: 5740293930129898986}
-  - component: {fileID: 5590620580483810736}
-  - component: {fileID: 3600725690774508948}
-  - component: {fileID: 394571176850435322}
-  - component: {fileID: 3964411729484860863}
-  - component: {fileID: 6820090450158700413}
-  - component: {fileID: 130866746212297838}
+  - component: {fileID: 5269278089966605104}
+  - component: {fileID: 4691948886291543374}
+  - component: {fileID: 7439524430109209353}
+  - component: {fileID: 2521968510689332715}
+  - component: {fileID: 1006001210985305545}
+  - component: {fileID: 2657174456007695348}
+  - component: {fileID: 6456217392271444836}
+  - component: {fileID: 2755294285287367045}
+  - component: {fileID: 8611893828759855280}
+  - component: {fileID: 8848617530750412694}
+  - component: {fileID: 5402896250372145612}
+  - component: {fileID: 1133864471906508108}
+  - component: {fileID: 5946963497981495030}
+  - component: {fileID: 7560062164279560727}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -29,31 +29,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7561937550059878466
+--- !u!4 &5269278089966605104
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778754833571124715}
+  m_GameObject: {fileID: 4339010583431158352}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8697495705993302647}
-  - {fileID: 237068782089492182}
-  - {fileID: 4080084258477779407}
+  - {fileID: 8312345121752829721}
+  - {fileID: 8666595058609548618}
+  - {fileID: 7887665576406462527}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &4863779592019887884
+--- !u!136 &4691948886291543374
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778754833571124715}
+  m_GameObject: {fileID: 4339010583431158352}
   m_Material: {fileID: 13400000, guid: 8b60e25bce8cacc4dac65691ef7f2d76, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -69,14 +69,14 @@ CapsuleCollider:
   m_Radius: 0.2
   m_Height: 1.4243245
   m_Direction: 1
-  m_Center: {x: 0, y: -0.17697346, z: 0}
---- !u!54 &7133835219555258079
+  m_Center: {x: 0, y: 0.04, z: 0}
+--- !u!54 &7439524430109209353
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778754833571124715}
+  m_GameObject: {fileID: 4339010583431158352}
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
@@ -97,13 +97,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &6696068519138197985
+--- !u!114 &2521968510689332715
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778754833571124715}
+  m_GameObject: {fileID: 4339010583431158352}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
@@ -127,13 +127,13 @@ MonoBehaviour:
   m_DefaultActionMap: Skydiving_Player1
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &2504725113489638729
+--- !u!114 &1006001210985305545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778754833571124715}
+  m_GameObject: {fileID: 4339010583431158352}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ebd4e62d38597740a5173dba76ffc65, type: 3}
@@ -141,47 +141,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.InputSynchronizer
   calibrationThreshold: 1
   calibrationResetThreshold: 5
-  playerInput: {fileID: 6696068519138197985}
---- !u!114 &5474769241405204166
+  playerInput: {fileID: 2521968510689332715}
+--- !u!114 &2657174456007695348
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778754833571124715}
+  m_GameObject: {fileID: 4339010583431158352}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f473641a33193644a0e50778b888f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.GyroRotator
   rotationSlerpSpeed: 0.5
-  rb: {fileID: 7133835219555258079}
-  input: {fileID: 6696068519138197985}
-  inSync: {fileID: 2504725113489638729}
+  rb: {fileID: 7439524430109209353}
+  input: {fileID: 2521968510689332715}
+  inSync: {fileID: 1006001210985305545}
   gyroSensitivity: 0.0175
   gyroThreshold: 4
---- !u!114 &2628432252682396311
+--- !u!114 &6456217392271444836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778754833571124715}
+  m_GameObject: {fileID: 4339010583431158352}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dde6ac161174e3c479e6c1a91b543c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.AirResistance
-  rb: {fileID: 7133835219555258079}
+  rb: {fileID: 7439524430109209353}
   verticalVelocity: 3
   horizontalVelocity: 2
---- !u!114 &5740293930129898986
+--- !u!114 &2755294285287367045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778754833571124715}
+  m_GameObject: {fileID: 4339010583431158352}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6818fc50d5f5184f8ae874b52c75455, type: 3}
@@ -190,35 +190,35 @@ MonoBehaviour:
   maxDriftSpeed: 4
   driftAcceleration: 2
   levelBounds: {x: 20, y: 20}
-  rb: {fileID: 7133835219555258079}
---- !u!114 &5590620580483810736
+  rb: {fileID: 7439524430109209353}
+--- !u!114 &8611893828759855280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778754833571124715}
+  m_GameObject: {fileID: 4339010583431158352}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa50b0cd62545b24a9db48b7a24c8015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.InputRotator
   rotationSlerpSpeed: 0.5
-  rb: {fileID: 7133835219555258079}
-  input: {fileID: 6696068519138197985}
-  inSync: {fileID: 2504725113489638729}
+  rb: {fileID: 7439524430109209353}
+  input: {fileID: 2521968510689332715}
+  inSync: {fileID: 1006001210985305545}
   defaultEuler: {x: -90, y: 0, z: 0}
   yawRotationSpeed: 100
   diveDeadzone: 0.2
   moveInput: {x: 0, y: 0}
   diveInput: {x: 0, y: 0}
---- !u!114 &3600725690774508948
+--- !u!114 &8848617530750412694
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778754833571124715}
+  m_GameObject: {fileID: 4339010583431158352}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9187d4c5a9499d47a29553e47a6ce11, type: 3}
@@ -228,17 +228,17 @@ MonoBehaviour:
   slapCooldown: 0.25
   attacks:
   - actionName: SlapRight
-    hitbox: {fileID: 5430800440980526400}
+    hitbox: {fileID: 7288121708044816196}
   - actionName: SlapLeft
-    hitbox: {fileID: 7348700056125354743}
-  input: {fileID: 6696068519138197985}
---- !u!114 &394571176850435322
+    hitbox: {fileID: 7677489608166124532}
+  input: {fileID: 2521968510689332715}
+--- !u!114 &5402896250372145612
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778754833571124715}
+  m_GameObject: {fileID: 4339010583431158352}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0759c9ad441e04b428a19b9b1919b2db, type: 3}
@@ -250,7 +250,7 @@ MonoBehaviour:
   OnSlapped:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3600725690774508948}
+      - m_Target: {fileID: 8848617530750412694}
         m_TargetAssemblyTypeName: FoodFlight.Slapper, Assembly-CSharp
         m_MethodName: DisableSlapping
         m_Mode: 4
@@ -262,7 +262,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3964411729484860863}
+      - m_Target: {fileID: 1133864471906508108}
         m_TargetAssemblyTypeName: FoodFlight.BurgerHolder, Assembly-CSharp
         m_MethodName: DropBurger
         m_Mode: 0
@@ -274,7 +274,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 130866746212297838}
+      - m_Target: {fileID: 7560062164279560727}
         m_TargetAssemblyTypeName: FoodFlight.AudioRelay, Assembly-CSharp
         m_MethodName: PlayRandomized
         m_Mode: 5
@@ -286,14 +286,26 @@ MonoBehaviour:
           m_StringArgument: PlayerHurt
           m_BoolArgument: 0
         m_CallState: 2
-  rb: {fileID: 7133835219555258079}
---- !u!114 &3964411729484860863
+      - m_Target: {fileID: 6471286456516726903}
+        m_TargetAssemblyTypeName: FoodFlight.RagdollController, Assembly-CSharp
+        m_MethodName: RagdollForSeconds
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: PlayerHurt
+          m_BoolArgument: 0
+        m_CallState: 2
+  rb: {fileID: 7439524430109209353}
+--- !u!114 &1133864471906508108
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778754833571124715}
+  m_GameObject: {fileID: 4339010583431158352}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1282658c3b1bcf14f949177d8d083d11, type: 3}
@@ -305,7 +317,7 @@ MonoBehaviour:
   OnGainBurger:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1430555941946868845}
+      - m_Target: {fileID: 1722730229482662628}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -317,7 +329,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 130866746212297838}
+      - m_Target: {fileID: 7560062164279560727}
         m_TargetAssemblyTypeName: FoodFlight.AudioRelay, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 5
@@ -332,7 +344,7 @@ MonoBehaviour:
   OnScorePoints:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 130866746212297838}
+      - m_Target: {fileID: 7560062164279560727}
         m_TargetAssemblyTypeName: FoodFlight.AudioRelay, Assembly-CSharp
         m_MethodName: PlayRandomized
         m_Mode: 5
@@ -347,7 +359,7 @@ MonoBehaviour:
   OnLoseBurger:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1430555941946868845}
+      - m_Target: {fileID: 1722730229482662628}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -359,13 +371,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6820090450158700413
+--- !u!114 &5946963497981495030
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778754833571124715}
+  m_GameObject: {fileID: 4339010583431158352}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1263829e3de8aef4bb6766e3f35de2c5, type: 3}
@@ -373,18 +385,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.GameEnd
   scoreText: {fileID: 0}
   disabledComponents:
-  - {fileID: 3964411729484860863}
-  - {fileID: 394571176850435322}
-  - {fileID: 3600725690774508948}
-  - {fileID: 5590620580483810736}
-  - {fileID: 5740293930129898986}
-  - {fileID: 2628432252682396311}
-  - {fileID: 5474769241405204166}
-  - {fileID: 6696068519138197985}
+  - {fileID: 1133864471906508108}
+  - {fileID: 5402896250372145612}
+  - {fileID: 8848617530750412694}
+  - {fileID: 8611893828759855280}
+  - {fileID: 2755294285287367045}
+  - {fileID: 6456217392271444836}
+  - {fileID: 2657174456007695348}
+  - {fileID: 2521968510689332715}
   OnPlayerEnd:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3964411729484860863}
+      - m_Target: {fileID: 1133864471906508108}
         m_TargetAssemblyTypeName: FoodFlight.BurgerHolder, Assembly-CSharp
         m_MethodName: DropBurger
         m_Mode: 1
@@ -396,7 +408,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5919549762898087193}
+      - m_Target: {fileID: 6471286456516726903}
         m_TargetAssemblyTypeName: FoodFlight.RagdollController, Assembly-CSharp
         m_MethodName: EnableRagdoll
         m_Mode: 1
@@ -432,7 +444,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 130866746212297838}
+      - m_Target: {fileID: 7560062164279560727}
         m_TargetAssemblyTypeName: FoodFlight.AudioRelay, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 5
@@ -444,21 +456,33 @@ MonoBehaviour:
           m_StringArgument: GroundImpact
           m_BoolArgument: 1
         m_CallState: 2
-  burgerHolder: {fileID: 3964411729484860863}
---- !u!114 &130866746212297838
+      - m_Target: {fileID: 6471286456516726903}
+        m_TargetAssemblyTypeName: FoodFlight.RagdollController, Assembly-CSharp
+        m_MethodName: EnableRagdoll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: GroundImpact
+          m_BoolArgument: 1
+        m_CallState: 2
+  burgerHolder: {fileID: 1133864471906508108}
+--- !u!114 &7560062164279560727
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778754833571124715}
+  m_GameObject: {fileID: 4339010583431158352}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6176ce80e082b214d8901231e01d554c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.AudioRelay
   soundName: PlayerSlap
---- !u!1 &5430800440980526400
+--- !u!1 &7288121708044816196
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -466,11 +490,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 237068782089492182}
-  - component: {fileID: 6388272966059275716}
-  - component: {fileID: 5735912346213772030}
-  - component: {fileID: 6025880844476565511}
-  - component: {fileID: 2906913830365909921}
+  - component: {fileID: 8666595058609548618}
+  - component: {fileID: 654724472588770105}
+  - component: {fileID: 650771363218736333}
+  - component: {fileID: 7487998427222071410}
+  - component: {fileID: 3749402925007643768}
   m_Layer: 6
   m_Name: RightHitbox
   m_TagString: Slap
@@ -478,28 +502,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &237068782089492182
+--- !u!4 &8666595058609548618
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5430800440980526400}
+  m_GameObject: {fileID: 7288121708044816196}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.55, y: -0.9, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7561937550059878466}
+  m_Father: {fileID: 5269278089966605104}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &6388272966059275716
+--- !u!135 &654724472588770105
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5430800440980526400}
+  m_GameObject: {fileID: 7288121708044816196}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -514,13 +538,13 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &5735912346213772030
+--- !u!23 &650771363218736333
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5430800440980526400}
+  m_GameObject: {fileID: 7288121708044816196}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -562,28 +586,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &6025880844476565511
+--- !u!33 &7487998427222071410
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5430800440980526400}
+  m_GameObject: {fileID: 7288121708044816196}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &2906913830365909921
+--- !u!114 &3749402925007643768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5430800440980526400}
+  m_GameObject: {fileID: 7288121708044816196}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 607232bcf7632464f9588ecb8745d507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.SlapSound
-  audioRelay: {fileID: 130866746212297838}
---- !u!1 &7348700056125354743
+  audioRelay: {fileID: 7560062164279560727}
+--- !u!1 &7677489608166124532
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -591,11 +615,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4080084258477779407}
-  - component: {fileID: 3163143217431382910}
-  - component: {fileID: 5220403999292776589}
-  - component: {fileID: 5449094936886233606}
-  - component: {fileID: 5166642035806085256}
+  - component: {fileID: 7887665576406462527}
+  - component: {fileID: 2384178461550797680}
+  - component: {fileID: 1188962053756815831}
+  - component: {fileID: 5940352829729694385}
+  - component: {fileID: 8089346307188349173}
   m_Layer: 6
   m_Name: LeftHitbox
   m_TagString: Slap
@@ -603,28 +627,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &4080084258477779407
+--- !u!4 &7887665576406462527
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7348700056125354743}
+  m_GameObject: {fileID: 7677489608166124532}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.55, y: -0.9, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7561937550059878466}
+  m_Father: {fileID: 5269278089966605104}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &3163143217431382910
+--- !u!135 &2384178461550797680
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7348700056125354743}
+  m_GameObject: {fileID: 7677489608166124532}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -639,13 +663,13 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &5220403999292776589
+--- !u!23 &1188962053756815831
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7348700056125354743}
+  m_GameObject: {fileID: 7677489608166124532}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -687,34 +711,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &5449094936886233606
+--- !u!33 &5940352829729694385
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7348700056125354743}
+  m_GameObject: {fileID: 7677489608166124532}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &5166642035806085256
+--- !u!114 &8089346307188349173
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7348700056125354743}
+  m_GameObject: {fileID: 7677489608166124532}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 607232bcf7632464f9588ecb8745d507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.SlapSound
-  audioRelay: {fileID: 130866746212297838}
---- !u!1001 &2241441165844707644
+  audioRelay: {fileID: 7560062164279560727}
+--- !u!1001 &1957156904394889141
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4033193834436989115}
+    m_TransformParent: {fileID: 4327994391585721813}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a941f0481b1281b47ad1c3506c063c93, type: 3}
       propertyPath: m_LocalScale.x
@@ -793,23 +817,23 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a941f0481b1281b47ad1c3506c063c93, type: 3}
---- !u!1 &1430555941946868845 stripped
+--- !u!1 &1722730229482662628 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a941f0481b1281b47ad1c3506c063c93, type: 3}
-  m_PrefabInstance: {fileID: 2241441165844707644}
+  m_PrefabInstance: {fileID: 1957156904394889141}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1770349648475659991 stripped
+--- !u!4 &2063649909534650462 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a941f0481b1281b47ad1c3506c063c93, type: 3}
-  m_PrefabInstance: {fileID: 2241441165844707644}
+  m_PrefabInstance: {fileID: 1957156904394889141}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &3037454882777825928
+--- !u!1001 &2436414984063786982
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 7561937550059878466}
+    m_TransformParent: {fileID: 5269278089966605104}
     m_Modifications:
     - target: {fileID: 202204807724587073, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
       propertyPath: m_Layer
@@ -929,7 +953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5950525438991847679, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5950525438991847679, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1015,6 +1039,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8866864824023075560, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8866864824023075560, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8866864824023075560, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9164353127359741352, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -1024,18 +1060,18 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2152717817786798643, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1770349648475659991}
+      addedObject: {fileID: 2063649909534650462}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
---- !u!4 &4033193834436989115 stripped
+--- !u!4 &4327994391585721813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2152717817786798643, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
-  m_PrefabInstance: {fileID: 3037454882777825928}
+  m_PrefabInstance: {fileID: 2436414984063786982}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5919549762898087193 stripped
+--- !u!114 &6471286456516726903 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8647265576453296017, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
-  m_PrefabInstance: {fileID: 3037454882777825928}
+  m_PrefabInstance: {fileID: 2436414984063786982}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -1043,8 +1079,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f78cc9f1876287949a19df673aa0c25d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.RagdollController
---- !u!4 &8697495705993302647 stripped
+--- !u!4 &8312345121752829721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5950525438991847679, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
-  m_PrefabInstance: {fileID: 3037454882777825928}
+  m_PrefabInstance: {fileID: 2436414984063786982}
   m_PrefabAsset: {fileID: 0}

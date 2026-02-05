@@ -13,7 +13,7 @@ namespace FoodFlight
 
         private Coroutine ragdollRoutine;
 
-        void Start()
+        void Awake()
         {
             rigidBodies = GetComponentsInChildren<Rigidbody>();
             animator = GetComponent<Animator>();
