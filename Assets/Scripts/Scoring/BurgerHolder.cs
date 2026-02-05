@@ -19,6 +19,7 @@ namespace FoodFlight
         [SerializeField] private int scoreAmount;
         [SerializeField] private float dropDisableTime;
         [SerializeField] private UnityEvent OnGainBurger;
+        [SerializeField] private UnityEvent OnScorePoints;
         [SerializeField] private UnityEvent OnLoseBurger;
 
         private BurgerScript heldBurger;
@@ -105,6 +106,7 @@ namespace FoodFlight
             while(HoldingBurger)
             {
                 Score += scoreAmount;
+                OnScorePoints?.Invoke();
                 yield return new WaitForSeconds(scoreInterval);
             }
         }
