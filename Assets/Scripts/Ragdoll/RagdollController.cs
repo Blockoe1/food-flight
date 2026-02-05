@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace FoodFlight
@@ -9,6 +10,8 @@ namespace FoodFlight
         [SerializeField] private Transform hips;
         private Rigidbody[] rigidBodies;
         private Animator animator;
+
+        private Coroutine ragdollRoutine;
 
         void Start()
         {
@@ -61,6 +64,27 @@ namespace FoodFlight
             }
 
             animator.enabled = false;
+        }
+
+        /// <summary>
+        /// Causes the player to ragdoll for a certain number of seconds.
+        /// </summary>
+        /// <param name="seconds"></param>
+        public void RagdollForSeconds(float seconds)
+        {
+            if (ragdollRoutine != null)
+            {
+                StopCoroutine(ragdollRoutine);
+                ragdollRoutine = null;
+            }
+            ragdollRoutine = StartCoroutine(RagdollRoutine(seconds));
+        }
+        private IEnumerator RagdollRoutine(float seconds)
+        {
+            EnableRagdoll();
+            yield return new WaitForSeconds(seconds);
+            DisableRagdoll();
+            ragdollRoutine = null;
         }
     }
 }
