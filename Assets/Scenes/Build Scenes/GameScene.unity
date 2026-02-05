@@ -9894,6 +9894,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.26821423
       objectReference: {fileID: 0}
+    - target: {fileID: 5114692909336156534, guid: 70544e2894e995a448d497824312159d, type: 3}
+      propertyPath: m_ConnectedBody
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5200682352915101950, guid: 70544e2894e995a448d497824312159d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -0.0319159

@@ -45,11 +45,11 @@ namespace FoodFlight
                 rigidBody.isKinematic = true;
             }
 
-            Vector3 originalHipsPos = hips.position;
-            transform.parent.position = hips.position;
-            hips.position = originalHipsPos;
-            transform.position = hips.position;
-            hips.position = originalHipsPos;
+            //Vector3 originalHipsPos = hips.position;
+            ////transform.parent.position = hips.position;
+            ////hips.position = originalHipsPos;
+            //transform.position = hips.position;
+            //hips.position = originalHipsPos;
 
             animator.enabled = true;
             animator.Rebind();
