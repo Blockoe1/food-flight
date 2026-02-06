@@ -3680,14 +3680,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
-    - target: {fileID: 1043509115337918998, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
-      propertyPath: maxDriftSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1043509115337918998, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
-      propertyPath: driftAcceleration
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 2107651911829747229, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
       propertyPath: m_DefaultActionMap
       value: Skydiving_Player2
@@ -3752,18 +3744,6 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 1e251b071fdfb5e45b0720d25113cee5, type: 2}
-    - target: {fileID: 7138283269114344117, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
-      propertyPath: calibrationResetThreshold
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7325322348128638315, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
-      propertyPath: verticalVelocity
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7325322348128638315, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
-      propertyPath: horizontalVelocity
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 8563242430432164419, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
       propertyPath: OnGainBurger.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -3856,6 +3836,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ebd4e62d38597740a5173dba76ffc65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.InputSynchronizer
+--- !u!54 &626809187 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2509258972274587939, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
+  m_PrefabInstance: {fileID: 626809183}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &645621676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9727,6 +9712,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1282658c3b1bcf14f949177d8d083d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.BurgerHolder
+--- !u!54 &1561594708 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7133835219555258079, guid: 70544e2894e995a448d497824312159d, type: 3}
+  m_PrefabInstance: {fileID: 1561594704}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1571933608
 GameObject:
   m_ObjectHideFlags: 0
@@ -11553,6 +11543,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d88c2dd53de78214a9b12ba9a64367eb, type: 3}
+--- !u!54 &1915848589 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 4653375820875668474, guid: d88c2dd53de78214a9b12ba9a64367eb, type: 3}
+  m_PrefabInstance: {fileID: 1915848588}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1915848590 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5693866521535442226, guid: d88c2dd53de78214a9b12ba9a64367eb, type: 3}
@@ -11999,6 +11994,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1978573046}
+  - component: {fileID: 1978573047}
   m_Layer: 0
   m_Name: Players
   m_TagString: Untagged
@@ -12027,6 +12023,25 @@ Transform:
   - {fileID: 157319293}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1978573047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978573045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4134aa6b82759624daa7899f98f15354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.AreaBounderY
+  minDistance: 15
+  maxDistance: 18
+  maxCorrectionForce: 500
+  boundedBodies:
+  - {fileID: 1561594708}
+  - {fileID: 626809187}
+  - {fileID: 1915848589}
 --- !u!1001 &1983594897
 PrefabInstance:
   m_ObjectHideFlags: 0

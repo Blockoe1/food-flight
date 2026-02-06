@@ -7,6 +7,7 @@
 // Brief Description :  Controls player drifting based on their rotation.
 *****************************************************************************/
 using CustomAttributes;
+using System.Collections;
 using UnityEngine;
 
 namespace FoodFlight
@@ -23,7 +24,10 @@ namespace FoodFlight
 
         [SerializeField] private float maxDriftSpeed;
         [SerializeField] private float driftAcceleration;
+        [SerializeField] private float disabledAcceleration;
         [SerializeField] private Vector2 levelBounds;
+
+        private bool canMove = true;
 
         #region Component References
         [Header("Components")]
@@ -62,28 +66,35 @@ namespace FoodFlight
         private void FixedUpdate()
         {
             Vector2 targetDriftVelocity = Vector2.zero;
+            float acceleration = disabledAcceleration;
 
-            // Calculate a quaternion to rotate all the ideal vectors by so they align with the  players orientation.
-            Vector3 forward = (rb.rotation * Vector3.down);
-            Vector2 rotVector = new Vector2(forward.x, forward.z);
-            float rotAngle = Mathf.Atan2(rotVector.x, rotVector.y) * Mathf.Rad2Deg;
-            Quaternion idealRotQuat = Quaternion.Euler(0, rotAngle, 0);
+            // Prevent any force adding if moving is disabled.
+            if (canMove)
+            {
+                acceleration = driftAcceleration;
 
-            // Calculate X Drift
-            targetDriftVelocity.x = CalculateDrift(rb.rotation * Vector3.right,
-                idealRotQuat * IDEAL_X_DRIFT_VECTOR, idealRotQuat * IDEAL_NEG_X_DRIFT_VECTOR);
-            //Debug.Log(GetOrientationFitness(IDEAL_X_DRIFT_VECTOR, xVector));
-            // Caluclate Z Drift
-            targetDriftVelocity.y = CalculateDrift(rb.rotation * Vector3.forward,
-                idealRotQuat * IDEAL_Z_DRIFT_VECTOR, idealRotQuat * IDEAL_NEG_Z_DRIFT_VECTOR);
+                // Calculate a quaternion to rotate all the ideal vectors by so they align with the  players orientation.
+                Vector3 forward = (rb.rotation * Vector3.down);
+                Vector2 rotVector = new Vector2(forward.x, forward.z);
+                float rotAngle = Mathf.Atan2(rotVector.x, rotVector.y) * Mathf.Rad2Deg;
+                Quaternion idealRotQuat = Quaternion.Euler(0, rotAngle, 0);
 
-            // Rotate the target drift velocity so that it matches the player's orientation.
-            Vector3 rotatedVel = idealRotQuat * new Vector3(targetDriftVelocity.x, 0, targetDriftVelocity.y);
-            targetDriftVelocity = new Vector2(rotatedVel.x, rotatedVel.z);
+                // Calculate X Drift
+                targetDriftVelocity.x = CalculateDrift(rb.rotation * Vector3.right,
+                    idealRotQuat * IDEAL_X_DRIFT_VECTOR, idealRotQuat * IDEAL_NEG_X_DRIFT_VECTOR);
+                //Debug.Log(GetOrientationFitness(IDEAL_X_DRIFT_VECTOR, xVector));
+                // Caluclate Z Drift
+                targetDriftVelocity.y = CalculateDrift(rb.rotation * Vector3.forward,
+                    idealRotQuat * IDEAL_Z_DRIFT_VECTOR, idealRotQuat * IDEAL_NEG_Z_DRIFT_VECTOR);
+
+                // Rotate the target drift velocity so that it matches the player's orientation.
+                Vector3 rotatedVel = idealRotQuat * new Vector3(targetDriftVelocity.x, 0, targetDriftVelocity.y);
+                targetDriftVelocity = new Vector2(rotatedVel.x, rotatedVel.z);
+            }
 
             // Move our current velocity towards the target.
             Vector2 currentVel = new Vector2(rb.linearVelocity.x, rb.linearVelocity.z);
-            currentVel = Vector2.MoveTowards(currentVel, targetDriftVelocity, driftAcceleration);
+            currentVel = Vector2.MoveTowards(currentVel, targetDriftVelocity, acceleration);
 
             //Debug.Log($"Target Velocity: {targetDriftVelocity}.  Current Velocity: {currentVel}");
             //Debug.DrawLine(rb.position, rb.position + new Vector3(currentVel.x, 0, currentVel.y) * 5, Color.orange, 1f);
@@ -124,6 +135,24 @@ namespace FoodFlight
         {
             float orientationFactor = Mathf.Abs(Vector3.Dot(currentVector.normalized, idealVector.normalized));
             return 1 - orientationFactor;
+        }
+
+        /// <summary>
+        /// The amount of time the player's movement is disabled for.
+        /// </summary>
+        /// <param name="seconds">The time in seconds to disable.</param>
+        public void DisableForSeconds(float seconds)
+        {
+            if (canMove)
+            {
+                StartCoroutine(DisableRoutine(seconds));
+            }
+        }
+        private IEnumerator DisableRoutine(float seconds)
+        {
+            canMove = false;
+            yield return new WaitForSeconds(seconds);
+            canMove = true;
         }
     }
 }

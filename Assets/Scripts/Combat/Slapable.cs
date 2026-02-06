@@ -7,6 +7,7 @@
 // Brief Description :  Allows an object to be slapped.
 *****************************************************************************/
 using CustomAttributes;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -67,6 +68,8 @@ namespace FoodFlight
         private void GetSlapped(Vector3 position, Vector3 velocity)
         {
             Vector3 knockbackDirection = (rb.position - position).normalized;
+            // Prevent y knockback.
+            knockbackDirection.y = 0;
             float knockbackStrength = (scaledKnockbackStrength * velocity.magnitude) 
                 + baseKnockbackStrength;
 

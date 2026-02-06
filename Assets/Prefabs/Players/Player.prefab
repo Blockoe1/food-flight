@@ -212,6 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.SkydivingMovement
   maxDriftSpeed: 10
   driftAcceleration: 4
+  disabledAcceleration: 1
   levelBounds: {x: 20, y: 20}
   rb: {fileID: 7133835219555258079}
 --- !u!114 &5590620580483810736
@@ -269,7 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.Slapable
   baseKnockbackStrength: 5
   scaledKnockbackStrength: 5
-  staticSimulatedSpeed: {x: 5, y: 0, z: 0}
+  staticSimulatedSpeed: {x: 15, y: 0, z: 0}
   OnSlapped:
     m_PersistentCalls:
       m_Calls:
@@ -306,6 +307,18 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0.5
+          m_StringArgument: PlayerHurt
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5740293930129898986}
+        m_TargetAssemblyTypeName: FoodFlight.SkydivingMovement, Assembly-CSharp
+        m_MethodName: DisableForSeconds
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
           m_StringArgument: PlayerHurt
           m_BoolArgument: 0
         m_CallState: 2
