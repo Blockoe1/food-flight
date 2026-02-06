@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 3600725690774508948}
   - component: {fileID: 394571176850435322}
   - component: {fileID: 3964411729484860863}
+  - component: {fileID: 7487998553032384960}
   - component: {fileID: 6820090450158700413}
   - component: {fileID: 130866746212297838}
   m_Layer: 3
@@ -198,6 +199,8 @@ MonoBehaviour:
   rb: {fileID: 7133835219555258079}
   verticalVelocity: 8
   horizontalVelocity: 3
+  horizontalDrag: -2.18
+  verticalDrag: -0.3065625
 --- !u!114 &5740293930129898986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.Slapable
   baseKnockbackStrength: 5
   scaledKnockbackStrength: 5
-  staticSimulatedSpeed: {x: 15, y: 0, z: 0}
+  staticSimulatedSpeed: {x: 10, y: 0, z: 0}
   OnSlapped:
     m_PersistentCalls:
       m_Calls:
@@ -395,6 +398,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7487998553032384960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778754833571124715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0f5ea962d0a5040b7d92e9fb7e9d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.BurgerAirResistance
+  verticalVelocity: 6
+  horizontalVelocity: 4.5
+  airResistance: {fileID: 2628432252682396311}
 --- !u!114 &6820090450158700413
 MonoBehaviour:
   m_ObjectHideFlags: 0

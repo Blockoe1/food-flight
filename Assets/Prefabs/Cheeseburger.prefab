@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.ConstantAirResistance
   rb: {fileID: 4653375820875668474}
-  terminalVelocity: 18
+  terminalVelocity: 14
 --- !u!114 &1954100582689764594
 MonoBehaviour:
   m_ObjectHideFlags: 0

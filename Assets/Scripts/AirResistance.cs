@@ -45,8 +45,10 @@ namespace FoodFlight
         /// <remarks>Done this way to give design an easier time.</remarks>
         /// <param name="terminalVelocity"></param>
         /// <returns></returns>
-        protected static float CalculateDragFromTVelocity(float terminalVelocity, float mass)
+        public static float CalculateDragFromTVelocity(float terminalVelocity, float mass)
         {
+            // Prevent divide by 0 error.
+            if (terminalVelocity == 0f) { return 0f; } 
             return 2 * mass * Physics.gravity.y / Mathf.Pow(terminalVelocity, 2);
         }
 

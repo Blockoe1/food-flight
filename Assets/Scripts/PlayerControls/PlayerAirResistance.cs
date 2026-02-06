@@ -18,13 +18,27 @@ namespace FoodFlight
         [SerializeField] private float verticalVelocity;
         [SerializeField] private float horizontalVelocity;
 
-        private float horizontalDrag;
-        private float verticalDrag;
+        [SerializeField, ReadOnly] private float horizontalDrag;
+        [SerializeField, ReadOnly] private float verticalDrag;
+
+        #region Properties
+        public float Mass => rb.mass;
+        public float HorizontalDrag
+        {
+            get { return horizontalDrag; }
+            set { horizontalDrag = value; }
+        }
+        public float VerticalDrag
+        {
+            get { return verticalDrag; }
+            set { verticalDrag = value; }
+        }
+        #endregion
 
         /// <summary>
         /// Calculate the horizontal and vertical drag forces to lerp between.
         /// </summary>
-        private void Awake()
+        private void OnValidate()
         {
             horizontalDrag = AirResistance.CalculateDragFromTVelocity(horizontalVelocity, rb.mass);
             verticalDrag = AirResistance.CalculateDragFromTVelocity(verticalVelocity, rb.mass);
