@@ -21,8 +21,10 @@ GameObject:
   - component: {fileID: 3600725690774508948}
   - component: {fileID: 394571176850435322}
   - component: {fileID: 3964411729484860863}
+  - component: {fileID: 7487998553032384960}
   - component: {fileID: 6820090450158700413}
   - component: {fileID: 130866746212297838}
+  - component: {fileID: 4422834799746133179}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -198,6 +200,8 @@ MonoBehaviour:
   rb: {fileID: 7133835219555258079}
   verticalVelocity: 8
   horizontalVelocity: 3
+  horizontalDrag: -2.18
+  verticalDrag: -0.3065625
 --- !u!114 &5740293930129898986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.SkydivingMovement
   maxDriftSpeed: 10
   driftAcceleration: 4
+  disabledAcceleration: 1
   levelBounds: {x: 20, y: 20}
   rb: {fileID: 7133835219555258079}
 --- !u!114 &5590620580483810736
@@ -269,7 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.Slapable
   baseKnockbackStrength: 5
   scaledKnockbackStrength: 5
-  staticSimulatedSpeed: {x: 5, y: 0, z: 0}
+  staticSimulatedSpeed: {x: 10, y: 0, z: 0}
   OnSlapped:
     m_PersistentCalls:
       m_Calls:
@@ -306,6 +311,18 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0.5
+          m_StringArgument: PlayerHurt
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5740293930129898986}
+        m_TargetAssemblyTypeName: FoodFlight.SkydivingMovement, Assembly-CSharp
+        m_MethodName: DisableForSeconds
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
           m_StringArgument: PlayerHurt
           m_BoolArgument: 0
         m_CallState: 2
@@ -382,6 +399,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7487998553032384960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778754833571124715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0f5ea962d0a5040b7d92e9fb7e9d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.BurgerAirResistance
+  verticalVelocity: 6
+  horizontalVelocity: 4.5
+  airResistance: {fileID: 2628432252682396311}
 --- !u!114 &6820090450158700413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,6 +501,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.AudioRelay
   soundName: PlayerSlap
+--- !u!114 &4422834799746133179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778754833571124715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886c66059e93b534781fbf1c6783013b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.ObjectGravitation
+  gravityStrength: 3
+  gravityBias: 1.5
+  rb: {fileID: 7133835219555258079}
 --- !u!1 &5430800440980526400
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6675264639104648914}
   - component: {fileID: 1954100582689764594}
   - component: {fileID: 2922951807324541816}
+  - component: {fileID: 106502535338857203}
   m_Layer: 0
   m_Name: Cheeseburger
   m_TagString: Burger
@@ -98,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.ConstantAirResistance
   rb: {fileID: 4653375820875668474}
-  terminalVelocity: 18
+  terminalVelocity: 14
 --- !u!114 &1954100582689764594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,6 +132,21 @@ MonoBehaviour:
   disabledColliders:
   - {fileID: 4138111530536379215}
   - {fileID: 17359911511885245}
+  rb: {fileID: 4653375820875668474}
+--- !u!114 &106502535338857203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6259758094029860140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886c66059e93b534781fbf1c6783013b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.ObjectGravitation
+  gravityStrength: 0
+  gravityBias: 3.5
   rb: {fileID: 4653375820875668474}
 --- !u!1001 &5052301627235674862
 PrefabInstance:
