@@ -18,6 +18,7 @@ namespace FoodFlight
         [SerializeField] private float scoreInterval;
         [SerializeField] private int scoreAmount;
         [SerializeField] private float dropDisableTime;
+        [SerializeField] private Vector3 dropOffset = Vector3.down;
         [SerializeField] private UnityEvent OnGainBurger;
         [SerializeField] private UnityEvent OnScorePoints;
         [SerializeField] private UnityEvent OnLoseBurger;
@@ -85,14 +86,16 @@ namespace FoodFlight
         {
             if (heldBurger == null) { return; }
 
+            heldBurger.DisableGrabbing();
+
             // Snap the burger to the player's position.
-            heldBurger.transform.position = transform.position;
+            heldBurger.transform.position = transform.position + dropOffset;
             heldBurger.gameObject.SetActive(true);
 
-            // Give the burger it's designated 
+            // Give the burger it's designated force.
             heldBurger.Body.AddForce(burgerForce, ForceMode.Impulse);
 
-            heldBurger.DisableGrabbing(dropDisableTime);
+            heldBurger.ScheduleGrabReenable(dropDisableTime);
 
             OnLoseBurger?.Invoke();
             heldBurger = null;

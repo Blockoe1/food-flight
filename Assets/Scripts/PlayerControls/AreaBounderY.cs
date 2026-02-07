@@ -15,6 +15,8 @@ namespace FoodFlight
 {
     public class AreaBounderY : MonoBehaviour
     {
+        [SerializeField] private float minPosition;
+        [SerializeField] private float maxPosition = 845f;
         [SerializeField] private float minDistance;
         [SerializeField] private float maxDistance;
         [SerializeField] private float maxCorrectionForce;
@@ -79,7 +81,7 @@ namespace FoodFlight
         /// </summary>
         /// <param name="boundedBodies"></param>
         /// <returns></returns>
-        private static float CalculateAvgY(Rigidbody[] boundedBodies)
+        private float CalculateAvgY(Rigidbody[] boundedBodies)
         {
             float totalY = 0;
             int bodyCount = 0;
@@ -92,7 +94,7 @@ namespace FoodFlight
                     bodyCount++;
                 }
             }
-            return totalY / bodyCount;
+            return Mathf.Clamp(totalY / bodyCount, minPosition, maxPosition);
         }
     }
 }
