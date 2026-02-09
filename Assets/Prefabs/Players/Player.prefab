@@ -234,13 +234,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.GameEnd
   scoreText: {fileID: 0}
   disabledComponents:
-  - {fileID: 0}
+  - {fileID: 3964411729484860863}
   - {fileID: 5402896250372145612}
   - {fileID: 8848617530750412694}
   - {fileID: 8611893828759855280}
-  - {fileID: 0}
+  - {fileID: 5740293930129898986}
   - {fileID: 6456217392271444836}
-  - {fileID: 0}
+  - {fileID: 5474769241405204166}
   - {fileID: 2521968510689332715}
   OnPlayerEnd:
     m_PersistentCalls:
