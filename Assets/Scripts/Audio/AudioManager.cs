@@ -54,7 +54,7 @@ namespace FoodFlight
             /// </summary>
             public override void Play()
             {
-                AudioClip clip = audioClips[UnityEngine.Random.Range(0, audioClips.Length - 1)];
+                AudioClip clip = audioClips[UnityEngine.Random.Range(0, audioClips.Length)];
                 source.clip = clip;
                 source.Play();
             }
