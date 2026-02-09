@@ -8,23 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7561937550059878466}
-  - component: {fileID: 4863779592019887884}
-  - component: {fileID: 7133835219555258079}
-  - component: {fileID: 6696068519138197985}
-  - component: {fileID: 3415026184169157510}
-  - component: {fileID: 2504725113489638729}
+  - component: {fileID: 5269278089966605104}
   - component: {fileID: 5474769241405204166}
-  - component: {fileID: 2628432252682396311}
   - component: {fileID: 5740293930129898986}
-  - component: {fileID: 5590620580483810736}
-  - component: {fileID: 3600725690774508948}
-  - component: {fileID: 394571176850435322}
   - component: {fileID: 3964411729484860863}
   - component: {fileID: 7487998553032384960}
   - component: {fileID: 6820090450158700413}
-  - component: {fileID: 130866746212297838}
   - component: {fileID: 4422834799746133179}
+  - component: {fileID: 7439524430109209353}
+  - component: {fileID: 4691948886291543374}
+  - component: {fileID: 1006001210985305545}
+  - component: {fileID: 2521968510689332715}
+  - component: {fileID: 5402896250372145612}
+  - component: {fileID: 6456217392271444836}
+  - component: {fileID: 7560062164279560727}
+  - component: {fileID: 8611893828759855280}
+  - component: {fileID: 8848617530750412694}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -50,101 +49,6 @@ Transform:
   - {fileID: 7887665576406462527}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &4691948886291543374
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4339010583431158352}
-  m_Material: {fileID: 13400000, guid: 8b60e25bce8cacc4dac65691ef7f2d76, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.2
-  m_Height: 1.4243245
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.04, z: 0}
---- !u!54 &7439524430109209353
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4339010583431158352}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 20
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
---- !u!114 &2521968510689332715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4339010583431158352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: -944628639613478452, guid: d4cee288ab2e15d4989e01c63f9ec3bc, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: Player 1
-  m_DefaultActionMap: Skydiving_Player1
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!114 &1006001210985305545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4339010583431158352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ebd4e62d38597740a5173dba76ffc65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.InputSynchronizer
-  calibrationThreshold: 1
-  calibrationResetThreshold: 3
-  playerInput: {fileID: 6696068519138197985}
 --- !u!114 &5474769241405204166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,23 +67,6 @@ MonoBehaviour:
   inSync: {fileID: 1006001210985305545}
   gyroSensitivity: 0.0175
   gyroThreshold: 4
---- !u!114 &6456217392271444836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4339010583431158352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dde6ac161174e3c479e6c1a91b543c9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.AirResistance
-  rb: {fileID: 7133835219555258079}
-  verticalVelocity: 8
-  horizontalVelocity: 3
-  horizontalDrag: -2.18
-  verticalDrag: -0.3065625
 --- !u!114 &5740293930129898986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,115 +84,6 @@ MonoBehaviour:
   disabledAcceleration: 1
   levelBounds: {x: 20, y: 20}
   rb: {fileID: 7439524430109209353}
---- !u!114 &8611893828759855280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4339010583431158352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa50b0cd62545b24a9db48b7a24c8015, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.InputRotator
-  rotationSlerpSpeed: 0.5
-  rb: {fileID: 7439524430109209353}
-  input: {fileID: 2521968510689332715}
-  inSync: {fileID: 1006001210985305545}
-  defaultEuler: {x: -90, y: 0, z: 0}
-  yawRotationSpeed: 100
-  diveDeadzone: 0.2
-  moveInput: {x: 0, y: 0}
-  diveInput: {x: 0, y: 0}
---- !u!114 &8848617530750412694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4339010583431158352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9187d4c5a9499d47a29553e47a6ce11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.Attacker
-  attackHitboxTime: 0.25
-  slapCooldown: 0.25
-  attacks:
-  - actionName: SlapRight
-    hitbox: {fileID: 7288121708044816196}
-  - actionName: SlapLeft
-    hitbox: {fileID: 7677489608166124532}
-  input: {fileID: 2521968510689332715}
---- !u!114 &5402896250372145612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4339010583431158352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0759c9ad441e04b428a19b9b1919b2db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.Slapable
-  baseKnockbackStrength: 5
-  scaledKnockbackStrength: 5
-  maxKnockbackStrength: 50
-  staticSimulatedSpeed: {x: 10, y: 0, z: 0}
-  OnSlapped:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8848617530750412694}
-        m_TargetAssemblyTypeName: FoodFlight.Slapper, Assembly-CSharp
-        m_MethodName: DisableSlapping
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.5
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1133864471906508108}
-        m_TargetAssemblyTypeName: FoodFlight.BurgerHolder, Assembly-CSharp
-        m_MethodName: DropBurger
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.5
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7560062164279560727}
-        m_TargetAssemblyTypeName: FoodFlight.AudioRelay, Assembly-CSharp
-        m_MethodName: PlayRandomized
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.5
-          m_StringArgument: PlayerHurt
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 5740293930129898986}
-        m_TargetAssemblyTypeName: FoodFlight.SkydivingMovement, Assembly-CSharp
-        m_MethodName: DisableForSeconds
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: PlayerHurt
-          m_BoolArgument: 0
-        m_CallState: 2
-  rb: {fileID: 7133835219555258079}
 --- !u!114 &3964411729484860863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,6 +99,7 @@ MonoBehaviour:
   scoreInterval: 2
   scoreAmount: 100
   dropDisableTime: 1
+  dropOffset: {x: 0, y: -1, z: 0}
   OnGainBurger:
     m_PersistentCalls:
       m_Calls:
@@ -360,7 +139,7 @@ MonoBehaviour:
           m_StringArgument: BurgerGrab
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 130866746212297838}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FoodFlight.AudioRelay, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 5
@@ -432,7 +211,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778754833571124715}
+  m_GameObject: {fileID: 4339010583431158352}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d0f5ea962d0a5040b7d92e9fb7e9d63, type: 3}
@@ -440,7 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.BurgerAirResistance
   verticalVelocity: 6
   horizontalVelocity: 4.5
-  airResistance: {fileID: 2628432252682396311}
+  airResistance: {fileID: 0}
 --- !u!114 &6820090450158700413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,18 +234,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.GameEnd
   scoreText: {fileID: 0}
   disabledComponents:
-  - {fileID: 1133864471906508108}
+  - {fileID: 0}
   - {fileID: 5402896250372145612}
   - {fileID: 8848617530750412694}
   - {fileID: 8611893828759855280}
-  - {fileID: 2755294285287367045}
+  - {fileID: 0}
   - {fileID: 6456217392271444836}
-  - {fileID: 2657174456007695348}
+  - {fileID: 0}
   - {fileID: 2521968510689332715}
   OnPlayerEnd:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1133864471906508108}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FoodFlight.BurgerHolder, Assembly-CSharp
         m_MethodName: DropBurger
         m_Mode: 1
@@ -538,7 +317,226 @@ MonoBehaviour:
           m_StringArgument: GroundImpact
           m_BoolArgument: 1
         m_CallState: 2
-  burgerHolder: {fileID: 1133864471906508108}
+      - m_Target: {fileID: 6471286456516726903}
+        m_TargetAssemblyTypeName: FoodFlight.RagdollController, Assembly-CSharp
+        m_MethodName: EnableRagdoll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: GroundImpact
+          m_BoolArgument: 1
+        m_CallState: 2
+  burgerHolder: {fileID: 0}
+--- !u!114 &4422834799746133179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339010583431158352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886c66059e93b534781fbf1c6783013b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.ObjectGravitation
+  gravityStrength: 3
+  gravityBias: 1.5
+  rb: {fileID: 7439524430109209353}
+--- !u!54 &7439524430109209353
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339010583431158352}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 20
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!136 &4691948886291543374
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339010583431158352}
+  m_Material: {fileID: 13400000, guid: 8b60e25bce8cacc4dac65691ef7f2d76, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Height: 1.4243245
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.04, z: 0}
+--- !u!114 &1006001210985305545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339010583431158352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ebd4e62d38597740a5173dba76ffc65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.InputSynchronizer
+  calibrationThreshold: 1
+  calibrationResetThreshold: 3
+  playerInput: {fileID: 2521968510689332715}
+--- !u!114 &2521968510689332715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339010583431158352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: d4cee288ab2e15d4989e01c63f9ec3bc, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: Player 1
+  m_DefaultActionMap: Skydiving_Player1
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &5402896250372145612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339010583431158352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0759c9ad441e04b428a19b9b1919b2db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.Slapable
+  baseKnockbackStrength: 5
+  scaledKnockbackStrength: 5
+  maxKnockbackStrength: 50
+  staticSimulatedSpeed: {x: 10, y: 0, z: 0}
+  OnSlapped:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8848617530750412694}
+        m_TargetAssemblyTypeName: FoodFlight.Slapper, Assembly-CSharp
+        m_MethodName: DisableSlapping
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: FoodFlight.BurgerHolder, Assembly-CSharp
+        m_MethodName: DropBurger
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7560062164279560727}
+        m_TargetAssemblyTypeName: FoodFlight.AudioRelay, Assembly-CSharp
+        m_MethodName: PlayRandomized
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.5
+          m_StringArgument: PlayerHurt
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5740293930129898986}
+        m_TargetAssemblyTypeName: FoodFlight.SkydivingMovement, Assembly-CSharp
+        m_MethodName: DisableForSeconds
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: PlayerHurt
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6471286456516726903}
+        m_TargetAssemblyTypeName: FoodFlight.RagdollController, Assembly-CSharp
+        m_MethodName: RagdollForSeconds
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: PlayerHurt
+          m_BoolArgument: 0
+        m_CallState: 2
+  rb: {fileID: 7439524430109209353}
+--- !u!114 &6456217392271444836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339010583431158352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde6ac161174e3c479e6c1a91b543c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.AirResistance
+  rb: {fileID: 7439524430109209353}
+  verticalVelocity: 8
+  horizontalVelocity: 3
+  horizontalDrag: -2.18
+  verticalDrag: -0.3065625
 --- !u!114 &7560062164279560727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,21 +550,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.AudioRelay
   soundName: PlayerSlap
---- !u!114 &4422834799746133179
+--- !u!114 &8611893828759855280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778754833571124715}
+  m_GameObject: {fileID: 4339010583431158352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 886c66059e93b534781fbf1c6783013b, type: 3}
+  m_Script: {fileID: 11500000, guid: fa50b0cd62545b24a9db48b7a24c8015, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.ObjectGravitation
-  gravityStrength: 3
-  gravityBias: 1.5
-  rb: {fileID: 7133835219555258079}
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.InputRotator
+  rotationSlerpSpeed: 0.5
+  rb: {fileID: 7439524430109209353}
+  input: {fileID: 2521968510689332715}
+  inSync: {fileID: 1006001210985305545}
+  defaultEuler: {x: -90, y: 0, z: 0}
+  yawRotationSpeed: 100
+  diveDeadzone: 0.2
+  moveInput: {x: 0, y: 0}
+  diveInput: {x: 0, y: 0}
+--- !u!114 &8848617530750412694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339010583431158352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9187d4c5a9499d47a29553e47a6ce11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.Attacker
+  attackHitboxTime: 0.25
+  slapCooldown: 0.25
+  attacks:
+  - actionName: SlapRight
+    hitbox: {fileID: 0}
+  - actionName: SlapLeft
+    hitbox: {fileID: 7677489608166124532}
+  input: {fileID: 2521968510689332715}
 --- !u!1 &5430800440980526400
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +617,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7288121708044816196}
+  m_GameObject: {fileID: 5430800440980526400}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.55, y: -0.9, z: 0}
@@ -608,7 +632,7 @@ SphereCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7288121708044816196}
+  m_GameObject: {fileID: 5430800440980526400}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -629,7 +653,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7288121708044816196}
+  m_GameObject: {fileID: 5430800440980526400}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -677,7 +701,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7288121708044816196}
+  m_GameObject: {fileID: 5430800440980526400}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &3749402925007643768
 MonoBehaviour:
@@ -685,7 +709,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7288121708044816196}
+  m_GameObject: {fileID: 5430800440980526400}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 607232bcf7632464f9588ecb8745d507, type: 3}
