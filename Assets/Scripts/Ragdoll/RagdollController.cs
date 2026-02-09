@@ -62,6 +62,7 @@ namespace FoodFlight
             foreach (var rigidBody in rigidBodies)
             {
                 rigidBody.isKinematic = false;
+                hips.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 rigidBody.linearVelocity = Vector3.zero;
             }
 
