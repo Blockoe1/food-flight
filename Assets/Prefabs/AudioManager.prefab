@@ -59,19 +59,19 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 756ccbd3454ee294bba2fc09641c1449, type: 3}
   - name: PlayerSlap
     mixerGroup: {fileID: 0}
-    volume: 0.8
+    volume: 0.7
     pitch: 1
     loop: 0
     audioClip: {fileID: 8300000, guid: 9afccb417903e4b4384667bf140af3ce, type: 3}
   - name: ButtonHover
     mixerGroup: {fileID: 0}
-    volume: 0.8
+    volume: 0.6
     pitch: 1
     loop: 0
     audioClip: {fileID: 8300000, guid: cc7f607874324f541b70651004879377, type: 3}
   - name: ButtonPress
     mixerGroup: {fileID: 0}
-    volume: 0.8
+    volume: 0.6
     pitch: 1
     loop: 0
     audioClip: {fileID: 8300000, guid: 0800cfb94317f364d91cfcf11005eb70, type: 3}
@@ -87,7 +87,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: e8de0a32d2c922f448c5adc8cc9f301b, type: 3}
   - name: ScoreIncrease
     mixerGroup: {fileID: 0}
-    volume: 0.8
+    volume: 0.5
     pitch: 1
     loop: 0
     audioClips:
