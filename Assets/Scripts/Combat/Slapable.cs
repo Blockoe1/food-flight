@@ -7,6 +7,7 @@
 // Brief Description :  Allows an object to be slapped.
 *****************************************************************************/
 using CustomAttributes;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -21,6 +22,7 @@ namespace FoodFlight
 
         [SerializeField] private float baseKnockbackStrength;
         [SerializeField] private float scaledKnockbackStrength;
+        [SerializeField] private float maxKnockbackStrength;
         [SerializeField] private Vector3 staticSimulatedSpeed;
         [SerializeField] private UnityEvent<Vector3> OnSlapped;
 
@@ -67,10 +69,14 @@ namespace FoodFlight
         private void GetSlapped(Vector3 position, Vector3 velocity)
         {
             Vector3 knockbackDirection = (rb.position - position).normalized;
-            float knockbackStrength = (scaledKnockbackStrength * velocity.magnitude) 
-                + baseKnockbackStrength;
+            // Prevent y knockback.
+            knockbackDirection.y = 0;
+            float knockbackStrength = Mathf.Min((scaledKnockbackStrength * velocity.magnitude) 
+                + baseKnockbackStrength, maxKnockbackStrength);
 
             OnSlapped?.Invoke(knockbackDirection * knockbackStrength);
+
+            Debug.Log($"{name} was slapped with a force of {knockbackStrength * knockbackDirection}");
             rb.AddForce(knockbackDirection * knockbackStrength, ForceMode.Impulse);
         }
     }

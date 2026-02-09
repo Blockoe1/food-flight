@@ -38,7 +38,7 @@ public class BurgerScript : MonoBehaviour
     /// </summary>
     /// <param name="time"></param>
     /// <returns></returns>
-    public void DisableGrabbing(float time)
+    public void DisableGrabbing()
     {
         // Prevent duplicate coroutines.
         if (grabDisabled) { return; }
@@ -49,7 +49,14 @@ public class BurgerScript : MonoBehaviour
         {
             collider.excludeLayers = collider.excludeLayers | ignorePlayersMask;
         }
+    }
 
+    /// <summary>
+    /// Schedules the burger to re-enable it's grabbing.
+    /// </summary>
+    /// <param name="time"></param>
+    public void ScheduleGrabReenable(float time)
+    {
         StartCoroutine(DisableGrabbingRoutine(time));
     }
     public IEnumerator DisableGrabbingRoutine(float time)
