@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace FoodFlight
@@ -10,7 +11,9 @@ namespace FoodFlight
         private Rigidbody[] rigidBodies;
         private Animator animator;
 
-        void Start()
+        private Coroutine ragdollRoutine;
+
+        void Awake()
         {
             rigidBodies = GetComponentsInChildren<Rigidbody>();
             animator = GetComponent<Animator>();
@@ -43,6 +46,8 @@ namespace FoodFlight
             }
 
             Vector3 originalHipsPos = hips.position;
+            transform.parent.position = hips.position;
+            hips.position = originalHipsPos;
             transform.position = hips.position;
             hips.position = originalHipsPos;
 
@@ -57,10 +62,32 @@ namespace FoodFlight
             foreach (var rigidBody in rigidBodies)
             {
                 rigidBody.isKinematic = false;
+                hips.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 rigidBody.linearVelocity = Vector3.zero;
             }
 
             animator.enabled = false;
+        }
+
+        /// <summary>
+        /// Causes the player to ragdoll for a certain number of seconds.
+        /// </summary>
+        /// <param name="seconds"></param>
+        public void RagdollForSeconds(float seconds)
+        {
+            if (ragdollRoutine != null)
+            {
+                StopCoroutine(ragdollRoutine);
+                ragdollRoutine = null;
+            }
+            ragdollRoutine = StartCoroutine(RagdollRoutine(seconds));
+        }
+        private IEnumerator RagdollRoutine(float seconds)
+        {
+            EnableRagdoll();
+            yield return new WaitForSeconds(seconds);
+            DisableRagdoll();
+            ragdollRoutine = null;
         }
     }
 }
