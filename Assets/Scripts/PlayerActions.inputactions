@@ -140,7 +140,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "QEShift",
+                    "name": "Shift",
                     "id": "fd52b57e-dc4c-426b-aa3d-2e3521689e9a",
                     "path": "2DVector",
                     "interactions": "",
@@ -175,7 +175,7 @@
                 {
                     "name": "left",
                     "id": "f19a0fc4-8eba-4a11-9d25-b89da78b04d5",
-                    "path": "<Keyboard>/q",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Player 1;Player 2",
@@ -186,7 +186,7 @@
                 {
                     "name": "right",
                     "id": "740ec70a-534a-4df7-b195-6dbc0d48d4a8",
-                    "path": "<Keyboard>/e",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Player 1;Player 2",
@@ -422,7 +422,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "UO;",
+                    "name": ";",
                     "id": "3f72630f-9e0f-4fd3-8197-4660d97834ee",
                     "path": "2DVector",
                     "interactions": "",
@@ -457,7 +457,7 @@
                 {
                     "name": "left",
                     "id": "860afc36-1e06-4933-9fcf-15a339be3b5f",
-                    "path": "<Keyboard>/u",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Player 2;Player 1",
@@ -468,7 +468,7 @@
                 {
                     "name": "right",
                     "id": "7a801a44-023d-45d4-9504-8c236470105c",
-                    "path": "<Keyboard>/o",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Player 2;Player 1",
