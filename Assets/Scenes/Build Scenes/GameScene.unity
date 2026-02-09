@@ -2726,7 +2726,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 153.20001
+      value: 179.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2771,7 +2771,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 998910453}
   m_SourcePrefab: {fileID: 100100000, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
 --- !u!4 &291570516 stripped
 Transform:
@@ -3100,7 +3103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: df3f0000dfdac424496c4e3b0a8f0bea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 882.8
+      value: 885.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: df3f0000dfdac424496c4e3b0a8f0bea, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3108,11 +3111,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: df3f0000dfdac424496c4e3b0a8f0bea, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -502.2
+      value: -519.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: df3f0000dfdac424496c4e3b0a8f0bea, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.067346156
+      value: 0.034762163
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: df3f0000dfdac424496c4e3b0a8f0bea, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3120,7 +3123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: df3f0000dfdac424496c4e3b0a8f0bea, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9977297
+      value: 0.9993956
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: df3f0000dfdac424496c4e3b0a8f0bea, type: 3}
       propertyPath: m_LocalRotation.z
@@ -3132,7 +3135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: df3f0000dfdac424496c4e3b0a8f0bea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 172.277
+      value: 176.016
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: df3f0000dfdac424496c4e3b0a8f0bea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -7107,7 +7110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 153.20001
+      value: 179.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7152,7 +7155,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2125877589}
   m_SourcePrefab: {fileID: 100100000, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
 --- !u!4 &796108395 stripped
 Transform:
@@ -7473,6 +7479,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2a3b45cf4578a82419a157068a1aaeef, type: 3}
   m_PrefabInstance: {fileID: 825300654}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &834177745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
+  m_PrefabInstance: {fileID: 911861955}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &858926997
 PrefabInstance:
@@ -8342,7 +8353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 153.20001
+      value: 179.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8387,13 +8398,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 911861957}
   m_SourcePrefab: {fileID: 100100000, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
 --- !u!4 &911861956 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
   m_PrefabInstance: {fileID: 911861955}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &911861957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834177745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdffd05829ab8f64d9331bcc23180998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.MovingObstacle
+  speed: 10
+  obstacleController: {fileID: 2084393421}
 --- !u!1 &914520035
 GameObject:
   m_ObjectHideFlags: 0
@@ -9338,6 +9366,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2a3b45cf4578a82419a157068a1aaeef, type: 3}
   m_PrefabInstance: {fileID: 998238077}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &998910452 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
+  m_PrefabInstance: {fileID: 291570515}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &998910453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998910452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdffd05829ab8f64d9331bcc23180998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.MovingObstacle
+  speed: 10
+  obstacleController: {fileID: 2084393421}
 --- !u!1 &999160455
 GameObject:
   m_ObjectHideFlags: 0
@@ -11632,6 +11679,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217580370}
   m_CullTransparentMesh: 1
+--- !u!1 &1218959791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
+  m_PrefabInstance: {fileID: 1764125002}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1249902081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16267,7 +16319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 153.20001
+      value: 179.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16312,13 +16364,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1764125004}
   m_SourcePrefab: {fileID: 100100000, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
 --- !u!4 &1764125003 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
   m_PrefabInstance: {fileID: 1764125002}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1764125004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218959791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdffd05829ab8f64d9331bcc23180998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.MovingObstacle
+  speed: 10
+  obstacleController: {fileID: 2084393421}
 --- !u!1001 &1771698158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16493,7 +16562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 153.20001
+      value: 179.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16538,7 +16607,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2004486366}
   m_SourcePrefab: {fileID: 100100000, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
 --- !u!4 &1779627265 stripped
 Transform:
@@ -17736,7 +17808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5693866521535442226, guid: d88c2dd53de78214a9b12ba9a64367eb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 835
+      value: 363.1
       objectReference: {fileID: 0}
     - target: {fileID: 5693866521535442226, guid: d88c2dd53de78214a9b12ba9a64367eb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18422,7 +18494,7 @@ Transform:
   m_GameObject: {fileID: 1978573045}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 845, z: 0}
+  m_LocalPosition: {x: 0, y: 368.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18698,6 +18770,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003431090}
   m_CullTransparentMesh: 1
+--- !u!1 &2004486365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
+  m_PrefabInstance: {fileID: 1779627264}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2004486366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004486365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdffd05829ab8f64d9331bcc23180998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.MovingObstacle
+  speed: 10
+  obstacleController: {fileID: 2084393421}
 --- !u!1001 &2014250738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19285,6 +19376,131 @@ Transform:
   - {fileID: 218796860}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2084393420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2084393425}
+  - component: {fileID: 2084393424}
+  - component: {fileID: 2084393423}
+  - component: {fileID: 2084393422}
+  - component: {fileID: 2084393421}
+  m_Layer: 0
+  m_Name: ObstacleTriggerCube
+  m_TagString: ObstacleController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2084393421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084393420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9958737a7c0ba34a83f1f5eef9778f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.ObstacleController
+  isContacted: 0
+--- !u!65 &2084393422
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084393420}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &2084393423
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084393420}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &2084393424
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084393420}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2084393425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084393420}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 257, z: 0}
+  m_LocalScale: {x: 40.206, y: -1.474071, z: 40.206}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2094747606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19584,6 +19800,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123694433}
   m_CullTransparentMesh: 1
+--- !u!1 &2125877588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: caf6549c754fe5649b8f1b7dba2d66d7, type: 3}
+  m_PrefabInstance: {fileID: 796108394}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2125877589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125877588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdffd05829ab8f64d9331bcc23180998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.MovingObstacle
+  speed: 10
+  obstacleController: {fileID: 2084393421}
 --- !u!1001 &2127216749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20223,3 +20458,4 @@ SceneRoots:
   - {fileID: 1304860507}
   - {fileID: 1915848588}
   - {fileID: 262701440}
+  - {fileID: 2084393425}
