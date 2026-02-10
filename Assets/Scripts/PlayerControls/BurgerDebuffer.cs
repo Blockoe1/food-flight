@@ -65,7 +65,7 @@ namespace FoodFlight
 
             normalGravityBias = gravitator.GravityBias;
 
-            normalSlapCooldown = slapper.
+            normalSlapCooldown = slapper.SlapCooldown;
 
             // Calculate the drag while holding the burger.
             burgerHorizontalDrag = AirResistance.CalculateDragFromTVelocity(horizontalVelocity, airResistance.Mass);
@@ -79,6 +79,12 @@ namespace FoodFlight
         {
             airResistance.HorizontalDrag = burgerHorizontalDrag;
             airResistance.VerticalDrag = burgerVerticalDrag;
+
+            movement.MaxDriftSpeed = maxDriftSpeed;
+            movement.DriftAcceleration = driftAcceleration;
+
+            gravitator.GravityBias = gravityBias;
+            slapper.SlapCooldown = slapCooldown;
         }
 
         /// <summary>
@@ -88,6 +94,12 @@ namespace FoodFlight
         {
             airResistance.HorizontalDrag = normalHorizontalDrag;
             airResistance.VerticalDrag = normalVerticalDrag;
+
+            movement.MaxDriftSpeed = normalDriftSpeed;
+            movement.DriftAcceleration = normalDriftAcceleration;
+
+            gravitator.GravityBias = normalGravityBias;
+            slapper.SlapCooldown = normalSlapCooldown;
         }
     }
 }

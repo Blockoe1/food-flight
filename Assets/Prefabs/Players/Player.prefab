@@ -214,8 +214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6818fc50d5f5184f8ae874b52c75455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.SkydivingMovement
-  maxDriftSpeed: 10
-  driftAcceleration: 4
+  <MaxDriftSpeed>k__BackingField: 8
+  <DriftAcceleration>k__BackingField: 4
   disabledAcceleration: 1
   levelBounds: {x: 20, y: 20}
   rb: {fileID: 7133835219555258079}
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.Attacker
   attackHitboxTime: 0.25
-  slapCooldown: 0.25
+  <SlapCooldown>k__BackingField: 0.25
   attacks:
   - actionName: SlapRight
     hitbox: {fileID: 5430800440980526400}
@@ -473,7 +473,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.BurgerAirResistance
   verticalVelocity: 6
   horizontalVelocity: 4.5
+  maxDriftSpeed: 8
+  driftAcceleration: 4
+  gravityBias: 1.5
+  slapCooldown: 0.25
   airResistance: {fileID: 2628432252682396311}
+  movement: {fileID: 5740293930129898986}
+  gravitator: {fileID: 4422834799746133179}
+  slapper: {fileID: 3600725690774508948}
 --- !u!114 &6820090450158700413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,7 +593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.ObjectGravitation
   gravityStrength: 3
-  gravityBias: 1.5
+  <GravityBias>k__BackingField: 1.5
   rb: {fileID: 7133835219555258079}
 --- !u!1 &5430800440980526400
 GameObject:
