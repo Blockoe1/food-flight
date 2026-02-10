@@ -476,7 +476,7 @@ MonoBehaviour:
   maxDriftSpeed: 8
   driftAcceleration: 4
   gravityBias: 1.5
-  slapCooldown: 0.25
+  slapCooldown: 0.5
   airResistance: {fileID: 2628432252682396311}
   movement: {fileID: 5740293930129898986}
   gravitator: {fileID: 4422834799746133179}
