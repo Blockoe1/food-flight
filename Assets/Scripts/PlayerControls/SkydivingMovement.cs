@@ -43,22 +43,27 @@ namespace FoodFlight
         /// <summary>
         /// Debug
         /// </summary>
-        //private void Update()
-        //{
-        //    // Calculate a quaternion to rotate all the ideal vectors by so they align with the  players orientation.
-        //    Vector3 forward = (rb.rotation * Vector3.down);
-        //    Vector2 rotVector = new Vector2(forward.x, forward.z);
-        //    float rotAngle = Mathf.Atan2(rotVector.x, rotVector.y) * Mathf.Rad2Deg;
-        //    Quaternion idealRotQuat = Quaternion.Euler(0, rotAngle, 0);
+        private void Update()
+        {
+            // Calculate a quaternion to rotate all the ideal vectors by so they align with the  players orientation.
+            Vector3 forward = (rb.rotation * Vector3.down);
+            Vector2 rotVector = new Vector2(forward.x, forward.z);
+            float rotAngle = Mathf.Atan2(rotVector.x, rotVector.y) * Mathf.Rad2Deg;
+            Quaternion idealRotQuat = Quaternion.Euler(0, rotAngle, 0);
 
-        //    Debug.DrawLine(rb.position, rb.position + idealRotQuat * IDEAL_X_DRIFT_VECTOR * 5, Color.red);
-        //    Debug.DrawLine(rb.position, rb.position + idealRotQuat * IDEAL_NEG_X_DRIFT_VECTOR * 5, Color.red);
-        //    Debug.DrawLine(rb.position, rb.position + idealRotQuat * IDEAL_Z_DRIFT_VECTOR * 5, Color.red);
-        //    Debug.DrawLine(rb.position, rb.position + idealRotQuat * IDEAL_NEG_Z_DRIFT_VECTOR * 5, Color.red);
-        //    Debug.DrawLine(rb.position, rb.position + rb.rotation * Vector3.right * 5, Color.green);
-        //    Debug.DrawLine(rb.position, rb.position + rb.rotation * Vector3.forward * 5, Color.green);
-        //    Debug.DrawLine(rb.position, rb.position + rb.linearVelocity * 5, Color.blue);
-        //}
+            // Rotate the X ideal vectors by your pitch axis as well.
+            Vector2 pitchVector = new Vector2(forward.y, forward.z);
+            float pitchAngle = Mathf.Atan2(pitchVector.x, pitchVector.y) * Mathf.Rad2Deg;
+            Quaternion idealPitchQuat = Quaternion.Euler(-pitchAngle, 0, 0);
+
+            Debug.DrawLine(rb.position, rb.position + idealRotQuat * idealPitchQuat * IDEAL_X_DRIFT_VECTOR * 5, Color.red);
+            Debug.DrawLine(rb.position, rb.position + idealRotQuat * idealPitchQuat * IDEAL_NEG_X_DRIFT_VECTOR * 5, Color.red);
+            Debug.DrawLine(rb.position, rb.position + idealRotQuat * IDEAL_Z_DRIFT_VECTOR * 5, Color.red);
+            Debug.DrawLine(rb.position, rb.position + idealRotQuat * IDEAL_NEG_Z_DRIFT_VECTOR * 5, Color.red);
+            Debug.DrawLine(rb.position, rb.position + rb.rotation * Vector3.right * 5, Color.green);
+            Debug.DrawLine(rb.position, rb.position + rb.rotation * Vector3.forward * 5, Color.green);
+            Debug.DrawLine(rb.position, rb.position + rb.linearVelocity * 5, Color.blue);
+        }
 
         /// <summary>
         /// Applies drift velocity to the player based on their current rotation.
@@ -73,16 +78,22 @@ namespace FoodFlight
             {
                 acceleration = driftAcceleration;
 
-                // Calculate a quaternion to rotate all the ideal vectors by so they align with the  players orientation.
+                // Calculate a quaternion to rotate all the ideal vectors by so they align with the players orientation.
                 Vector3 forward = (rb.rotation * Vector3.down);
                 Vector2 rotVector = new Vector2(forward.x, forward.z);
                 float rotAngle = Mathf.Atan2(rotVector.x, rotVector.y) * Mathf.Rad2Deg;
                 Quaternion idealRotQuat = Quaternion.Euler(0, rotAngle, 0);
 
+                // Rotate the X ideal vectors by your pitch axis as well.
+                Vector2 pitchVector = new Vector2(forward.y, forward.z);
+                float pitchAngle = Mathf.Atan2(pitchVector.x, pitchVector.y) * Mathf.Rad2Deg;
+                Quaternion idealPitchQuat = Quaternion.Euler(-pitchAngle, 0, 0);
+
                 // Calculate X Drift
                 targetDriftVelocity.x = CalculateDrift(rb.rotation * Vector3.right,
                     idealRotQuat * IDEAL_X_DRIFT_VECTOR, idealRotQuat * IDEAL_NEG_X_DRIFT_VECTOR);
                 //Debug.Log(GetOrientationFitness(IDEAL_X_DRIFT_VECTOR, xVector));
+
                 // Caluclate Z Drift
                 targetDriftVelocity.y = CalculateDrift(rb.rotation * Vector3.forward,
                     idealRotQuat * IDEAL_Z_DRIFT_VECTOR, idealRotQuat * IDEAL_NEG_Z_DRIFT_VECTOR);

@@ -8,6 +8,7 @@
 *****************************************************************************/
 using CustomAttributes;
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -145,9 +146,10 @@ namespace FoodFlight
         /// <param name="inputDevices">The InputDevices to listen for.</param>
         /// <param name="ct">The cancellation token to cancel this operation.</param>
         /// <returns>Task</returns>
-        public async Task PairController(InputDevice[] inputDevices, CancellationToken ct)
+        public async Task PairController(List<InputDevice> inputDevices, CancellationToken ct)
         {
             InputDevice device = await GetInputDevice(inputDevices, ct);
+            inputDevices.Remove(device);
             SetControlScheme(device);
         }
 
@@ -156,10 +158,11 @@ namespace FoodFlight
         /// </summary>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task PairControllerGyro(int numControllers, InputDevice[] inputDevices, CancellationToken ct)
+        public async Task PairControllerGyro(int numControllers, List<InputDevice> inputDevices, 
+            List<int> pairedIndicies, CancellationToken ct)
         {
             // Create tasks for syncing the JoyShock and InputDevices.
-            Task<int> joyShockTask = GetJoyShock(numControllers, ct);
+            Task<int> joyShockTask = GetJoyShock(numControllers, pairedIndicies, ct);
             Task<InputDevice> inputDeviceTask = GetInputDevice(inputDevices, ct);
 
             // Create a task array to await tasks syncronously.
@@ -172,6 +175,9 @@ namespace FoodFlight
             InputDevice inputDevice = inputDeviceTask.GetAwaiter().GetResult();
 
             SetSyncState(joyShockIndex, inputDevice);
+            // Remove the paired InputDevice so that you can't pair the same controller to both players.
+            inputDevices.Remove(inputDevice);
+            pairedIndicies.Add(joyShockIndex);
 
             Debug.Log($"Paired the JSL index {joyShockIndex} to the InputDevice {inputDevice}");
         }
@@ -182,7 +188,7 @@ namespace FoodFlight
         /// <param name="numControllers">The total number of controllers connected to JSL.</param>
         /// <param name="ct">The CancellationToken for this operation.</param>
         /// <returns>The index of the found JSL device.</returns>
-        private async Task<int> GetJoyShock(int numControllers, CancellationToken ct)
+        private async Task<int> GetJoyShock(int numControllers, List<int> pairedIndicies, CancellationToken ct)
         {
             bool IsButtonPressed(int index)
             {
@@ -204,6 +210,8 @@ namespace FoodFlight
                 Debug.Log("Awaiting JSL Input.");
                 for(int i = 0; i < numControllers; i++)
                 {
+                    // Skip already paired controllers.
+                    if (pairedIndicies.Contains(i)) { continue; }
                     if (IsButtonPressed(i))
                     {
                         Debug.Log("Found JSL Device: " + i);
@@ -226,7 +234,7 @@ namespace FoodFlight
         /// <param name="devices">The array of connected InputDevices.</param>
         /// <param name="ct">The CancellationToken for this operation.</param>
         /// <returns>The found InputDevice.</returns>
-        private async Task<InputDevice> GetInputDevice(InputDevice[] devices, CancellationToken ct)
+        private async Task<InputDevice> GetInputDevice(List<InputDevice> devices, CancellationToken ct)
         {
             async Task WaitUntilButtonReleased(Gamepad foundGamepad)
             {

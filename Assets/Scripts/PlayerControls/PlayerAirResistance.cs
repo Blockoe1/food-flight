@@ -33,6 +33,8 @@ namespace FoodFlight
             get { return verticalDrag; }
             set { verticalDrag = value; }
         }
+        public float VerticalVelocity => verticalVelocity;
+        public float HorizontalVelocity => horizontalVelocity;
         #endregion
 
         /// <summary>
