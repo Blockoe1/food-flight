@@ -24,6 +24,7 @@ namespace FoodFlight
                 // Swap the Y and Z gyro to account for straigt down.
                 (gyroVector.y, gyroVector.z) = (-gyroVector.z, gyroVector.y);
                 Vector3 processedGyro = IgnoreThreshold(gyroVector, gyroThreshold) * gyroSensitivity;
+                //processedGyro.z = 0;
                 Quaternion gyroQuat = Quaternion.Euler(processedGyro);
                 targetRotation = targetRotation * gyroQuat;
             }

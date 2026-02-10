@@ -20,23 +20,24 @@ namespace FoodFlight
         private const string SLAP_TAG = "Slap";
         #endregion
 
+        [SerializeField] private Rigidbody rb;
         [SerializeField] private float baseKnockbackStrength;
         [SerializeField] private float scaledKnockbackStrength;
         [SerializeField] private float maxKnockbackStrength;
         [SerializeField] private Vector3 staticSimulatedSpeed;
         [SerializeField] private UnityEvent<Vector3> OnSlapped;
 
-        #region Component References
-        [Header("Components")]
-        [SerializeReference, ReadOnly] private Rigidbody rb;
+        //#region Component References
+        //[Header("Components")]
+        //[SerializeReference, ReadOnly] private Rigidbody rb;
 
-        [ContextMenu("Get Component References")]
-        private void Reset()
-        {
-            rb = GetComponent<Rigidbody>();
-        }
+        //[ContextMenu("Get Component References")]
+        //private void Reset()
+        //{
+        //    rb = GetComponent<Rigidbody>();
+        //}
 
-        #endregion
+        //#endregion
 
         /// <summary>
         /// Knocks this object back when they hit a slap hitbox.

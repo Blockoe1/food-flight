@@ -12,7 +12,7 @@ using UnityEngine;
 namespace FoodFlight
 {
     [RequireComponent(typeof(PlayerAirResistance))]
-    public class BurgerAirResistance : MonoBehaviour
+    public class BurgerDebuffer : MonoBehaviour
     {
         [SerializeField] private float verticalVelocity;
         [SerializeField] private float horizontalVelocity;
