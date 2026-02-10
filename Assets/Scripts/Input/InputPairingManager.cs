@@ -7,9 +7,10 @@
 // Brief Description :  Sets up controller pairing for all players.
 *****************************************************************************/
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -164,7 +165,7 @@ namespace FoodFlight
             Time.timeScale = 0f;
 
             OnPairingBegin?.Invoke();
-            InputDevice[] inputDevices = InputSystem.devices.ToArray();
+            List<InputDevice> inputDevices = InputSystem.devices.ToList();
 
             // If we've already been canceled, call cancel cleanup.
             if (ct.IsCancellationRequested)
@@ -286,7 +287,8 @@ namespace FoodFlight
 
             OnPairingBegin?.Invoke();
             int jslNumConnected = await JslConnectDevicesAsync();
-            InputDevice[] inputDevices = InputSystem.devices.ToArray();
+            List<InputDevice> inputDevices = InputSystem.devices.ToList();
+            List<int> pairedIndicies = new List<int>();
 
             Debug.Log($"Connected {jslNumConnected} to JSL.");
 
@@ -305,7 +307,7 @@ namespace FoodFlight
 
                     // Pair the controller.
                     OnPlayerPairing?.Invoke("Pairing " + controller.name);
-                    await controller.PairControllerGyro(jslNumConnected, inputDevices, ct);
+                    await controller.PairControllerGyro(jslNumConnected, inputDevices, pairedIndicies, ct);
 
                     // If the operation was canceled halfway through, throw the exception.
                     ct.ThrowIfCancellationRequested();

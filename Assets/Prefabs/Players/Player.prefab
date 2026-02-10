@@ -72,7 +72,7 @@ CapsuleCollider:
   m_Radius: 0.2
   m_Height: 1.4243245
   m_Direction: 1
-  m_Center: {x: 0, y: -0.17697346, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7133835219555258079
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -272,6 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0759c9ad441e04b428a19b9b1919b2db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.Slapable
+  rb: {fileID: 8482990211737269122}
   baseKnockbackStrength: 5
   scaledKnockbackStrength: 5
   maxKnockbackStrength: 50
@@ -339,7 +340,6 @@ MonoBehaviour:
           m_StringArgument: PlayerHurt
           m_BoolArgument: 0
         m_CallState: 2
-  rb: {fileID: 7133835219555258079}
 --- !u!114 &3964411729484860863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,7 +966,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5950525438991847679, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5950525438991847679, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1011,6 +1011,54 @@ PrefabInstance:
     - target: {fileID: 6409371453522002115, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439220057402228559, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439220057402228559, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439220057402228559, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439220057402228559, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439220057402228559, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439220057402228559, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439220057402228559, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439220057402228559, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439220057402228559, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439220057402228559, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439220057402228559, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439220057402228559, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6687448979603798427, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
       propertyPath: m_Layer
@@ -1085,6 +1133,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f78cc9f1876287949a19df673aa0c25d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.RagdollController
+--- !u!54 &8482990211737269122 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 8785893245234570990, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
+  m_PrefabInstance: {fileID: 888442762649851244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2241441165844707644
 PrefabInstance:
   m_ObjectHideFlags: 0
