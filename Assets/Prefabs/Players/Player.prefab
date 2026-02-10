@@ -236,8 +236,6 @@ MonoBehaviour:
   input: {fileID: 6696068519138197985}
   inSync: {fileID: 2504725113489638729}
   defaultEuler: {x: -90, y: 0, z: 0}
-  yawRotationSpeed: 100
-  diveDeadzone: 0.2
   moveInput: {x: 0, y: 0}
   diveInput: {x: 0, y: 0}
 --- !u!114 &3600725690774508948
@@ -273,9 +271,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.Slapable
   rb: {fileID: 8482990211737269122}
-  baseKnockbackStrength: 5
-  scaledKnockbackStrength: 5
-  maxKnockbackStrength: 50
+  baseKnockbackStrength: 25
+  scaledKnockbackStrength: 25
+  maxKnockbackStrength: 250
   staticSimulatedSpeed: {x: 10, y: 0, z: 0}
   OnSlapped:
     m_PersistentCalls:
