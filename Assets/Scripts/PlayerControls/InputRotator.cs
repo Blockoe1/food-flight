@@ -50,7 +50,6 @@ namespace FoodFlight
         private Quaternion defaultRotation;
         [SerializeField, ReadOnly] private Vector2 moveInput;
         [SerializeField, ReadOnly] private Vector2 diveInput;
-        private float yawAngle;
 
         /// <summary>
         /// Setup/Subscribe/Unsubscribe input.
@@ -117,7 +116,6 @@ namespace FoodFlight
         public override void ResetRotation()
         {
             base.ResetRotation();
-            yawAngle = 0;
         }
 
         /// <summary>
