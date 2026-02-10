@@ -22,8 +22,8 @@ namespace FoodFlight
 
         [SerializeField, Tooltip("How strong the gravitational forces exerted by this object are.")] 
         private float gravityStrength;
-        [SerializeField, Tooltip("How much this object is affected by gravitational forces from other objects.")]
-        private float gravityBias;
+        [field: SerializeField, Tooltip("How much this object is affected by gravitational forces from other objects.")]
+        public float GravityBias { get; set; }
 
         private static readonly List<ObjectGravitation> gravityObjects = new List<ObjectGravitation>();
 
@@ -78,7 +78,7 @@ namespace FoodFlight
         {
             // Prevent /0 error.
             if (distance == 0) {  return 0f; }
-            return GRAVITATIONAL_CONSTANT * gravityStrength * gravityBias / Mathf.Pow(distance, 2);
+            return GRAVITATIONAL_CONSTANT * gravityStrength * GravityBias / Mathf.Pow(distance, 2);
         }
     }
 }
