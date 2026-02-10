@@ -14,25 +14,40 @@ namespace FoodFlight
     [RequireComponent(typeof(PlayerAirResistance))]
     public class BurgerDebuffer : MonoBehaviour
     {
+        [Header("Air Resistance")]
         [SerializeField] private float verticalVelocity;
         [SerializeField] private float horizontalVelocity;
+        [Header("Movement")]
+        [SerializeField] private float maxDriftSpeed;
+        [SerializeField] private float driftAcceleration;
+        [Header("Misc")]
         [SerializeField] private float gravityBias;
         [SerializeField] private float slapCooldown;
-        [SerializeField] private float maxDriftSpeed;
 
         private float burgerVerticalDrag;
         private float burgerHorizontalDrag;
         private float normalVerticalDrag;
         private float normalHorizontalDrag;
 
+        private float normalDriftSpeed;
+        private float normalDriftAcceleration;
+        private float normalGravityBias;
+        private float normalSlapCooldown;
+
         #region Component References
         [Header("Components")]
         [SerializeReference, ReadOnly] private PlayerAirResistance airResistance;
+        [SerializeReference, ReadOnly] private SkydivingMovement movement;
+        [SerializeReference, ReadOnly] private ObjectGravitation gravitator;
+        [SerializeReference, ReadOnly] private Slapper slapper;
 
         [ContextMenu("Get Component References")]
         private void Reset()
         {
             airResistance = GetComponent<PlayerAirResistance>();
+            movement = GetComponent<SkydivingMovement>();
+            gravitator = GetComponent<ObjectGravitation>();
+            slapper = GetComponent<Slapper>();
         }
 
         #endregion
@@ -44,6 +59,13 @@ namespace FoodFlight
         {
             normalHorizontalDrag = airResistance.HorizontalDrag;
             normalVerticalDrag = airResistance.VerticalDrag;
+
+            normalDriftSpeed = movement.MaxDriftSpeed;
+            normalDriftAcceleration = movement.DriftAcceleration;
+
+            normalGravityBias = gravitator.GravityBias;
+
+            normalSlapCooldown = slapper.
 
             // Calculate the drag while holding the burger.
             burgerHorizontalDrag = AirResistance.CalculateDragFromTVelocity(horizontalVelocity, airResistance.Mass);
