@@ -16,6 +16,9 @@ namespace FoodFlight
     {
         [SerializeField] private float verticalVelocity;
         [SerializeField] private float horizontalVelocity;
+        [SerializeField] private float gravityBias;
+        [SerializeField] private float slapCooldown;
+        [SerializeField] private float maxDriftSpeed;
 
         private float burgerVerticalDrag;
         private float burgerHorizontalDrag;
