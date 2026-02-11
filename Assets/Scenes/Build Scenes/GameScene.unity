@@ -1607,7 +1607,7 @@ PrefabInstance:
     - target: {fileID: 5049126332222626454, guid: 5396580374616154a9294b24582290ad, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
-      objectReference: {fileID: 626809184}
+      objectReference: {fileID: 626809188}
     - target: {fileID: 5199921502814936744, guid: 5396580374616154a9294b24582290ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
@@ -5518,14 +5518,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
-    - target: {fileID: 1043509115337918998, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
-      propertyPath: levelBounds.x
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1043509115337918998, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
-      propertyPath: levelBounds.y
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 2267281801525211265, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
       propertyPath: scoreText
       value: 
@@ -5629,6 +5621,11 @@ MonoBehaviour:
 --- !u!54 &626809187 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 2509258972274587939, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
+  m_PrefabInstance: {fileID: 626809183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &626809188 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1502515155062562271, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
   m_PrefabInstance: {fileID: 626809183}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &629148344
@@ -14451,14 +14448,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5740293930129898986, guid: 70544e2894e995a448d497824312159d, type: 3}
-      propertyPath: levelBounds.x
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5740293930129898986, guid: 70544e2894e995a448d497824312159d, type: 3}
-      propertyPath: levelBounds.y
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5740293930129898986, guid: 70544e2894e995a448d497824312159d, type: 3}
       propertyPath: maxDriftSpeed
       value: 8
       objectReference: {fileID: 0}
@@ -17071,6 +17060,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810694582}
   m_CullTransparentMesh: 1
+--- !u!4 &1825332613 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6127382016741960227, guid: 70544e2894e995a448d497824312159d, type: 3}
+  m_PrefabInstance: {fileID: 1561594704}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1833012491
 GameObject:
   m_ObjectHideFlags: 0
@@ -20214,7 +20208,7 @@ PrefabInstance:
     - target: {fileID: 5049126332222626454, guid: 5396580374616154a9294b24582290ad, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
-      objectReference: {fileID: 1561594705}
+      objectReference: {fileID: 1825332613}
     - target: {fileID: 5199921502814936744, guid: 5396580374616154a9294b24582290ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2

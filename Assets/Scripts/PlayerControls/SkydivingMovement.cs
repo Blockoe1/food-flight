@@ -22,8 +22,8 @@ namespace FoodFlight
         private static readonly float DEGREE_CORRECTION = Mathf.Sqrt(2) / 2;
         #endregion
 
-        [SerializeField] private float maxDriftSpeed;
-        [SerializeField] private float driftAcceleration;
+        [field: SerializeField] public float MaxDriftSpeed { get; set; }
+        [field: SerializeField] public float DriftAcceleration { get; set; }
         [SerializeField] private float disabledAcceleration;
         [SerializeField] private Vector2 levelBounds;
 
@@ -76,7 +76,7 @@ namespace FoodFlight
             // Prevent any force adding if moving is disabled.
             if (canMove)
             {
-                acceleration = driftAcceleration;
+                acceleration = DriftAcceleration;
 
                 // Calculate a quaternion to rotate all the ideal vectors by so they align with the players orientation.
                 Vector3 forward = (rb.rotation * Vector3.down);
@@ -130,7 +130,7 @@ namespace FoodFlight
         private float CalculateDrift(Vector3 currentVector, Vector3 idealPosVector, Vector3 idealNegVector)
         {
             return (GetOrientationFitness(idealPosVector, currentVector) - 
-                GetOrientationFitness(idealNegVector, currentVector)) * maxDriftSpeed;
+                GetOrientationFitness(idealNegVector, currentVector)) * MaxDriftSpeed;
         }
 
         /// <summary>
