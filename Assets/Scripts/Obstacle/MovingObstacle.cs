@@ -11,7 +11,14 @@ namespace FoodFlight
         {
             if (obstacleController.isContacted == true)
             {
-                transform.Translate(Vector3.left * speed * Time.deltaTime);
+                if(gameObject.tag == "Bird")
+                {
+                    transform.Translate(Vector3.left * speed * Time.deltaTime);
+                }
+                else
+                {
+                    transform.Translate(Vector3.forward * speed * Time.deltaTime);
+                }
             }   
         }
     }
