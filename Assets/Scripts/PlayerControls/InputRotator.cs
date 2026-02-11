@@ -138,8 +138,7 @@ namespace FoodFlight
             rot = Quaternion.Slerp(rot, pitchQuat, Mathf.Abs(moveInput.y));
 
             // Add some Slerping between the movement and dive.
-            Debug.Log(moveInput.magnitude);
-            float moveBias = Mathf.Lerp(1, 0.5f, moveInput.magnitude);
+            float moveBias = Mathf.Lerp(1f, 0.5f, moveInput.magnitude);
             rot = Quaternion.SlerpUnclamped(rot, IDEAL_DIVE_QUAT, diveInput.y * moveBias);
 
             targetRotation = rot;

@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.ObjectGravitation
   gravityStrength: 0
-  <GravityBias>k__BackingField: 0
+  <GravityBias>k__BackingField: 3
   rb: {fileID: 4653375820875668474}
 --- !u!1001 &5052301627235674862
 PrefabInstance:
