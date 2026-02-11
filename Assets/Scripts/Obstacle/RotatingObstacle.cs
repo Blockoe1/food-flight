@@ -4,7 +4,7 @@ namespace FoodFlight
 {
     public class RotatingObstacle : MonoBehaviour
     {
-        [SerializeField] private int rotationsPerSecond;
+        [SerializeField] private float rotationsPerSecond;
 
         // Update is called once per frame
         void Update()
