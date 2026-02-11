@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: OutlineMaterial
+  m_Name: OutlineBurger
   m_Shader: {fileID: -6465566751694194690, guid: ba9d833fe3ae0494a95f857168d914e3, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -53,8 +53,8 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _size: 0.003
+    - _size: 0.1
     m_Colors:
-    - _color: {r: 0, g: 1, b: 0.8623426, a: 1}
+    - _color: {r: 1, g: 0.87872064, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
