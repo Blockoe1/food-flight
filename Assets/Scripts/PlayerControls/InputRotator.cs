@@ -48,8 +48,8 @@ namespace FoodFlight
         private InputAction diveAction;
 
         private Quaternion defaultRotation;
-        [SerializeField, ReadOnly] private Vector2 moveInput;
-        [SerializeField, ReadOnly] private Vector2 diveInput;
+        private Vector2 moveInput;
+        private Vector2 diveInput;
 
         /// <summary>
         /// Setup/Subscribe/Unsubscribe input.
