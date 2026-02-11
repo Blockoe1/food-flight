@@ -217,7 +217,7 @@ MonoBehaviour:
   <MaxDriftSpeed>k__BackingField: 8
   <DriftAcceleration>k__BackingField: 4
   disabledAcceleration: 1
-  levelBounds: {x: 20, y: 20}
+  levelBounds: {x: 15, y: 15}
   rb: {fileID: 7133835219555258079}
 --- !u!114 &5590620580483810736
 MonoBehaviour:

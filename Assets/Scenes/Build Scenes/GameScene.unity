@@ -5518,14 +5518,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
-    - target: {fileID: 1043509115337918998, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
-      propertyPath: levelBounds.x
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1043509115337918998, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
-      propertyPath: levelBounds.y
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 2267281801525211265, guid: 61c3a85623b57da46aae8c99c3bbf5d8, type: 3}
       propertyPath: scoreText
       value: 
@@ -14454,14 +14446,6 @@ PrefabInstance:
     - target: {fileID: 5474769241405204166, guid: 70544e2894e995a448d497824312159d, type: 3}
       propertyPath: debugText
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5740293930129898986, guid: 70544e2894e995a448d497824312159d, type: 3}
-      propertyPath: levelBounds.x
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5740293930129898986, guid: 70544e2894e995a448d497824312159d, type: 3}
-      propertyPath: levelBounds.y
-      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5740293930129898986, guid: 70544e2894e995a448d497824312159d, type: 3}
       propertyPath: maxDriftSpeed
