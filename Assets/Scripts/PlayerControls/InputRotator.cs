@@ -128,9 +128,6 @@ namespace FoodFlight
             Vector3 rotCorrection = Vector3.zero;
 
             Quaternion rot = defaultRotation;
-            rot = Quaternion.SlerpUnclamped(rot, IDEAL_DIVE_QUAT, diveInput.y);
-
-            // Add some Slerping between the movement and dive.
 
             //MoveInput
             // X = roll axis.
@@ -139,6 +136,11 @@ namespace FoodFlight
             // Y = pitch axis
             Quaternion pitchQuat = moveInput.y > 0 ? IDEAL_ZP_QUAT : IDEAL_ZN_QUAT;
             rot = Quaternion.Slerp(rot, pitchQuat, Mathf.Abs(moveInput.y));
+
+            // Add some Slerping between the movement and dive.
+            Debug.Log(moveInput.magnitude);
+            float moveBias = Mathf.Lerp(1, 0.5f, moveInput.magnitude);
+            rot = Quaternion.SlerpUnclamped(rot, IDEAL_DIVE_QUAT, diveInput.y * moveBias);
 
             targetRotation = rot;
 
