@@ -12,6 +12,8 @@ namespace FoodFlight
         private float gyroSensitivity;
         [SerializeField, Tooltip("Gyro inputs lower than this threshold are ignored.")] private float gyroThreshold;
 
+        private Quaternion internalControllerRotation = Quaternion.identity;
+
         /// <summary>
         /// Every FixedUpdate, apply any unapplied gyro rotation.
         /// </summary>
@@ -26,7 +28,25 @@ namespace FoodFlight
                 Vector3 processedGyro = IgnoreThreshold(gyroVector, gyroThreshold) * gyroSensitivity;
                 //processedGyro.z = 0;
                 Quaternion gyroQuat = Quaternion.Euler(processedGyro);
-                targetRotation = targetRotation * gyroQuat;
+                internalControllerRotation = internalControllerRotation * gyroQuat;
+                //targetRotation = targetRotation * gyroQuat;
+
+                // Calculate a player rotation based on the orientation of the controller.
+
+                Vector3 forwardVector = (internalControllerRotation * Vector3.down).normalized;
+                Vector3 yawForward = new Vector3(forwardVector.x, forwardVector.y, 0).normalized;
+                Debug.DrawLine(rb.position, rb.position + forwardVector * 5, Color.red);
+                Debug.DrawLine(rb.position, rb.position + yawForward * 5, Color.red);
+
+                //Vector3 rightVector = (internalControllerRotation * Vector3.right).normalized;
+                //Vector3 yawRight = new Vector3(rightVector.x, forwardVector.y, 0).normalized;
+                //Debug.DrawLine(rb.position, rb.position + rightVector * 5, Color.green);
+                //Debug.DrawLine(rb.position, rb.position + yawRight * 5, Color.green);
+
+                //float pitchAngle = (-Vector3.Angle(yawForward, forwardVector) + 360) % 360;
+                //float rollAngle = (Vector3.Angle(yawRight, rightVector) + 360) % 360;
+
+                //targetRotation = Quaternion.Euler(new Vector3(pitchAngle, rollAngle, 0));
             }
 
             // Always run the base FixedUpdate after target rotation has been set.
@@ -54,6 +74,15 @@ namespace FoodFlight
         protected override void CheckEnabled(bool hasGyro)
         {
             enabled = hasGyro;
+        }
+
+        /// <summary>
+        /// Reset the stored internal rotation of the controller.
+        /// </summary>
+        protected override void Reset()
+        {
+            base.Reset();
+            internalControllerRotation = Quaternion.identity;
         }
     }
 }
