@@ -132,10 +132,24 @@ namespace FoodFlight
             //MoveInput
             // X = roll axis.
             Quaternion rollQuat = moveInput.x > 0 ? IDEAL_XP_QUAT : IDEAL_XN_QUAT;
+
+            // Adjust the roll quat based on dive.
+            Quaternion rollAdjust = Quaternion.Euler(0, 90, 0) * rollQuat;
+            rollQuat = Quaternion.SlerpUnclamped(rollQuat, rollAdjust, moveInput.x * diveInput.y);
+
             rot = Quaternion.Slerp(rot, rollQuat, Mathf.Abs(moveInput.x));
             // Y = pitch axis
             Quaternion pitchQuat = moveInput.y > 0 ? IDEAL_ZP_QUAT : IDEAL_ZN_QUAT;
+
+            // Adjust the pitch quat based on moveInput.magnitude so that backwards moving 
+            if (moveInput.y < 0)
+            {
+                Quaternion pitchAdjust = Quaternion.Euler(-90, 0, 0) * pitchQuat;
+                pitchQuat = Quaternion.Slerp(pitchQuat, pitchAdjust, moveInput.magnitude * Mathf.Abs(diveInput.y));
+            }
+
             rot = Quaternion.Slerp(rot, pitchQuat, Mathf.Abs(moveInput.y));
+
 
             // Add some Slerping between the movement and dive.
             float moveBias = Mathf.Lerp(1f, 0.5f, moveInput.magnitude);
