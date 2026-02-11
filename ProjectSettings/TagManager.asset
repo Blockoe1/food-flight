@@ -8,6 +8,8 @@ TagManager:
   - Burger
   - EndGame
   - ObstacleController
+  - Bird
+  - Plane
   layers:
   - Default
   - TransparentFX
