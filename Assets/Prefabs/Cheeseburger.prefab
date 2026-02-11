@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee700808616e4247bc84ff482b35256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.BoundingBox
-  levelBounds: {x: 20, y: 20}
+  levelBounds: {x: 15, y: 15}
   rb: {fileID: 4653375820875668474}
 --- !u!114 &2922951807324541816
 MonoBehaviour:

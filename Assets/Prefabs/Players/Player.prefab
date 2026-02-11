@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 4422834799746133179}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,8 +236,6 @@ MonoBehaviour:
   input: {fileID: 6696068519138197985}
   inSync: {fileID: 2504725113489638729}
   defaultEuler: {x: -90, y: 0, z: 0}
-  moveInput: {x: 0, y: 0}
-  diveInput: {x: 0, y: 0}
 --- !u!114 &3600725690774508948
 MonoBehaviour:
   m_ObjectHideFlags: 0
