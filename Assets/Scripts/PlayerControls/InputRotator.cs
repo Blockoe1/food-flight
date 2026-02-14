@@ -20,22 +20,7 @@ namespace FoodFlight
         private const string DIVE_ACTION_NAME = "Dive";
         #endregion
 
-        #region Ideal Drift Vectors
-        // Stick controls use reversed ideal vectors from the SkydivingMovement script since perpendicular is ideal
-        // in the movement script.
-        //private static readonly Vector3 IDEAL_NEG_X_DRIFT_VECTOR = new Vector3(1, 1, 0).normalized;
-        //private static readonly Vector3 IDEAL_X_DRIFT_VECTOR = new Vector3(-1, 1, 0).normalized;
-        //private static readonly Vector3 IDEAL_NEG_Z_DRIFT_VECTOR = new Vector3(0, 1, -1).normalized;
-        //private static readonly Vector3 IDEAL_Z_DRIFT_VECTOR = new Vector3(0, 1, 1).normalized;
-        //private const float IDEAL_Z_MOVE_ANGLE = -45f;
-        //private const float IDEAL_X_MOVE_ANGLE = 45f;
-
-        private static readonly Quaternion IDEAL_XP_QUAT = Quaternion.Euler(-135, -90, 90);
-        private static readonly Quaternion IDEAL_XN_QUAT = Quaternion.Euler(-45, -90, 90);
-        private static readonly Quaternion IDEAL_ZP_QUAT = Quaternion.Euler(-45, 0, 0);
-        private static readonly Quaternion IDEAL_ZN_QUAT = Quaternion.Euler(-135, 0, 0);
-        private static readonly Quaternion IDEAL_DIVE_QUAT = Quaternion.identity;
-        #endregion
+        
 
         [Header("Rotation Settings")]
         [SerializeField] private Vector3 defaultEuler = new Vector3(-90, 0, 0);

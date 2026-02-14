@@ -132,7 +132,10 @@ namespace FoodFlight
             InputDevice keyboard = InputSystem.GetDevice<Keyboard>();
             foreach (var player in players)
             {
-                player.OverrideControlScheme(keyboard);
+                if (player.isActiveAndEnabled)
+                {
+                    player.OverrideControlScheme(keyboard);
+                }
             }
         }
         #endregion
