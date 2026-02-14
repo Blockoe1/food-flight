@@ -14457,7 +14457,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5740293930129898986, guid: 70544e2894e995a448d497824312159d, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5740293930129898986, guid: 70544e2894e995a448d497824312159d, type: 3}
       propertyPath: maxDriftSpeed

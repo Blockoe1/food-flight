@@ -80,6 +80,10 @@ namespace FoodFlight
 
                 Quaternion pitQuat = Quaternion.Euler(new Vector3(processedGyro.x, 0, 0));
                 Quaternion rollQuat = Quaternion.Euler(new Vector3(0, processedGyro.y, 0));
+
+                internalPitch = internalPitch * pitQuat;
+                internalRoll = internalRoll * rollQuat;
+                targetRotation = internalPitch * internalRoll;
             }
 
             // Always run the base FixedUpdate after target rotation has been set.
