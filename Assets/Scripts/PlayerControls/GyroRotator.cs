@@ -76,7 +76,7 @@ namespace FoodFlight
                 (gyroVector.y, gyroVector.z) = (-gyroVector.z, gyroVector.y);
                 Vector3 processedGyro = IgnoreThreshold(gyroVector, gyroThreshold) * gyroSensitivity;
 
-                Debug.Log(processedGyro);
+                //Debug.Log(processedGyro);
 
                 Quaternion pitQuat = Quaternion.Euler(new Vector3(processedGyro.x, 0, 0));
                 Quaternion rollQuat = Quaternion.Euler(new Vector3(0, processedGyro.y, 0));
