@@ -20,37 +20,21 @@ namespace FoodFlight
         private const string DIVE_ACTION_NAME = "Dive";
         #endregion
 
-        #region Ideal Drift Vectors
-        // Stick controls use reversed ideal vectors from the SkydivingMovement script since perpendicular is ideal
-        // in the movement script.
-        //private static readonly Vector3 IDEAL_NEG_X_DRIFT_VECTOR = new Vector3(1, 1, 0).normalized;
-        //private static readonly Vector3 IDEAL_X_DRIFT_VECTOR = new Vector3(-1, 1, 0).normalized;
-        //private static readonly Vector3 IDEAL_NEG_Z_DRIFT_VECTOR = new Vector3(0, 1, -1).normalized;
-        //private static readonly Vector3 IDEAL_Z_DRIFT_VECTOR = new Vector3(0, 1, 1).normalized;
-        //private const float IDEAL_Z_MOVE_ANGLE = -45f;
-        //private const float IDEAL_X_MOVE_ANGLE = 45f;
-
-        private static readonly Quaternion IDEAL_XP_QUAT = Quaternion.Euler(-135, -90, 90);
-        private static readonly Quaternion IDEAL_XN_QUAT = Quaternion.Euler(-45, -90, 90);
-        private static readonly Quaternion IDEAL_ZP_QUAT = Quaternion.Euler(-45, 0, 0);
-        private static readonly Quaternion IDEAL_ZN_QUAT = Quaternion.Euler(-135, 0, 0);
-        private static readonly Quaternion IDEAL_DIVE_QUAT = Quaternion.identity;
-        #endregion
+        
 
         [Header("Rotation Settings")]
         [SerializeField] private Vector3 defaultEuler = new Vector3(-90, 0, 0);
-        [SerializeField] private float yawRotationSpeed;
-        [SerializeField, Range(0, 1), Tooltip("The amount of deadzone to apply to the dive stick.  " +
-            "Higher numbers help differentiate from rotation and dive.")] 
-        private float diveDeadzone;
+        //[SerializeField] private float yawRotationSpeed;
+        //[SerializeField, Range(0, 1), Tooltip("The amount of deadzone to apply to the dive stick.  " +
+        //    "Higher numbers help differentiate from rotation and dive.")] 
+        //private float diveDeadzone;
 
         private InputAction moveAction;
         private InputAction diveAction;
 
         private Quaternion defaultRotation;
-        [SerializeField, ReadOnly] private Vector2 moveInput;
-        [SerializeField, ReadOnly] private Vector2 diveInput;
-        private float yawAngle;
+        private Vector2 moveInput;
+        private Vector2 diveInput;
 
         /// <summary>
         /// Setup/Subscribe/Unsubscribe input.
@@ -117,7 +101,6 @@ namespace FoodFlight
         public override void ResetRotation()
         {
             base.ResetRotation();
-            yawAngle = 0;
         }
 
         /// <summary>
@@ -125,87 +108,37 @@ namespace FoodFlight
         /// </summary>
         protected override void FixedUpdate()
         {
-            // Disable the rotation constraints.
-            
-
             // Calculate the target direction based on input.
             Vector3 targetDirection = Vector3.up;
             Vector3 rotCorrection = Vector3.zero;
 
-            //// Dive Input
-            //// Y Axis controls dive.  Increases how vertical the player is.
-            //targetDirection = Vector3.Lerp(targetDirection, Vector3.forward, Mathf.Abs(diveInput.y));
-
-            //// Move Input
-            //// X axis controls roll axis that translates into X movement.
-            //Vector2 xVector = moveInput.x > 0 ? IDEAL_X_DRIFT_VECTOR : IDEAL_NEG_X_DRIFT_VECTOR;
-            //targetDirection = Vector3.Lerp(targetDirection, xVector, Mathf.Abs(moveInput.x));
-            //// Add correction to make the player face the right direction.
-            //rotCorrection.x += -90 * Mathf.Abs(System.MathF.Sign(moveInput.x));
-            //rotCorrection.y += 90 * System.MathF.Sign(moveInput.x);
-            ////// Y axis controls pitch axis that translates into Z movement (affected by dive).
-            //Vector3 zVector = moveInput.y > 0 ? IDEAL_Z_DRIFT_VECTOR : IDEAL_NEG_Z_DRIFT_VECTOR;
-            //targetDirection = Vector3.Lerp(targetDirection, zVector, Mathf.Abs(moveInput.y));
-            //// Only need to apply correction for negative Z input.
-            //if (moveInput.y < 0)
-            //{
-            //    rotCorrection.y += -180;
-            //    rotCorrection.x -= -180;
-            //}
-            //Vector3 appliedZVector = zVector * System.MathF.Sign(moveInput.y);
-            //(appliedZVector.y, appliedZVector.z) = (appliedZVector.z, appliedZVector.y);
-            //targetDirection += appliedZVector;
-
-            // Swapping to a Euler system since I dont think we need to worry about gimbal lock and it's way simpler.
-            // MoveInput
-            // X Axis control roll axis.
-            //Vector3 yEuler = Vector3.zero;
-            //yEuler.y = IDEAL_X_MOVE_ANGLE * moveInput.x;
-            //Quaternion yQuat = Quaternion.Euler(yEuler);
-            //// Y Axis controls 
-            //Vector3 xEuler = Vector3.zero;
-            //xEuler.x = IDEAL_Z_MOVE_ANGLE * moveInput.y;
-            //Quaternion xQuat = Quaternion.Euler(xEuler);
-
-            //// X Axis of Dive controls Yaw axis rotation.
-            ////yawAngle += diveInput.x * Time.fixedDeltaTime * yawRotationSpeed;
-            ////Quaternion yawRotation = Quaternion.Euler(0, yawAngle, 0);
-
-            ////Debug.Log($"Target Direction: {targetDirection}.  Yaw Angle: {yawAngle}.");
-            //Debug.Log($"y Eulers: {yEuler}.  xEuler: {xEuler}");
-
-            //Quaternion correction = Quaternion.Euler(rotCorrection);
-
-            // Get the target rotation based on our target direction.
-            //targetRotation = Quaternion.LookRotation(targetDirection.normalized, Vector3.up) * correction;
-
-            //targetRotation = xQuat * yQuat * Quaternion.AngleAxis(-90, Vector3.right);
-            //targetRotation = targetRotation * defaultRotation;
             Quaternion rot = defaultRotation;
-
-            // SLERP towards dive first.
-            if (Mathf.Abs(diveInput.y) > diveDeadzone)
-            {
-                rot = Quaternion.Slerp(rot, IDEAL_DIVE_QUAT, Mathf.Abs(diveInput.y));
-            }
 
             //MoveInput
             // X = roll axis.
             Quaternion rollQuat = moveInput.x > 0 ? IDEAL_XP_QUAT : IDEAL_XN_QUAT;
+
+            // Adjust the roll quat based on dive.
+            Quaternion rollAdjust = Quaternion.Euler(0, 90, 0) * rollQuat;
+            rollQuat = Quaternion.SlerpUnclamped(rollQuat, rollAdjust, moveInput.x * diveInput.y);
+
             rot = Quaternion.Slerp(rot, rollQuat, Mathf.Abs(moveInput.x));
             // Y = pitch axis
             Quaternion pitchQuat = moveInput.y > 0 ? IDEAL_ZP_QUAT : IDEAL_ZN_QUAT;
+
+            // Adjust the pitch quat based on moveInput.magnitude so that backwards moving 
+            if (moveInput.y < 0)
+            {
+                Quaternion pitchAdjust = Quaternion.Euler(-90, 0, 0) * pitchQuat;
+                pitchQuat = Quaternion.Slerp(pitchQuat, pitchAdjust, moveInput.magnitude * Mathf.Abs(diveInput.y));
+            }
+
             rot = Quaternion.Slerp(rot, pitchQuat, Mathf.Abs(moveInput.y));
 
-            // Dive Input
-            // X = yaw
-            // Only take into account significant rotations.
-            if (Mathf.Abs(diveInput.x) > diveDeadzone)
-            {
-                yawAngle += diveInput.x * Time.fixedDeltaTime * yawRotationSpeed;
-            }
-            Quaternion yawRotation = Quaternion.Euler(0, yawAngle, 0);
-            rot = yawRotation * rot;
+
+            // Add some Slerping between the movement and dive.
+            float moveBias = Mathf.Lerp(1f, 0.5f, moveInput.magnitude);
+            rot = Quaternion.SlerpUnclamped(rot, IDEAL_DIVE_QUAT, diveInput.y * moveBias);
 
             targetRotation = rot;
 

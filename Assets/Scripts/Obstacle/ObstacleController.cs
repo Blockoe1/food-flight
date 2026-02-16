@@ -12,8 +12,6 @@ namespace FoodFlight
             {
                 gameObject.SetActive(false);
                 isContacted = true;
-
-
             }
         }
     }

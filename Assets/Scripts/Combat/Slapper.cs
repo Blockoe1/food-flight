@@ -18,7 +18,7 @@ namespace FoodFlight
     public class Slapper : MonoBehaviour
     {
         [SerializeField] private float attackHitboxTime;
-        [SerializeField] private float slapCooldown;
+        [field: SerializeField] public float SlapCooldown { get; set; }
         [SerializeField] private AttackPairing[] attacks;
 
         private bool canSlap = true;
@@ -94,7 +94,7 @@ namespace FoodFlight
                 isAttacking = false;
 
                 // Put slapping on a brief cooldown.
-                slapperRef.DisableSlapping(slapperRef.slapCooldown);
+                slapperRef.DisableSlapping(slapperRef.SlapCooldown);
             }
         }
         #endregion

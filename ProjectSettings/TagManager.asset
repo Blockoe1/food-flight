@@ -8,6 +8,8 @@ TagManager:
   - Burger
   - EndGame
   - ObstacleController
+  - Bird
+  - Plane
   layers:
   - Default
   - TransparentFX
@@ -18,9 +20,9 @@ TagManager:
   - Player1Hitbox
   - Player2
   - Player2Hitbox
-  - 
-  - 
-  - 
+  - PlayerOneOutline
+  - PlayerTwoOutline
+  - BurgerOutline
   - 
   - 
   - 
