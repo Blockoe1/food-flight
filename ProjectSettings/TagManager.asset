@@ -20,9 +20,9 @@ TagManager:
   - Player1Hitbox
   - Player2
   - Player2Hitbox
-  - Outline
-  - Outline2
-  - 
+  - PlayerOneOutline
+  - PlayerTwoOutline
+  - BurgerOutline
   - 
   - 
   - 
