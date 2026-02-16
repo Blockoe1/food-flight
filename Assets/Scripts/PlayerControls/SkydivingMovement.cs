@@ -21,7 +21,8 @@ namespace FoodFlight
         private static readonly Vector3 IDEAL_NEG_Z_DRIFT_VECTOR = new Vector3(0, -1, -1).normalized;
         private static readonly Vector3 IDEAL_Z_DRIFT_VECTOR = new Vector3(0, -1, 1).normalized;
         private static readonly float DEGREE_CORRECTION = Mathf.Sqrt(2) / 2;
-        private const float IDEAL_ANGLE = 45;
+        private const float IDEAL_Z_ANGLE = 45;
+        private const float IDEAL_X_ANGLE = 90;
         #endregion
 
         [field: SerializeField] public float MaxDriftSpeed { get; set; }
@@ -109,7 +110,7 @@ namespace FoodFlight
                 Vector3 playerRight = rb.rotation * Vector3.right;
                 // Use a sine wave to calculate the magnitude of drift speed.
                 float xAngle = Vector3.Angle(Vector3.right, playerRight);
-                float xSin = MaxDriftSpeed * Mathf.Sin(xAngle * Mathf.PI / (2 * IDEAL_ANGLE));
+                float xSin = MaxDriftSpeed * Mathf.Sin(xAngle * Mathf.PI / (2 * IDEAL_X_ANGLE));
                 // Calculate if the sign of the caluclated xSin value needs to be reversed, as Vector3.Angle always
                 // returns an angle between 0-180.
                 float xAngleB = Vector3.Angle(Vector3.back, playerRight);
@@ -126,12 +127,12 @@ namespace FoodFlight
                 float zAngle = Vector3.Angle(Vector3.down, playerDown);
                 // Use a sine wave so that as xAngle approaches 90 degree intervals of 45 degrees, the drift speed
                 // approaches max or -max.
-                float zSin = MaxDriftSpeed * Mathf.Sin(zAngle * Mathf.PI / (2 * IDEAL_ANGLE));
+                float zSin = MaxDriftSpeed * Mathf.Sin(zAngle * Mathf.PI / (2 * IDEAL_Z_ANGLE));
                 float zAngleF = Vector3.Angle(Vector3.forward, playerDown);
                 float zAngleSign = System.MathF.Sign(90 - zAngleF);
                 targetDriftVelocity.y = zSin * zAngleSign;
 
-                Debug.Log($"xAngle: {xAngle}.  zAngle: {zAngle}");
+                //Debug.Log($"xAngle: {xAngle}.  zAngle: {zAngle}");
             }
 
             // Move our current velocity towards the target.
