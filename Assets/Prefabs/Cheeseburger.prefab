@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1954100582689764594}
   - component: {fileID: 2922951807324541816}
   - component: {fileID: 106502535338857203}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cheeseburger
   m_TagString: Burger
   m_Icon: {fileID: 0}
@@ -212,9 +212,17 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: abca08158879efe478f0b112e46298b9, type: 2}
+    - target: {fileID: -905150842864601169, guid: a941f0481b1281b47ad1c3506c063c93, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a941f0481b1281b47ad1c3506c063c93, type: 3}
       propertyPath: m_Name
       value: HamburgerModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a941f0481b1281b47ad1c3506c063c93, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
