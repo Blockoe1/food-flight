@@ -28,8 +28,10 @@ namespace FoodFlight.UI
             // The actual base position that this predictor will be centered around after it has been clamped to
             // be within the bounds of the canvas.
             Vector2 displayOriginPos = new Vector2(
-                Mathf.Clamp(realOriginPos.x, spacing.x, Screen.width - spacing.x),
-                Mathf.Clamp(realOriginPos.y, spacing.y, Screen.height - spacing.y));
+                Mathf.Clamp(realOriginPos.x, (Screen.width * targetCamera.rect.x) + spacing.x, 
+                (Screen.width * targetCamera.rect.x) + (Screen.width * targetCamera.rect.width) - spacing.x),
+                Mathf.Clamp(realOriginPos.y, (Screen.height * targetCamera.rect.y) + spacing.y, 
+                (Screen.height * targetCamera.rect.y) + (Screen.height * targetCamera.rect.height) - spacing.y));
 
             rectTransform.position = displayOriginPos;
         }
