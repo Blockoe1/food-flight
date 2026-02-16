@@ -18,9 +18,11 @@ namespace FoodFlight
         #region CONSTS
         private const string MOVE_ACTION_NAME = "Move";
         private const string DIVE_ACTION_NAME = "Dive";
+        private const float IDEAL_Z_ANGLE = 45;
+        private const float IDEAL_X_ANGLE = 90;
         #endregion
 
-        
+
 
         [Header("Rotation Settings")]
         [SerializeField] private Vector3 defaultEuler = new Vector3(-90, 0, 0);
@@ -109,38 +111,45 @@ namespace FoodFlight
         protected override void FixedUpdate()
         {
             // Calculate the target direction based on input.
-            Vector3 targetDirection = Vector3.up;
-            Vector3 rotCorrection = Vector3.zero;
+            //Vector3 targetDirection = Vector3.up;
+            //Vector3 rotCorrection = Vector3.zero;
 
-            Quaternion rot = defaultRotation;
+            //Quaternion rot = defaultRotation;
 
-            //MoveInput
-            // X = roll axis.
-            Quaternion rollQuat = moveInput.x > 0 ? IDEAL_XP_QUAT : IDEAL_XN_QUAT;
+            ////MoveInput
+            //// X = roll axis.
+            //Quaternion rollQuat = moveInput.x > 0 ? IDEAL_XP_QUAT : IDEAL_XN_QUAT;
 
-            // Adjust the roll quat based on dive.
-            Quaternion rollAdjust = Quaternion.Euler(0, 90, 0) * rollQuat;
-            rollQuat = Quaternion.SlerpUnclamped(rollQuat, rollAdjust, moveInput.x * diveInput.y);
+            //// Adjust the roll quat based on dive.
+            //Quaternion rollAdjust = Quaternion.Euler(0, 90, 0) * rollQuat;
+            //rollQuat = Quaternion.SlerpUnclamped(rollQuat, rollAdjust, moveInput.x * diveInput.y);
 
-            rot = Quaternion.Slerp(rot, rollQuat, Mathf.Abs(moveInput.x));
-            // Y = pitch axis
-            Quaternion pitchQuat = moveInput.y > 0 ? IDEAL_ZP_QUAT : IDEAL_ZN_QUAT;
+            //rot = Quaternion.Slerp(rot, rollQuat, Mathf.Abs(moveInput.x));
+            //// Y = pitch axis
+            //Quaternion pitchQuat = moveInput.y > 0 ? IDEAL_ZP_QUAT : IDEAL_ZN_QUAT;
 
-            // Adjust the pitch quat based on moveInput.magnitude so that backwards moving 
-            if (moveInput.y < 0)
-            {
-                Quaternion pitchAdjust = Quaternion.Euler(-90, 0, 0) * pitchQuat;
-                pitchQuat = Quaternion.Slerp(pitchQuat, pitchAdjust, moveInput.magnitude * Mathf.Abs(diveInput.y));
-            }
+            //// Adjust the pitch quat based on moveInput.magnitude so that backwards moving 
+            //if (moveInput.y < 0)
+            //{
+            //    Quaternion pitchAdjust = Quaternion.Euler(-90, 0, 0) * pitchQuat;
+            //    pitchQuat = Quaternion.Slerp(pitchQuat, pitchAdjust, moveInput.magnitude * Mathf.Abs(diveInput.y));
+            //}
 
-            rot = Quaternion.Slerp(rot, pitchQuat, Mathf.Abs(moveInput.y));
+            //rot = Quaternion.Slerp(rot, pitchQuat, Mathf.Abs(moveInput.y));
 
 
-            // Add some Slerping between the movement and dive.
-            float moveBias = Mathf.Lerp(1f, 0.5f, moveInput.magnitude);
-            rot = Quaternion.SlerpUnclamped(rot, IDEAL_DIVE_QUAT, diveInput.y * moveBias);
+            //// Add some Slerping between the movement and dive.
+            //float moveBias = Mathf.Lerp(1f, 0.5f, moveInput.magnitude);
+            //rot = Quaternion.SlerpUnclamped(rot, IDEAL_DIVE_QUAT, diveInput.y * moveBias);
 
-            targetRotation = rot;
+            // Adjust the default rotation based on dive input.
+            Quaternion rot = Quaternion.SlerpUnclamped(defaultRotation, Quaternion.identity, diveInput.y);
+
+            float xSign = diveInput.y < 0 ? -1 : 1;
+            float ySign = (Mathf.Abs(diveInput.y) + (Mathf.Abs(moveInput.y) / 2)) >= 1 ? -1 : 1;
+            Quaternion pitchQuat = Quaternion.Euler(Mathf.LerpUnclamped(0, IDEAL_Z_ANGLE, ySign * moveInput.y), 0, 0);
+            Quaternion rollQuat = Quaternion.Euler(0, Mathf.LerpUnclamped(0, IDEAL_X_ANGLE, xSign * moveInput.x), 0);
+            targetRotation = rot * pitchQuat * rollQuat;
 
             // Always run the base FixedUpdate after target rotation has been set.
             base.FixedUpdate();
