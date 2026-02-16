@@ -12085,6 +12085,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpinningFan (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5941256177054012191, guid: d8aff9f8f6b2a7848a6ce509a8ac16a3, type: 3}
+      propertyPath: m_TagString
+      value: Slap
+      objectReference: {fileID: 0}
     - target: {fileID: 6428965087240128933, guid: d8aff9f8f6b2a7848a6ce509a8ac16a3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -749.18665
@@ -22269,6 +22273,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpinningFan
       objectReference: {fileID: 0}
+    - target: {fileID: 5941256177054012191, guid: d8aff9f8f6b2a7848a6ce509a8ac16a3, type: 3}
+      propertyPath: m_TagString
+      value: Slap
+      objectReference: {fileID: 0}
     - target: {fileID: 6428965087240128933, guid: d8aff9f8f6b2a7848a6ce509a8ac16a3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -749.18665
@@ -23189,7 +23197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8003521296427580100, guid: 3d41b32ae6cffc1468297a2d0beb96cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24854.4
+      value: 24853.8
       objectReference: {fileID: 0}
     - target: {fileID: 8003521296427580100, guid: 3d41b32ae6cffc1468297a2d0beb96cb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23197,7 +23205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8003521296427580100, guid: 3d41b32ae6cffc1468297a2d0beb96cb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15089.4
+      value: -15077.3
       objectReference: {fileID: 0}
     - target: {fileID: 8003521296427580100, guid: 3d41b32ae6cffc1468297a2d0beb96cb, type: 3}
       propertyPath: m_LocalRotation.w
