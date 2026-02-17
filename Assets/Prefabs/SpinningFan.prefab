@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2727698644860791619}
   m_Layer: 0
   m_Name: Center
-  m_TagString: Untagged
+  m_TagString: Slap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: 754393044115775479}
   m_Layer: 0
   m_Name: Fan2
-  m_TagString: Untagged
+  m_TagString: Slap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 7492709715354064108}
   m_Layer: 0
   m_Name: Fan1
-  m_TagString: Untagged
+  m_TagString: Slap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 8059883027898746362}
   m_Layer: 0
   m_Name: Fan3
-  m_TagString: Untagged
+  m_TagString: Slap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
