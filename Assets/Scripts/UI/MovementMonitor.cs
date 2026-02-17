@@ -36,22 +36,23 @@ namespace FoodFlight
 
         public void FixedUpdate()
         {
-            if(Player1.transform.position.y < Player2.transform.position.y)
-            {
-                P2Higher.SetActive(true);
-                P1Higher.SetActive(false);
-            }
-            else
-            {
-                P1Higher.SetActive(true);
-                P2Higher.SetActive(false);
-            }
+            //if(Player1.transform.position.y < Player2.transform.position.y)
+            //{
+            //    P2Higher.SetActive(true);
+            //    P1Higher.SetActive(false);
+            //}
+            //else
+            //{
+            //    P1Higher.SetActive(true);
+            //    P2Higher.SetActive(false);
+            //}
             Player1toground = Player1.transform.position.y - Ground.transform.position.y;
             Player2toground = Player2.transform.position.y - Ground.transform.position.y;
             player1toplayer2 = Vector3.Distance(Player1.transform.position, Player2.transform.position);
             player2toplayer1 = Vector3.Distance(Player2.transform.position, Player1.transform.position);
-            P1P2showything.text = (int)player1toplayer2+"m";
-            P2P1showything.text = (int)player2toplayer1+"m";
+
+            //P1P2showything.text = (int)player1toplayer2+"m";
+            //P2P1showything.text = (int)player2toplayer1+"m";
             GroundShowythingP1.text = (int)Player1toground + "m";
             GroundShowythingP2.text = (int)Player2toground + "m";
         }
