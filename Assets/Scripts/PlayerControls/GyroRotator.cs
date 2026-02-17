@@ -83,7 +83,12 @@ namespace FoodFlight
 
                 internalPitch = internalPitch * pitQuat;
                 internalRoll = internalRoll * rollQuat;
-                targetRotation = internalPitch * internalRoll;
+                Quaternion usedPitch = internalPitch;
+                if (isFlat)
+                {
+                    usedPitch = Quaternion.Euler(-90, 0, 0);
+                }
+                targetRotation = usedPitch * internalRoll;
             }
 
             // Always run the base FixedUpdate after target rotation has been set.

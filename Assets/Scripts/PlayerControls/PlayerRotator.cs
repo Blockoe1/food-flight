@@ -44,6 +44,9 @@ namespace FoodFlight
         protected Quaternion targetRotation = Quaternion.identity;
 
         private InputAction resetRotationAction;
+        private InputAction flattenAction;
+
+        protected bool isFlat => flattenAction != null ? flattenAction.IsPressed() : false;
 
         #region Component References
         [Header("Components")]
@@ -64,6 +67,7 @@ namespace FoodFlight
         protected virtual void Awake()
         {
             resetRotationAction = input.currentActionMap.FindAction(RESET_ACTION_NAME);
+            flattenAction = input.currentActionMap.FindAction("Flatten");
             inSync.OnControlSchemeChanged += CheckEnabled;
         }
         protected virtual void OnDestroy()
@@ -78,6 +82,7 @@ namespace FoodFlight
         {
             resetRotationAction.performed += ResetRotationAction_performed;
         }
+
         protected virtual void OnDisable()
         {
             resetRotationAction.performed -= ResetRotationAction_performed;

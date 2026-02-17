@@ -59,6 +59,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Flatten",
+                    "type": "Button",
+                    "id": "eb085410-4da4-4f21-b859-3a3df6d73c71",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -281,6 +290,28 @@
                     "action": "ForceQuit",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1af00b1b-c7c8-41a7-a394-52a1bd98ea6a",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Flatten",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3e4101b1-225e-487d-a809-3c4de6d552c5",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Flatten",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -337,6 +368,15 @@
                     "name": "ForceQuit",
                     "type": "Button",
                     "id": "82c663c0-32a0-47e7-8a7d-cb13131a04d2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Flatten",
+                    "type": "Button",
+                    "id": "4cd71181-505b-4444-948e-b5be5abe6279",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -550,6 +590,28 @@
                     "processors": "",
                     "groups": ";Player 1;Player 2",
                     "action": "ForceQuit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6b75b763-18b4-4fe5-896b-a284421f48f0",
+                    "path": "<Keyboard>/u",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Flatten",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "92fb8092-b743-442a-a405-1bc04e0996d0",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Flatten",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

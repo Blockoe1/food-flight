@@ -348,4 +348,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19296d9414ec58e449daadc1da5ab9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.RotatingObstacle
-  rotationsPerSecond: 1
+  rotationsPerSecond: 50
