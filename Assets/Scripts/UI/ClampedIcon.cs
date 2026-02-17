@@ -24,8 +24,18 @@ namespace FoodFlight.UI
 
         private void LateUpdate()
         {
-            // Clamp the tracked object's position to the camera's height.
-            Vector3 worldPos = trackedObject.position + baseOffset;
+            if (!trackedObject.gameObject.activeInHierarchy)
+            {
+                hiddenIcon.SetActive(false);
+                return;
+            }
+            else
+            {
+                hiddenIcon.SetActive(true);
+            }
+
+                // Clamp the tracked object's position to the camera's height.
+                Vector3 worldPos = trackedObject.position + baseOffset;
             worldPos.y = Mathf.Min(worldPos.y, targetCamera.transform.position.y - cameraDistance);
 
             Vector2 realOriginPos = targetCamera.WorldToScreenPoint(worldPos);

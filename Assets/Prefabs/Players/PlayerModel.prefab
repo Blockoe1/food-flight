@@ -1132,6 +1132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.RagdollController
   hips: {fileID: 6439220057402228559}
+  playerRigidbody: {fileID: 0}
 --- !u!95 &8398829509860465590
 Animator:
   serializedVersion: 7

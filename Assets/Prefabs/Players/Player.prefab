@@ -469,12 +469,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0f5ea962d0a5040b7d92e9fb7e9d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodFlight.BurgerAirResistance
-  verticalVelocity: 6
-  horizontalVelocity: 4.5
-  maxDriftSpeed: 8
-  driftAcceleration: 4
-  gravityBias: 1.5
-  slapCooldown: 0.5
+  verticalVelocity: 5.5
+  horizontalVelocity: 5
+  maxDriftSpeed: 7
+  driftAcceleration: 2
+  gravityBias: 4
+  slapCooldown: 1.5
   airResistance: {fileID: 2628432252682396311}
   movement: {fileID: 5740293930129898986}
   gravitator: {fileID: 4422834799746133179}
@@ -1103,6 +1103,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8647265576453296017, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
+      propertyPath: hips
+      value: 
+      objectReference: {fileID: 8482990211737269122}
+    - target: {fileID: 8647265576453296017, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
+      propertyPath: playerRigidbody
+      value: 
+      objectReference: {fileID: 7133835219555258079}
     - target: {fileID: 9164353127359741352, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
       propertyPath: m_Layer
       value: 3

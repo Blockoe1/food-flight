@@ -9,7 +9,7 @@ namespace FoodFlight
         // Update is called once per frame
         void Update()
         {
-            transform.Rotate(0, rotationsPerSecond, 0);
+            transform.Rotate(0, rotationsPerSecond * Time.deltaTime, 0);
         }
     }
 }
