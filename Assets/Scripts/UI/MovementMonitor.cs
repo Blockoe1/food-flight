@@ -30,8 +30,8 @@ namespace FoodFlight
             player2toplayer1 = Vector3.Distance(Player2.transform.position, Player1.transform.position);
             GroundShowythingP1.text = (int)Player1toground + "m";
             GroundShowythingP2.text = (int)Player2toground + "m";
-            P1P2showything.text = (int)player1toplayer2 + "m";
-            P2P1showything.text = (int)player2toplayer1 + "m";
+            //P1P2showything.text = (int)player1toplayer2 + "m";
+            //P2P1showything.text = (int)player2toplayer1 + "m";
         }
 
         public void FixedUpdate()

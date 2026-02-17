@@ -302,6 +302,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpinningFan
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fd64cb98d47058c459b063f3b82dbce6, type: 3}
+      propertyPath: m_TagString
+      value: Slap
+      objectReference: {fileID: 0}
     - target: {fileID: 5604401039199264087, guid: fd64cb98d47058c459b063f3b82dbce6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

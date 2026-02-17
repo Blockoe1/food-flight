@@ -1103,6 +1103,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8647265576453296017, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
+      propertyPath: hips
+      value: 
+      objectReference: {fileID: 8482990211737269122}
+    - target: {fileID: 8647265576453296017, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
+      propertyPath: playerRigidbody
+      value: 
+      objectReference: {fileID: 7133835219555258079}
     - target: {fileID: 9164353127359741352, guid: 59ac534bd265b044db30fd9b5f7d72fe, type: 3}
       propertyPath: m_Layer
       value: 3

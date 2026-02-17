@@ -7,7 +7,8 @@ namespace FoodFlight
     {
         private bool devControl;
 
-        [SerializeField] private Transform hips;
+        [SerializeField] private Rigidbody hips;
+        [SerializeField] private Rigidbody playerRigidbody;
         private Rigidbody[] rigidBodies;
         private Animator animator;
 
@@ -40,16 +41,19 @@ namespace FoodFlight
 
         public void DisableRagdoll()
         {
+            playerRigidbody.position = hips.position;
+
             foreach (var rigidBody in rigidBodies)
             {
                 rigidBody.isKinematic = true;
             }
 
-            Vector3 originalHipsPos = hips.position;
-            transform.parent.position = hips.position;
-            hips.position = originalHipsPos;
-            transform.position = hips.position;
-            hips.position = originalHipsPos;
+            //Vector3 originalHipsPos = hips.position;
+            //transform.parent.position = hips.position;
+            //hips.position = originalHipsPos;
+            //transform.position = hips.position;
+            //hips.position = originalHipsPos;
+
 
             animator.enabled = true;
             animator.Rebind();
