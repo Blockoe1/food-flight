@@ -49,7 +49,7 @@ namespace FoodFlight
         /// <param name="other"></param>
         private void OnTriggerEnter(Collider other)
         {
-            if (!HoldingBurger && other.gameObject.TryGetComponent(out BurgerScript burger))
+            if (!HoldingBurger && other.gameObject.TryGetComponent(out BurgerScript burger) && burger.IsGrabable)
             {
                 GrabBurger(burger);
             }

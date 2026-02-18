@@ -31,6 +31,7 @@ public class BurgerScript : MonoBehaviour
 
     #region Properties
     public Rigidbody Body => rb;
+    public bool IsGrabable => !grabDisabled;
     #endregion
 
     /// <summary>
