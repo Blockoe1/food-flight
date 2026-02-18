@@ -78,6 +78,9 @@ namespace FoodFlight
             Vector2 targetDriftVelocity = Vector2.zero;
             float acceleration = disabledAcceleration;
 
+            
+
+            Quaternion yawQuat = Quaternion.identity;
             // Prevent any force adding if moving is disabled.
             if (canMove)
             {
@@ -108,7 +111,10 @@ namespace FoodFlight
                 //targetDriftVelocity = new Vector2(rotatedVel.x, rotatedVel.z);
 
                 // Yoink the yaw rotation from the gyro rotater so it can be used for adjusting.
-                Quaternion yawQuat = gyro.isActiveAndEnabled ? gyro.InternalControllerYaw : Quaternion.identity;
+                //Quaternion yawQuat = gyro.isActiveAndEnabled ? gyro.InternalControllerYaw : Quaternion.identity;
+                float yawAngle = Mathf.Atan2(2f * (rb.rotation.w * rb.rotation.z + rb.rotation.x * rb.rotation.y),
+                    1f - 2f * (rb.rotation.y * rb.rotation.y + rb.rotation.z * rb.rotation.z));
+                yawQuat = Quaternion.Euler(0f, 0f, yawAngle);
 
                 // Calculate Z movement by checking the angle between the player and world right vectors.
                 Vector3 playerRight = rb.rotation * Vector3.right;
@@ -147,7 +153,7 @@ namespace FoodFlight
             //Debug.DrawLine(rb.position, rb.position + new Vector3(currentVel.x, 0, currentVel.y) * 5, Color.orange, 1f);
             //Debug.DrawLine(rb.position, rb.position + new Vector3(targetDriftVelocity.x, 0, targetDriftVelocity.y) * 5, Color.purple, 1f);
 
-            rb.linearVelocity = new Vector3(currentVel.x, rb.linearVelocity.y, currentVel.y);
+            rb.linearVelocity = yawQuat * new Vector3(currentVel.x, rb.linearVelocity.y, currentVel.y);
 
             // Clamp the player's position to the level's bounds.
             Vector3 pos = rb.position;

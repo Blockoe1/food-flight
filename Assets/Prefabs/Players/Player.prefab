@@ -219,6 +219,7 @@ MonoBehaviour:
   disabledAcceleration: 1
   levelBounds: {x: 15, y: 15}
   rb: {fileID: 7133835219555258079}
+  gyro: {fileID: 5474769241405204166}
 --- !u!114 &5590620580483810736
 MonoBehaviour:
   m_ObjectHideFlags: 0
