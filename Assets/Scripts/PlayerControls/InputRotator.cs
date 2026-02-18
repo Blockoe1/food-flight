@@ -148,6 +148,10 @@ namespace FoodFlight
             float xSign = diveInput.y < 0 ? -1 : 1;
             float ySign = (Mathf.Abs(diveInput.y) + (Mathf.Abs(moveInput.y) / 2)) >= 1 ? -1 : 1;
             Quaternion pitchQuat = Quaternion.Euler(Mathf.LerpUnclamped(0, IDEAL_Z_ANGLE, ySign * moveInput.y), 0, 0);
+            if (isFlat)
+            {
+                pitchQuat = Quaternion.Euler(defaultEuler);
+            }
             Quaternion rollQuat = Quaternion.Euler(0, Mathf.LerpUnclamped(0, IDEAL_X_ANGLE, xSign * moveInput.x), 0);
             targetRotation = rot * pitchQuat * rollQuat;
 
