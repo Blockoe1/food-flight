@@ -8,6 +8,7 @@
 *****************************************************************************/
 using System;
 using System.Collections;
+using Unity.Properties;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -27,10 +28,18 @@ namespace FoodFlight
         private int score;
         private bool isScoring;
 
+        private static bool canBurgerSurf;
+
         public event Action<int, int> OnScoreUpdate;
 
         #region Properties
         private bool HoldingBurger => heldBurger != null;
+        public static bool CanBurgerSurf
+        {
+            get { return canBurgerSurf;  }
+            set { canBurgerSurf = value; }
+        }
+
         public int Score
         {
             get { return score; }
@@ -49,7 +58,7 @@ namespace FoodFlight
         /// <param name="other"></param>
         private void OnTriggerEnter(Collider other)
         {
-            if (!HoldingBurger && other.gameObject.TryGetComponent(out BurgerScript burger) && burger.IsGrabable)
+            if (!HoldingBurger && other.gameObject.TryGetComponent(out BurgerScript burger) && (burger.IsGrabable || canBurgerSurf))
             {
                 GrabBurger(burger);
             }
