@@ -35,11 +35,13 @@ namespace FoodFlight
         #region Component References
         [Header("Components")]
         [SerializeReference, ReadOnly] private Rigidbody rb;
+        [SerializeReference, ReadOnly] private GyroRotator gyro;
 
         [ContextMenu("Get Component References")]
         private void Reset()
         {
             rb = GetComponent<Rigidbody>();
+            gyro = GetComponent<GyroRotator>();
         }
         #endregion
 
@@ -105,16 +107,18 @@ namespace FoodFlight
                 //Vector3 rotatedVel = idealRotQuat * new Vector3(targetDriftVelocity.x, 0, targetDriftVelocity.y);
                 //targetDriftVelocity = new Vector2(rotatedVel.x, rotatedVel.z);
 
+                // Yoink the yaw rotation from the gyro rotater so it can be used for adjusting.
+                Quaternion yawQuat = gyro.isActiveAndEnabled ? gyro.InternalControllerYaw : Quaternion.identity;
 
                 // Calculate Z movement by checking the angle between the player and world right vectors.
                 Vector3 playerRight = rb.rotation * Vector3.right;
                 // Use a sine wave to calculate the magnitude of drift speed.
-                float xAngle = Vector3.Angle(Vector3.right, playerRight);
+                float xAngle = Vector3.Angle((yawQuat * Vector3.right), playerRight);
                 float xSin = MaxDriftSpeed * Mathf.Sin(xAngle * Mathf.PI / (2 * IDEAL_X_ANGLE));
                 // Calculate if the sign of the caluclated xSin value needs to be reversed, as Vector3.Angle always
                 // returns an angle between 0-180.
-                float xAngleB = Vector3.Angle(Vector3.back, playerRight);
-                float xAngleU = Vector3.Angle(Vector3.up, playerRight);
+                float xAngleB = Vector3.Angle((yawQuat * Vector3.back), playerRight);
+                float xAngleU = Vector3.Angle(Vector2.up, playerRight);
 
                 float xAngleSign = System.MathF.Sign(xAngleU - xAngleB);
                 targetDriftVelocity.x = xSin * xAngleSign;
@@ -128,7 +132,7 @@ namespace FoodFlight
                 // Use a sine wave so that as xAngle approaches 90 degree intervals of 45 degrees, the drift speed
                 // approaches max or -max.
                 float zSin = MaxDriftSpeed * Mathf.Sin(zAngle * Mathf.PI / (2 * IDEAL_Z_ANGLE));
-                float zAngleF = Vector3.Angle(Vector3.forward, playerDown);
+                float zAngleF = Vector3.Angle((yawQuat * Vector3.forward), playerDown);
                 float zAngleSign = System.MathF.Sign(90 - zAngleF);
                 targetDriftVelocity.y = zSin * zAngleSign;
 
