@@ -41,7 +41,7 @@ namespace FoodFlight
 
         public void DisableRagdoll()
         {
-            playerRigidbody.position = hips.position;
+            playerRigidbody.transform.position = hips.position;
 
             foreach (var rigidBody in rigidBodies)
             {
